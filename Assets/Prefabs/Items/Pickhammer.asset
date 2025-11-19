@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eba96964a70eed489d9f8c6f357c352, type: 3}
+  m_Name: Pickhammer
+  m_EditorClassIdentifier: 
+  itemName: Pickhammer
+  description: Can destroy rocks and fix things.
+  icon: {fileID: -8533594304700171083, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  type: 4
+  buyPrice: 20
+  sellPrice: 10
+  stackable: 1
+  maxStack: 99
+  nutritionValue: 0
+  growTime: 0
+  cropProduced: {fileID: 0}
