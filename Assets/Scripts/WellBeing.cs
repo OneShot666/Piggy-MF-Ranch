@@ -20,4 +20,3 @@ public class WellBeing {
         Happiness = Mathf.Min(100, Happiness + amount);
     }
 }
-
