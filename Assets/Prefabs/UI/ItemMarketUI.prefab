@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816578142799350966}
   m_Layer: 5
-  m_Name: MarketItemUI
+  m_Name: ItemMarketUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
