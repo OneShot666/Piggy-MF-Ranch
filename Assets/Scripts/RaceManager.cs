@@ -26,7 +26,7 @@ public class RaceManager : MonoBehaviour {
                 duration += 2f; // Slow down
             }
             // Simulate power effect
-            if (pig.SpecialPower == PigPower.Sprint && Random.value < 0.05f) {
+            if (pig.SpecialPower == PigSpecialPower.Sprint && Random.value < 0.05f) {
                 duration -= 1f; // Speed boost
             }
             pigTransform.position = Vector3.Lerp(start, endPoint.position, elapsed / duration);

@@ -29,7 +29,7 @@ public class PigManager : MonoBehaviour
     void Start()
     {
         // Exemple d'initialisation d'un cochon pour le POC
-        AddPig(new Pig("Rose", PigRarity.Common, 80f, 60f, PigPower.None));
+        /*AddPig(new Pig("Rose", PigRarity.Common, 80f, 60f, PigPower.None));*/
     }
 
     // Update is called once per frame
