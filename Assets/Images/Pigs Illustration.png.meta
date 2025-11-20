@@ -151,10 +151,10 @@ TextureImporter:
       name: Pigs Illustration_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 767
-        width: 186
-        height: 194
+        x: 65
+        y: 764
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: Pigs Illustration_1
       rect:
         serializedVersion: 2
-        x: 292
-        y: 767
-        width: 181
-        height: 193
+        x: 290
+        y: 764
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +195,10 @@ TextureImporter:
       name: Pigs Illustration_2
       rect:
         serializedVersion: 2
-        x: 519
-        y: 767
-        width: 186
-        height: 193
+        x: 515
+        y: 764
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +217,10 @@ TextureImporter:
       name: Pigs Illustration_3
       rect:
         serializedVersion: 2
-        x: 743
-        y: 769
-        width: 194
-        height: 194
+        x: 740
+        y: 764
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: Pigs Illustration_4
       rect:
         serializedVersion: 2
-        x: 63
-        y: 551
-        width: 186
-        height: 193
+        x: 65
+        y: 544
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,10 +261,10 @@ TextureImporter:
       name: Pigs Illustration_5
       rect:
         serializedVersion: 2
-        x: 63
-        y: 619
-        width: 6
-        height: 30
+        x: 290
+        y: 544
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +283,10 @@ TextureImporter:
       name: Pigs Illustration_6
       rect:
         serializedVersion: 2
-        x: 275
-        y: 552
-        width: 198
-        height: 193
+        x: 515
+        y: 544
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,10 +305,10 @@ TextureImporter:
       name: Pigs Illustration_7
       rect:
         serializedVersion: 2
-        x: 519
-        y: 551
-        width: 186
-        height: 194
+        x: 740
+        y: 544
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: Pigs Illustration_8
       rect:
         serializedVersion: 2
-        x: 743
-        y: 552
-        width: 194
-        height: 192
+        x: 65
+        y: 324
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +349,10 @@ TextureImporter:
       name: Pigs Illustration_9
       rect:
         serializedVersion: 2
-        x: 63
-        y: 335
-        width: 186
-        height: 193
+        x: 290
+        y: 324
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +371,10 @@ TextureImporter:
       name: Pigs Illustration_10
       rect:
         serializedVersion: 2
-        x: 292
-        y: 335
-        width: 181
-        height: 193
+        x: 515
+        y: 324
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +393,10 @@ TextureImporter:
       name: Pigs Illustration_11
       rect:
         serializedVersion: 2
-        x: 519
-        y: 335
-        width: 186
-        height: 192
+        x: 740
+        y: 324
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,10 +415,10 @@ TextureImporter:
       name: Pigs Illustration_12
       rect:
         serializedVersion: 2
-        x: 743
-        y: 336
-        width: 194
-        height: 193
+        x: 65
+        y: 104
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,10 +437,10 @@ TextureImporter:
       name: Pigs Illustration_13
       rect:
         serializedVersion: 2
-        x: 71
-        y: 128
-        width: 178
-        height: 169
+        x: 290
+        y: 104
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,10 +459,10 @@ TextureImporter:
       name: Pigs Illustration_14
       rect:
         serializedVersion: 2
-        x: 299
-        y: 0
-        width: 179
-        height: 297
+        x: 515
+        y: 104
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,10 +481,10 @@ TextureImporter:
       name: Pigs Illustration_15
       rect:
         serializedVersion: 2
-        x: 525
-        y: 64
-        width: 172
-        height: 235
+        x: 740
+        y: 104
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -499,33 +499,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Pigs Illustration_16
-      rect:
-        serializedVersion: 2
-        x: 751
-        y: 56
-        width: 178
-        height: 241
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c988abdb6dde06f0800000000000000
-      internalID: -716391835388835391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a8c2fd9534d351c4b878ce8923cdc159
     internalID: 0
     vertices: []
     indices: 
@@ -533,7 +511,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":65.0,"y":60.0},"gridSpritePadding":{"x":25.0,"y":20.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Pigs Illustration_0: -315201252150137715
       Pigs Illustration_1: 2182385648069177654
@@ -543,7 +523,6 @@ TextureImporter:
       Pigs Illustration_13: -2242743431996505919
       Pigs Illustration_14: 5604821062820464715
       Pigs Illustration_15: -8417942609379915729
-      Pigs Illustration_16: -716391835388835391
       Pigs Illustration_2: -8561231631352709168
       Pigs Illustration_3: 7396659066281352090
       Pigs Illustration_4: -3213075106469777646
