@@ -17,11 +17,19 @@ public class PigManager : MonoBehaviour
         return null;
     }
 
+    public List<Pig> GetRarePigs(PigRarity minRarity) {
+        List<Pig> result = new List<Pig>();
+        foreach (var pig in pigs) {
+            if (pig.Rarity >= minRarity) result.Add(pig);
+        }
+        return result;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Exemple d'initialisation d'un cochon pour le POC
-        AddPig(new Pig("Rose", 80f, 60f, "Dash"));
+        AddPig(new Pig("Rose", PigRarity.Common, 80f, 60f, PigPower.None));
     }
 
     // Update is called once per frame
