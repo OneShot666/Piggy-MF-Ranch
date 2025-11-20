@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public enum PigRarity {
+public enum PigRarity
+{
     Common,
     Uncommon,
     Rare,
@@ -8,7 +9,8 @@ public enum PigRarity {
     UltraRare
 }
 
-public enum PigPower {
+public enum PigPower
+{
     None,
     Sprint,
     FatigueResist,
@@ -17,7 +19,9 @@ public enum PigPower {
     Random
 }
 
-public class Pig {
+public class Pig
+{
+    public string Name;
     public string Color { get; set; }
     public PigRarity Rarity { get; set; }
     public float Speed { get; set; }
@@ -26,7 +30,8 @@ public class Pig {
     public WellBeing WellBeing { get; set; }
     public int Generation { get; set; } // For breeding lineage
 
-    public Pig(string color, PigRarity rarity, float speed, float endurance, PigPower power, int generation = 1) {
+    public Pig(string color, PigRarity rarity, float speed, float endurance, PigPower power, int generation = 1)
+    {
         Color = color;
         Rarity = rarity;
         Speed = speed;
@@ -35,7 +40,8 @@ public class Pig {
         WellBeing = new WellBeing();
         Generation = generation;
     }
-    public Pig() {
+    public Pig()
+    {
         WellBeing = new WellBeing();
         Generation = 1;
     }

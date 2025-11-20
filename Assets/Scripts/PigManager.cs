@@ -17,9 +17,11 @@ public class PigManager : MonoBehaviour
         return null;
     }
 
-    public List<Pig> GetRarePigs(PigRarity minRarity) {
+    public List<Pig> GetRarePigs(PigRarity minRarity)
+    {
         List<Pig> result = new List<Pig>();
-        foreach (var pig in pigs) {
+        foreach (var pig in pigs)
+        {
             if (pig.Rarity >= minRarity) result.Add(pig);
         }
         return result;

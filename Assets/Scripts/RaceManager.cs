@@ -1,47 +1,80 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
-public class RaceManager : MonoBehaviour {
-    public List<Pig> racePigs = new List<Pig>();
-    public List<Transform> pigObjects = new List<Transform>(); // Assign pig GameObjects in inspector
-    public Transform startPoint, endPoint;
-    public List<string> obstacles = new List<string>(); // e.g. "mud", "fence", "rock"
+public class RaceManager : MonoBehaviour
+{
+    [Header("Lignes")]
+    public Transform startLine;   // position X = colonne de départ
+    public Transform finishLine;  // position X = colonne d’arrivée
 
-    public void StartRace() {
-        for (int i = 0; i < racePigs.Count && i < pigObjects.Count; i++) {
-            StartCoroutine(MovePig(pigObjects[i], racePigs[i]));
+    [Header("Visuels")]
+    public List<Transform> pigPrefabs; // vos 6 prefabs (sprites 2D)
+
+    [Header("Course")]
+    public float laneHeight = 10f;   // hauteur totale des 6 couloirs
+    public float baseSpeed = 5f;     // vitesse moyenne
+
+    private List<Transform> runners = new List<Transform>();
+    private List<float> speeds = new List<float>();
+    private bool racing = false;
+
+    void Start() => LaunchSixPigs();
+
+    void Update()
+    {
+        if (!racing) return;
+
+        bool stillRunning = false;
+        float finishX = finishLine.position.x;
+
+        for (int i = 0; i < runners.Count; i++)
+        {
+            Transform t = runners[i];
+            if (!t) continue;
+
+            Vector3 p = t.position;
+            p.x += speeds[i] * Time.deltaTime;
+            t.position = p;
+
+            if (p.x < finishX)
+                stillRunning = true;
+            else
+            {
+                p.x = finishX;
+                t.position = p;
+            }
+        }
+
+        if (!stillRunning)
+        {
+            racing = false;
+            Debug.Log("Course terminée !");
+            foreach (var t in runners) Destroy(t.gameObject);
+            runners.Clear();
+            speeds.Clear();
         }
     }
 
-    private System.Collections.IEnumerator MovePig(Transform pigTransform, Pig pig) {
-        float distance = Vector3.Distance(startPoint.position, endPoint.position);
-        float duration = distance / pig.Speed;
-        float elapsed = 0f;
-        Vector3 start = startPoint.position;
-        bool hitObstacle = false;
-        while (elapsed < duration) {
-            // Simulate obstacle effect
-            if (!hitObstacle && obstacles.Count > 0 && Random.value < 0.1f) {
-                hitObstacle = true;
-                duration += 2f; // Slow down
-            }
-            // Simulate power effect
-            if (pig.SpecialPower == PigPower.Sprint && Random.value < 0.05f) {
-                duration -= 1f; // Speed boost
-            }
-            pigTransform.position = Vector3.Lerp(start, endPoint.position, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        pigTransform.position = endPoint.position;
-    }
+    void LaunchSixPigs()
+    {
+        runners.Clear();
+        speeds.Clear();
 
-    public Pig GetWinner() {
-        if (racePigs.Count == 0) return null;
-        Pig winner = racePigs[0];
-        foreach (var pig in racePigs) {
-            if (pig.Speed > winner.Speed) winner = pig;
+        float stepY = laneHeight / (6 + 1);
+        float bottomY = startLine.position.y - laneHeight * 0.5f;
+
+        for (int i = 0; i < 6; i++)
+        {
+            Transform prefab = pigPrefabs[i % pigPrefabs.Count];
+
+            Vector3 pos = startLine.position;
+            pos.y = bottomY + stepY * (i + 1);
+
+            Transform inst = Instantiate(prefab, pos, Quaternion.identity);
+            runners.Add(inst);
+            speeds.Add(baseSpeed * Random.Range(0.8f, 1.2f));
         }
-        return winner;
+
+        racing = true;
     }
 }
