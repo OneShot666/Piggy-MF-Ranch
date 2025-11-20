@@ -9,9 +9,10 @@ public class UIManager : MonoBehaviour {
     public void DisplayPigStats(Pig pig) {
         if (pig == null) return;
         pigStatsText.text = $"Couleur: {pig.Color}\nRareté: {pig.Rarity}\nVitesse: {pig.Speed}\nEndurance: {pig.Endurance}\nPouvoir: {pig.SpecialPower}\nGénération: {pig.Generation}";
-        hungerBar.value = pig.WellBeing.Hunger;
+        hungerBar.value = pig.WellBeing.Satiety;
         happinessBar.value = pig.WellBeing.Happiness;
-        cleanlinessBar.value = pig.WellBeing.Cleanliness;
+        cleanlinessBar.value = pig.WellBeing.CleanlinessPig;
+        cleanlinessBar.value = pig.WellBeing.CleanlinessEnclosure;
     }
 
     public void DisplayResources(int gold, int food, int energy, int day) {

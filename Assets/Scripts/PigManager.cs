@@ -39,6 +39,7 @@ public class PigManager : MonoBehaviour
         foreach (var pig in pigs)
         {
             pig.WellBeing.Decrement(Time.deltaTime);
+            pig.WellBeing.HappinessIncrease();
         }
     }
 }
