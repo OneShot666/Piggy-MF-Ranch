@@ -6,7 +6,6 @@ public enum PigColor
     White,
     Golden,
     Rainbow,
-    Mutation,
     Grey,
     Beige,
     DarkGold
