@@ -114,10 +114,12 @@ public class BreedingSystem : MonoBehaviour
     private void Test()
     {
         Debug.Log("-------------Test Breeding-----------------");
-        Pig parent1 = new Pig(PigColor.Black, PigRarity.Common, 10f, 10f, PigSpecialPower.Sprint, PigUniquePower.None,
+        Pig parent1 = new Pig(PigColor.Black, PigRarity.Legendary, 10f, 10f, PigSpecialPower.Sprint, PigUniquePower.None,
             1);
-        Pig parent2 = new Pig(PigColor.White, PigRarity.Rare, 10f, 10f, PigSpecialPower.Sprint, PigUniquePower.None,
+        Pig parent2 = new Pig(PigColor.White, PigRarity.Legendary, 10f, 10f, PigSpecialPower.Sprint, PigUniquePower.None,
             1);
+        parent1.WellBeing.Cleanliness = 100f;
+        parent2.WellBeing.Cleanliness = 100f;
         
         Pig pig = Breed(parent1, parent2);
         
@@ -164,6 +166,7 @@ public class BreedingSystem : MonoBehaviour
     
     /// <summary>
     /// Calcule la rareté du descendant selon les parents et la propreté.
+    /// Le descendant ne peut pas dépasser 1 rang au-dessus de la rareté la plus élevée des parents.
     /// </summary>
     private PigRarity GetOffspringRarity(Pig parent1, Pig parent2) {
         PigRarity[] rarities = (PigRarity[])System.Enum.GetValues(typeof(PigRarity));
@@ -175,16 +178,31 @@ public class BreedingSystem : MonoBehaviour
         // Déterminer la rareté max autorisée : 1 rank au-dessus de la plus haute des parents
         int maxRarityIndex = Mathf.Min(Mathf.Max((int)parent1.Rarity, (int)parent2.Rarity) + 1, rarities.Length - 1);
         
+        float totalWeight = 0f; // -------------TEST-------------
         for (int i = 0; i <= maxRarityIndex; i++)
         {
-            float distance = Mathf.Abs(rarityWeights[rarities[i]] - avgScore);
-            weights[i] = Mathf.Max(0.05f, 1f / (1f + distance)) * cleanlinessFactor;
+            float baseDist = Mathf.Abs(rarityWeights[rarities[i]] - avgScore);
+            float weight = 1f / (1f + baseDist);
+            
+            float rarityPenalty = (float)i / maxRarityIndex; 
+            
+            float cleanlinessMultiplier = Mathf.Lerp(0.3f, 1f, cleanlinessFactor);
+            weight *= Mathf.Lerp(1f, cleanlinessMultiplier, rarityPenalty);
+            
+            weights[i] = weight;
+            totalWeight += weight; // -------------TEST---------------
+        }
+
+        // -------------TEST-------------
+        for (int i = 0; i < maxRarityIndex; i++)
+        {
+            float percent = weights[i] / totalWeight * 100f;
+            Debug.Log($"{rarities[i]} chance : {percent:0.00}%");
         }
         
         // Les raretés supérieures au max sont interdites → poids = 0
-        for (int i = maxRarityIndex + 1; i < rarities.Length; i++) {
+        for (int i = maxRarityIndex + 1; i < rarities.Length; i++)
             weights[i] = 0f;
-        }
         
         return WeightedRandom(rarities, weights);
     }
