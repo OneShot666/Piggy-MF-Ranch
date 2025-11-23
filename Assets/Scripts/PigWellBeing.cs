@@ -1,5 +1,8 @@
 using UnityEngine;
 using System;
+/// <summary>
+/// DO NOT USE THIS OLD CODE
+/// </summary>
 //TODO: chance augmentée d'avoir un cochon rare si propre: half done
 // Seuils de faim et les 2 de propretés qui augmentent la joie si > 60%, entre 40 et 60 rien, en-dessous ça baisse: done
 // Satiety is the energy used to take part in a race: not done
