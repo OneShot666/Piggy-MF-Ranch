@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   itemName: Tomato
-  description: 
+  description: A round red juicy fruit. Kinda like an apple but salty
   icon: {fileID: -7088135690937249686, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 11

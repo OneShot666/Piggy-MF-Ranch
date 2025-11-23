@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: XP Potion
   m_EditorClassIdentifier: 
   itemName: XP Potion
-  description: 
+  description: Gives 50 xp to a pig
   icon: {fileID: -775019022585596667, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 3
   buyPrice: 22

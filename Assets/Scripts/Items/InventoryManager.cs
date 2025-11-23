@@ -1,11 +1,19 @@
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 // ReSharper disable UnusedMember.Global
 namespace Items {
-    public class Inventory : MonoBehaviour {
+    public class InventoryManager : MonoBehaviour {
         public List<ItemInstance> items = new();
+        public Text moneyText;
         public int money;
+
+        private void Start() {
+            UpdateMoneyText();
+        }
+
+        public void UpdateMoneyText() => moneyText.text = money + " $";
 
         public void AddItem(ItemData data, int amount = 1) {
             if (data.stackable) {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cooked Meal
   m_EditorClassIdentifier: 
   itemName: Cooked Meal
-  description: 
+  description: No one knows what's in this dishe but everyone love it !
   icon: {fileID: 4653395728150985286, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 42

@@ -1,12 +1,17 @@
 using UnityEngine;
 
-// ! Check what else has to be done
-// ! Else, just complete scripts and make it an operating feature
+// . Add overlay for item : display image, name, description, price & utility (if has any)
+// ! Upgrade items visuals on market : not center and change size if buy some (rescale probably)
+// ! Add refresh button (for money + increase each time)
+// ! Add inventory UI (can open/close with 'I')
+// ! Add can switch between markets (add '<' & '>' arrows on screen)
+// ! Use fields
+// ! Add use() function in items based on their type
 public class CameraManager : MonoBehaviour {
     [Tooltip("Target to follow (free camera mode if target is null)")]
     [SerializeField] private Transform target;
     [Tooltip("Distance from the target")]
-    [SerializeField] private float offSet = 50f;
+    [SerializeField] private float offSet = 50f;                                // Distance from target (if any)
     [Tooltip("Speed of camera movement")]
     [SerializeField] private float speed = 10f;
     [Tooltip("Speed of camera rotation")]
@@ -20,7 +25,8 @@ public class CameraManager : MonoBehaviour {
 
     void Update() {
         if (target) {
-            transform.position = Vector3.Lerp(transform.position, target.position + target.forward * offSet, speed * Time.unscaledDeltaTime);
+            transform.position = Vector3.Lerp(transform.position, 
+                target.position + target.forward * offSet, speed * Time.unscaledDeltaTime);
             transform.LookAt(target);
         } else {                                                                // Free camera mode
             MoveCamera();
@@ -52,14 +58,12 @@ public class CameraManager : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow)) yaw = -1f; 
         if (Input.GetKey(KeyCode.RightArrow)) yaw = 1f; 
-        if (Input.GetKey(KeyCode.UpArrow)) pitch = -1f; 
-        if (Input.GetKey(KeyCode.DownArrow)) pitch = 1f; 
-        
+        if (Input.GetKey(KeyCode.UpArrow)) if (target) offSet--; else pitch = -1f; 
+        if (Input.GetKey(KeyCode.DownArrow)) if (target) offSet++; else pitch = 1f;
+
+        if (target) offSet = Mathf.Max(1f, offSet);
+
         transform.Rotate(Vector3.up, yaw * rotation * Time.unscaledDeltaTime, Space.World); 
         transform.Rotate(Vector3.right, pitch * rotation * Time.unscaledDeltaTime, Space.Self);
-    }
-
-    public void SetTarget(Transform newTarget) {
-        target = newTarget;
     }
 }

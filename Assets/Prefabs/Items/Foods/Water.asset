@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   itemName: Water
-  description: 
+  description: "A liter of aqua vit\xE6.\nYou can drink it"
   icon: {fileID: -6099524440255577844, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 1

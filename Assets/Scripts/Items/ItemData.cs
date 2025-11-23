@@ -6,7 +6,7 @@ namespace Items {
     public enum ItemType { Coin, Seed, Food, Potion, Tool, Charm }
 
     [CreateAssetMenu(fileName = "NewItem", menuName = "Game/Item")]
-    public class ItemData : ScriptableObject {
+    public class ItemData : ScriptableObject {                                  // Main class of items
         [Header("Basic Info")]
         public string itemName;
         [TextArea] public string description;

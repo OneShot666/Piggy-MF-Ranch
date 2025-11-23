@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   itemName: Apple
-  description: 
+  description: A round red fresh fruit. Watch out the worms !
   icon: {fileID: 8222328420404572839, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 5

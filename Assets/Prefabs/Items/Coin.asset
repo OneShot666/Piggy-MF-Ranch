@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   itemName: Coin
-  description: 
+  description: Small piece of metal you can use to echange with valable items
   icon: {fileID: 2615282341686134366, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 0
-  buyPrice: 0
-  sellPrice: 0
+  buyPrice: 1
+  sellPrice: 1
   stackable: 1
   maxStack: 999999
   nutritionValue: 0

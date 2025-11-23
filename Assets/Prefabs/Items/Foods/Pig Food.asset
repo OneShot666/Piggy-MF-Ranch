@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pig Food
   m_EditorClassIdentifier: 
   itemName: Pig Food
-  description: 
+  description: Delicious meal for you lovely piggies !
   icon: {fileID: -6312558684871731532, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 30

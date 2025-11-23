@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: 
   itemName: Banana
-  description: 
+  description: A long curved fruit protected by peel
   icon: {fileID: 5597765715959663748, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 13

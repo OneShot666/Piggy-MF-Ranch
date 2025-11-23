@@ -1,7 +1,7 @@
 // ReSharper disable NotAccessedField.Global
 namespace Items {
     [System.Serializable]
-    public class ItemInstance {
+    public class ItemInstance {                                                 // Used in inventory
         public ItemData data;
         public int quantity;
 

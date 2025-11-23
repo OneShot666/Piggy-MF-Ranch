@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Corn
   m_EditorClassIdentifier: 
   itemName: Corn
-  description: 
+  description: 'The leaves, typical of grasses but large, have a sheath clasping
+    the stem and an elongated, ribbon-like blade with parallel veins. At the base
+    of the blade is the ligule, which is a few millimeters high.
+
+    Pop if heat
+    too much !'
   icon: {fileID: -5060849796090354408, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 9

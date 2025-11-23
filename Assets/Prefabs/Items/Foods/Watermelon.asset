@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Watermelon
   m_EditorClassIdentifier: 
   itemName: Watermelon
-  description: 
+  description: A large green round juicy hard striped shell fruit
   icon: {fileID: 943114190639470389, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 17

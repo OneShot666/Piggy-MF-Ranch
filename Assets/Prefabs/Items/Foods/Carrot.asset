@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   itemName: Carrot
-  description: 
+  description: An orange cone-shaped tuber with leaves above
   icon: {fileID: 7736103908656519398, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 2
   buyPrice: 7

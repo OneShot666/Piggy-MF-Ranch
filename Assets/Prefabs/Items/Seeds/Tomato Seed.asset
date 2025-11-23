@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tomato Seed
   m_EditorClassIdentifier: 
   itemName: Tomato Seed
-  description: 
+  description: Allow to grow tomatoes
   icon: {fileID: -3629688415828508889, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 1
   buyPrice: 22

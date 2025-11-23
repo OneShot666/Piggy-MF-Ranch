@@ -4,11 +4,11 @@ using Items;
 // ReSharper disable UnusedMember.Global
 namespace Market {
     [System.Serializable]
-    public class MarketOffer {
+    public class MarketOffer {                                                  // Used in markets
         public ItemData item;
         public int quantity;
         public int basePrice;
-        public float discount; // ex : 0.2f = 20%
+        public float discount;                                                  // ex : 0.2f = 20%
 
         public int FinalPrice => Mathf.RoundToInt(basePrice * (1f - discount));
     }

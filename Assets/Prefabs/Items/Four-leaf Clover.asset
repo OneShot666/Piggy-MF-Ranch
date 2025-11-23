@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Four-leaf Clover
   m_EditorClassIdentifier: 
   itemName: Four-leaf Clover
-  description: 
+  description: Increase your luck or pigs' luck by 2%
   icon: {fileID: -3843333700662972861, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
   type: 5
   buyPrice: 100
