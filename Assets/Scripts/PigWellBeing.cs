@@ -1,84 +1,88 @@
 using UnityEngine;
 using System;
-//TODO: chance augmentée d'avoir un cochon rare si propre
-// Seuils de faim et les 2 de propretés qui augmentent la joie si > 60%, entre 40 et 60 rien, en-dessous ça baisse
-// Satiety is the energy used to take part in a race
-// Double condition with cleanliness and rarity of the parents
-// Functions to debug each actions
+//TODO: chance augmentée d'avoir un cochon rare si propre: half done
+// Seuils de faim et les 2 de propretés qui augmentent la joie si > 60%, entre 40 et 60 rien, en-dessous ça baisse: done
+// Satiety is the energy used to take part in a race: not done
+// Le cochon se sali plus vite en fonction de l'enclos: not done
+// L'enclos se sali plus vite en fonction du nombre de cochons: not done
+// Si le cochon a faim il perd en vitesse: not done
+// Une barre de vie qui fait mourir le cochon quand elle atteint 0 et qui s'active quand satiety ou cleanliness = 0: not done
 public class PigWellBeing : MonoBehaviour
 {
     [Header("Values of gauges on 100")]
-    [SerializeField] private float satiety = 100f;
-    [SerializeField] private float cleanlinessPig = 100f;
-    [SerializeField] private float cleanlinessEnclosure = 100f;
-    [SerializeField] private float happiness = 100f;
-
+    [SerializeField] public float satiety = 100f;
+    [SerializeField] public float cleanlinessPig = 100f;
+    [SerializeField] public float cleanlinessEnclosure = 100f;
+    [SerializeField] public float happiness = 100f;
+    
     [Header("Rate of decrease")]
-    [SerializeField] private float hungerDecrease = 0.0277f;
-    [SerializeField] private float cleanlinessDecreasePig = 0.0185f;
-    [SerializeField] private float cleanlinessDecreaseEnclosure = 0.0139f;
-    [SerializeField] private float happinessDecrease = 0.0111f;
-
+    [SerializeField] private float satietyDecrease = 100f / 4320f; // 3j = 72 minutes
+    [SerializeField] private float cleanlinessDecreasePig = 100f / 10080f; // 7j = 168 minutes
+    [SerializeField] private float cleanlinessDecreaseEnclosure = 100f / 7200f; // 5j = 120 minutes
+    [SerializeField] private float happinessDecrease = 100f / 1440f; // 1j = 24 minutes
+    
+    [Header("Time By Day")]
+    [SerializeField] private float timeByDay = 1440f; // Number of seconds by day
+    [SerializeField] private float day = 1f;
+    [SerializeField] private float elapsedTime = 0f;
+    
     [Header("Pig Events")]
     [SerializeField] private bool canReproduce = false;
-
+    
     public event Action OnValuesChanged;
-
-    private void Start()
-    {
-        LimitsGauges();
-    }
-
+    
     private void Update()
     {
-        DecreaseOverTime();
-        HappinessIncrease();
+        elapsedTime += Time.deltaTime;
 
-        OnValuesChanged?.Invoke();
-    }
-
-    private void DecreaseOverTime()
-    {
+        // Check for new day
+        if (elapsedTime >= timeByDay)
+        {
+            int daysPassed = Mathf.FloorToInt(elapsedTime / timeByDay);
+            day += daysPassed;
+            elapsedTime -= daysPassed * timeByDay;
+        }
+        
         // Decrease of gauges over time
-        satiety -= hungerDecrease * Time.deltaTime;
+        satiety -= satietyDecrease * Time.deltaTime;
         cleanlinessPig -= cleanlinessDecreasePig * Time.deltaTime;
         cleanlinessEnclosure -= cleanlinessDecreaseEnclosure * Time.deltaTime;
-        happiness -= happinessDecrease * Time.deltaTime;
-    }
+        //happiness -= happinessDecrease * Time.deltaTime;
+        Debug.Log($"Satiety: {satiety:F2}, PigClean: {cleanlinessPig:F2}, Enclosure: {cleanlinessEnclosure:F2}");
 
-    private void LimitsGauges()
-    {
+        
         // Limits of gauges, 0 to 100
         satiety = Mathf.Clamp(satiety, 0f, 100f);
         cleanlinessPig = Mathf.Clamp(cleanlinessPig, 0f, 100f);
         cleanlinessEnclosure = Mathf.Clamp(cleanlinessEnclosure, 0f, 100f);
         happiness = Mathf.Clamp(happiness, 0f, 100f);
-    }
 
-    private void FeedThePig(float food)
-    {
-        satiety = Mathf.Clamp(satiety + food, 0f, 100f);
+        HappinessIncrease();
+        
         OnValuesChanged?.Invoke();
     }
 
-    private void PetThePig()
+    public void FeedThePig(float amount)
     {
-        int amount = 5;
+        satiety = Mathf.Clamp(satiety + amount, 0f, 100f);
+        OnValuesChanged?.Invoke();
+    }
+
+    public void PetThePig(float amount)
+    {
         happiness = Mathf.Clamp(happiness + amount, 0f, 100f);
         OnValuesChanged?.Invoke();
     }
 
-    private void CleanThePig()
+    public void CleanThePig(float amount)
     {
-        int amount = 5;
         cleanlinessPig = Mathf.Clamp(cleanlinessPig + amount, 0f, 100f);
         OnValuesChanged?.Invoke();
     }
 
-    private void CleanTheEnclosure()
+    public void CleanTheEnclosure(float amount)
     {
-        int amount = 5;
-        cleanlinessEnclosure = Mathf.Clamp(cleanlinessEnclosure + amount, 0f, 100f);
+        cleanlinessEnclosure = Mathf.Clamp(cleanlinessEnclosure - amount, 0f, 100f);
         OnValuesChanged?.Invoke();
     }
 
@@ -92,25 +96,19 @@ public class PigWellBeing : MonoBehaviour
 
     private void HappinessIncrease()
     {
-        float value = 2f;
-
+        float decreaseHappinessPerSecond = 100f / timeByDay;
+        float increaseHappinessPerSecond = 100f / (timeByDay * 2f);
+        
         bool stomachFull = satiety >= 60f;
-        bool stomachNeutral = satiety < 60f && satiety >= 40f;
         bool stomachEmpty = satiety < 40f;
 
-        bool IsClean = cleanlinessPig >= 60f && cleanlinessEnclosure >= 60f;
-        bool IsDirty = cleanlinessPig < 40f || cleanlinessEnclosure < 40f;
+        bool isClean = cleanlinessPig >= 60f && cleanlinessEnclosure >= 60f;
+        bool isDirty = cleanlinessPig < 40f || cleanlinessEnclosure < 40f;
 
-        if (stomachFull && IsClean)
-        {
-            happiness = Mathf.Clamp(happiness + value, 0, 100);
-        }
-        else if (stomachEmpty || IsDirty)
-        {
-            happiness = Mathf.Clamp(happiness - value, 0, 100);
-        }
-
-        OnValuesChanged?.Invoke();
+        if (stomachEmpty || isDirty)
+            happiness = Mathf.Clamp(happiness - decreaseHappinessPerSecond * Time.deltaTime, 0, 100);
+        else if (stomachFull && isClean)
+            happiness = Mathf.Clamp(happiness + increaseHappinessPerSecond * Time.deltaTime, 0, 100);
     }
 
     private void PigRarity()
@@ -119,25 +117,25 @@ public class PigWellBeing : MonoBehaviour
         {
             case <= 100 and > 80:
                 // Rarity percentages ex:
-                // UltraRare 10%
-                // Legendary 30%
+                // Legendary 10%
+                // Epic 30%
                 // Rare 40%
                 // Uncommon 15%
                 // Common 5%
                 break;
-
+            
             case <= 80 and > 60:
-
+                
                 break;
-
+            
             case <= 60 and > 40:
-
+                
                 break;
-
+            
             case <= 40 and > 20:
 
                 break;
-
+            
             case <= 20 and >= 0:
 
                 break;
