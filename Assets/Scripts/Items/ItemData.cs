@@ -1,9 +1,11 @@
 using UnityEngine;
 
+#pragma warning disable CS8524
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Global
 namespace Items {
     public enum ItemType { Coin, Seed, Food, Potion, Tool, Charm }
+    public enum ItemRarity { Common, Uncommon, Rare, Epic, Legendary, Unique }
 
     [CreateAssetMenu(fileName = "NewItem", menuName = "Game/Item")]
     public class ItemData : ScriptableObject {                                  // Main class of items
@@ -15,6 +17,7 @@ namespace Items {
         public Sprite icon;
 
         [Header("Data")]
+        public ItemRarity rarity = ItemRarity.Common;
         public ItemType type;
         public int buyPrice;
         public int sellPrice;
@@ -27,5 +30,16 @@ namespace Items {
         public int nutritionValue;                                                  // For pig food
         public float growTime;                                                      // For seed
         public ItemData cropProduced;                                               // Collected item after grow
+
+        public Color GetRarityColor() {
+            return rarity switch {
+                ItemRarity.Common => Color.black,
+                ItemRarity.Uncommon => Color.green,
+                ItemRarity.Rare => Color.blue,
+                ItemRarity.Epic => Color.purple,
+                ItemRarity.Legendary => Color.gold,
+                ItemRarity.Unique => Color.red
+            };
+        }
     }
 }

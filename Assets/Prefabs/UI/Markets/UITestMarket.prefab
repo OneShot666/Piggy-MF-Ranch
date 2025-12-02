@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 1333029230757305599}
   - component: {fileID: 857111033775736890}
   m_Layer: 5
-  m_Name: TestMarketplaceUI
+  m_Name: UITestMarket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

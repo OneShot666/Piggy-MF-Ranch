@@ -13,6 +13,8 @@ namespace Market {
         public bool avoidDuplicates = true;
         [Tooltip("Quantity of item available in this market")]
         public int stallSize = 6;
+        [Tooltip("Fixed number of rows to display.")]
+        public int rowsToDisplay = 2;
         public int maxStackOffer = 10;
 
         [Header("UI Settings")]
@@ -21,12 +23,14 @@ namespace Market {
         [Tooltip("Prefab UI : icon + price + quantity")]
         public GameObject itemUIPrefab;
         [Tooltip("Space between items (in pixels).")]
-        public float spacing = 10f;
+        public Vector2 spacing = new(60, 30);
+        public float maxItemSize = 100f;
 
         [Header("Offers (Generated)")]
         public List<MarketOffer> currentOffers = new();
 
         private readonly List<GameObject> _activeUIItems = new();
+        public static event System.Action OnGlobalPurchase;
 
         private void Start() {
             if (!inventoryUI) inventoryUI = FindFirstObjectByType<InventoryManager>();
@@ -34,12 +38,13 @@ namespace Market {
             DisplayMarket();
         }
 
+        private void OnEnable() => OnGlobalPurchase += DisplayMarket;           // Listen to signal (buying item)
+
+        private void OnDisable() => OnGlobalPurchase -= DisplayMarket;          // Stop listening
+
         [ContextMenu("Generate Market")]
         private void GenerateMarket() {
-            if (!itemPool || itemPool.possibleItems.Length == 0) {
-                Debug.LogWarning("Market item pool is empty!");
-                return;
-            }
+            if (!itemPool || itemPool.possibleItems.Length == 0) return;
 
             currentOffers.Clear();
             HashSet<ItemData> usedItems = new HashSet<ItemData>();
@@ -90,7 +95,7 @@ namespace Market {
             inventory.AddItem(offer.item, offer.quantity);
 
             currentOffers.RemoveAt(index);
-            DisplayMarket();
+            OnGlobalPurchase?.Invoke();                                         // Update all markets when buy something
 
             return true;
         }
@@ -101,21 +106,38 @@ namespace Market {
 
             if (!itemsDisplayArea || !itemUIPrefab) return;
 
-            // Simple grid layout
-            float width = itemsDisplayArea.rect.width;
-            float height = itemsDisplayArea.rect.height;
-
             int count = currentOffers.Count;
-            int columns = Mathf.CeilToInt(Mathf.Sqrt(count));
-            int rows = Mathf.CeilToInt(count / (float)columns);
+            if (count == 0) return;
 
-            float cellW = (width - spacing * (columns - 1)) / columns;
-            float cellH = (height - spacing * (rows - 1)) / rows;
+            GridLayoutGroup grid = itemsDisplayArea.GetComponent<GridLayoutGroup>();
+            if (!grid) grid = itemsDisplayArea.gameObject.AddComponent<GridLayoutGroup>();
+            
+            grid.spacing = spacing;                                             // Apply spacing
 
-            for (int i = 0; i < count; i++) {
-                int row = i / columns;
-                int col = i % columns;
+            int targetRows = Mathf.Clamp(rowsToDisplay, 1, count);
+            int columns = Mathf.CeilToInt((float)count / targetRows);           // Get number of items per columns
+            int rows = Mathf.CeilToInt((float)count / columns);                 // Get actual number of items per rows
 
+            grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;      // Force to respect this number of columns
+            grid.constraintCount = columns;
+
+            float rectWidth = itemsDisplayArea.rect.width;                      // Get dynamic item size
+            float rectHeight = itemsDisplayArea.rect.height;
+
+            float widthAvailable = rectWidth - grid.padding.horizontal - grid.spacing.x * (columns - 1);    // Adapt spacing
+            float heightAvailable = rectHeight - grid.padding.vertical - grid.spacing.y * (rows - 1);
+            if (widthAvailable < 0) widthAvailable = 0;
+            if (heightAvailable < 0) heightAvailable = 0;
+
+            float sizePerCellX = widthAvailable / columns;
+            float sizePerCellY = heightAvailable / rows;
+            float cellSize = Mathf.Min(sizePerCellX, sizePerCellY);             // Keep square item image
+            cellSize = Mathf.Min(cellSize, maxItemSize);                        // Limit size of items
+
+            grid.cellSize = new Vector2(cellSize, cellSize);
+            grid.childAlignment = TextAnchor.MiddleCenter;                      // Center items
+
+            for (int i = 0; i < currentOffers.Count; i++) {
                 GameObject ui = Instantiate(itemUIPrefab, itemsDisplayArea);
                 _activeUIItems.Add(ui);
 
@@ -126,19 +148,17 @@ namespace Market {
                 rt.anchorMin = rt.anchorMax = new Vector2(0, 1);
                 rt.pivot = new Vector2(0, 1);
 
-                float x = col * (cellW + spacing);
-                float y = -row * (cellH + spacing);
-
-                rt.anchoredPosition = new Vector2(x, y);
-                float cellSize = Mathf.Min(cellW, cellH);
-                rt.sizeDelta = new Vector2(cellSize, cellSize);
-
                 // Assign item data
                 var offer = currentOffers[i];
                 var slot = ui.GetComponent<UIItemSlot>();
-                slot.Init(offer.item, offer.quantity);
+                if (slot) slot.Init(offer.item, offer.quantity);
                 ui.transform.Find("ItemImage").GetComponent<Image>().sprite = offer.item.icon;
-                ui.transform.Find("NameQuantityText").GetComponent<Text>().text = offer.item.name + " (x" + offer.quantity + ")";
+                ui.transform.Find("QuantityText").GetComponent<Text>().text = "x" + offer.quantity;
+
+                var nameText = ui.transform.Find("NameText").GetComponent<Text>();
+                nameText.color = offer.item.GetRarityColor();                   // Apply rarity color to name text
+                nameText.text = offer.item.name;
+
                 Text priceText = ui.transform.Find("PriceText").GetComponent<Text>();
                 priceText.text = offer.FinalPrice + " $";
                 if (inventoryUI.money < offer.FinalPrice) priceText.color = Color.red;  // Show if can buy product or not

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Energy Potion
   description: Gives you or pigs 50 energy
   icon: {fileID: 3794617858607065080, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  rarity: 1
   type: 3
   buyPrice: 25
   sellPrice: 18

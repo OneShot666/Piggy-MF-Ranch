@@ -1,12 +1,10 @@
 using UnityEngine;
 
-// . Add overlay for item : display image, name, description, price & utility (if has any)
-// ! Upgrade items visuals on market : not center and change size if buy some (rescale probably)
-// ! Add refresh button (for money + increase each time)
-// ! Add inventory UI (can open/close with 'I')
-// ! Add can switch between markets (add '<' & '>' arrows on screen)
-// ! Use fields
-// ! Add use() function in items based on their type
+// . Add refresh button (for money + increase each time)
+// ? Add décalage en vague option for items on market
+// L Add inventory UI (can open/close with 'I')
+// L Use fields
+// L Add use() function in items based on their type
 public class CameraManager : MonoBehaviour {
     [Tooltip("Target to follow (free camera mode if target is null)")]
     [SerializeField] private Transform target;

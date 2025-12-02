@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Key
   description: Open a chest
   icon: {fileID: 3459739911823488399, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  rarity: 1
   type: 5
   buyPrice: 50
   sellPrice: 25

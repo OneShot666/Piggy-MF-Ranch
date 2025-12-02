@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Cooked Meal
   description: No one knows what's in this dishe but everyone love it !
   icon: {fileID: 4653395728150985286, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  rarity: 2
   type: 2
   buyPrice: 42
   sellPrice: 22

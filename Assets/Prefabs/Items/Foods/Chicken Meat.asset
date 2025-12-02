@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Chicken Meat
   description: The juicy raw thigh of a chicken. Taste better fried in oil
   icon: {fileID: -8392075584430055756, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  rarity: 1
   type: 2
   buyPrice: 26
   sellPrice: 13
