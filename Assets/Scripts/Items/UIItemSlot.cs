@@ -1,7 +1,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-namespace Items {
+namespace Items {                                                               // Used in market
     public class UIItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         public ItemData item;
         public int quantity;

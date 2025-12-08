@@ -1,24 +1,29 @@
 using UnityEngine;
 
-// . Add refresh button (for money + increase each time)
-// ? Add décalage en vague option for items on market
-// L Add inventory UI (can open/close with 'I')
-// L Use fields
+// . Remove item overlay when buy it
+// ! Add overlay of item in inventory
+// ! Add sell feature from inventory
+// ! Use fields
 // L Add use() function in items based on their type
-public class CameraManager : MonoBehaviour {
-    [Tooltip("Target to follow (free camera mode if target is null)")]
-    [SerializeField] private Transform target;
-    [Tooltip("Distance from the target")]
-    [SerializeField] private float offSet = 50f;                                // Distance from target (if any)
+// ? Add player
+// L Add map & travels
+public class CameraManager : MonoBehaviour {                                    // [UNUSED in this project -> 2D]
+    [Header("Camera settings")]
     [Tooltip("Speed of camera movement")]
     [SerializeField] private float speed = 10f;
     [Tooltip("Speed of camera rotation")]
     [SerializeField] private float rotation = 100f;
 
+    [Header("Target settings")]
+    [Tooltip("[Optional] Target to follow (free camera mode if target is null)")]
+    [SerializeField] private Transform target;
+    [Tooltip("Distance from the target")]
+    [SerializeField] private float offSet = 50f;                                // Distance from target if any
+    
     private bool _isPaused;
 
     void Start() {
-        transform.LookAt(target);                                              // Look for a leader
+        if (target) transform.LookAt(target);                                   // Look at target if any
     }
 
     void Update() {

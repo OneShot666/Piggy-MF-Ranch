@@ -2,8 +2,9 @@ using UnityEngine.UI;
 using UnityEngine;
 using Market;
 
+// ReSharper disable Unity.PerformanceCriticalCodeInvocation
 namespace Items {
-    public class MarketUIItem : MonoBehaviour {
+    public class UIItemMarket : MonoBehaviour {
         private int _index;
         private MarketManager _market;
         private InventoryManager _inventory;
@@ -20,9 +21,9 @@ namespace Items {
             if (!_market || !_inventory) return;
 
             bool success = _market.BuyOffer(_index, _inventory);
-            _inventory.UpdateMoneyText();
+            _inventory.UpdateMoneyUI();
 
-            if (!success) Debug.Log("Not enough money!");
+            if (!success) Debug.Log("Not enough money!");                       // L Display text on screen
         }
     }
 }

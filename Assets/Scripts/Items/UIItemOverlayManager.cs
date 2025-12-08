@@ -63,7 +63,7 @@ namespace Items {
             itemImage.sprite = item.icon;
             itemImage.gameObject.SetActive(item.icon);
             
-            nameText.color = item.GetRarityColor();                             // Apply rarity color
+            nameText.color = item.GetRarityColor();                             // Apply rarity color to name
             nameText.text = item.name;
 
             typeText.text = $"Type : {item.type}";
