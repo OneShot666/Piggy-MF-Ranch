@@ -7,21 +7,21 @@ namespace Market {
     public class MarketplaceManager : MonoBehaviour {
         [Header("References")]
         [Tooltip("Market place object (usually self)")]
-        public RectTransform uiMarketplaceContainer;
-        public Button leftButton;
-        public Button rightButton;
+        [SerializeField] private RectTransform uiMarketplaceContainer;
+        [SerializeField] private Button leftButton;
+        [SerializeField] private Button rightButton;
 
         [Header("Settings")]
         [Tooltip("Distance in pixels to slide for each market")]
-        public float slideDistance = 900f;
+        [SerializeField] private float slideDistance = 900f;
         [Tooltip("Time in seconds to complete the slide")]
-        public float slideDuration = 0.5f;
+        [SerializeField] private float slideDuration = 0.5f;
         
         [Header("Navigation Data")]
         [Tooltip("Total number of markets aligned")]
-        public int totalMarkets = 3;
+        [SerializeField] private int totalMarkets = 3;
         [Tooltip("Index of the market visible at start (0=Left, 1=Middle, etc)")]
-        public int startIndex = 1;
+        [SerializeField] private int startIndex = 1;
 
         private int _currentIndex;
         private bool _isMoving;

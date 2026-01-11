@@ -8,23 +8,26 @@ using UnityEngine;
 namespace Items {
     public class InventoryManager : MonoBehaviour {
         [Header("Inventory Settings")]
-        public bool isOpened;
-        public Vector2Int inventorySize = new(8, 6);
-        public int money = 500;                                                 // start with 100$ in real game
+        [SerializeField] private bool isOpened;
+        [SerializeField] private Vector2Int inventorySize = new(8, 6);
+        [SerializeField] private int money = 500;                               // start with 100$ in real game
 
         [Header("UI References")]
-        public Button inventoryButton;
-        public GameObject uiInventoryPanel;
-        public RectTransform inventoryBgImage;                                  // To detect click
-        public RectTransform slotsContainer;                                    // Grid Layout Group object
-        public RectTransform viewportRect;                                      // In ScrollView
-        public GameObject slotPrefab;
-        public Text moneyText;
+        [SerializeField] private Button inventoryButton;
+        [SerializeField] private GameObject uiInventoryPanel;
+        [SerializeField] private ScrollRect inventoryScrollRect;
+        [SerializeField] private RectTransform inventoryBgImage;                // To detect click
+        [SerializeField] private RectTransform slotsContainer;                  // Grid Layout Group object
+        [SerializeField] private RectTransform viewportRect;                    // In ScrollView
+        [SerializeField] private GameObject slotPrefab;
+        [SerializeField] private Text moneyText;
 
         [Header("Inventory content")]
         public List<ItemInstance> items = new();
 
         private readonly List<InventorySlot> _uiSlots = new();                  // List of generated slots
+        
+        public int Money => money;
 
         private void Start() {
             if (!inventoryBgImage && uiInventoryPanel) inventoryBgImage = uiInventoryPanel.GetComponent<RectTransform>();
@@ -42,6 +45,10 @@ namespace Items {
             if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame) ToggleInventory();
 
             if (isOpened && Mouse.current.leftButton.wasPressedThisFrame) CheckClickOutside();
+        }
+
+        public void AddMoney(int amount) {
+            money += amount;
         }
 
         private IEnumerator InitInventoryDelay() {
@@ -103,6 +110,10 @@ namespace Items {
             UpdateIconButton();
         }
 
+        public void ToggleScrolling(bool canScroll) {
+            if (inventoryScrollRect) inventoryScrollRect.vertical = canScroll;
+        }
+
         private void RefreshUI() {                                              // Update slots
             for (int i = 0; i < _uiSlots.Count; i++) {
                 if (i < items.Count) _uiSlots[i].SetItem(items[i]);             // Display item
@@ -162,6 +173,19 @@ namespace Items {
             }
 
             RefreshUI();
+        }
+
+        public void SellItem(ItemInstance instance, int amount=0) {
+            if (instance == null || !instance.data || amount <= 0) return;
+
+            int totalSellPrice = instance.data.sellPrice * amount;              // Calculate sell price
+
+            money += totalSellPrice;                                            // Sell it
+            UpdateMoneyUI();
+
+            instance.quantity -= amount;
+            if (instance.quantity <= 0) items.Remove(instance);                 // Remove from inventory if empty
+            RefreshUI();                                                        // Update UI
         }
     }
 }

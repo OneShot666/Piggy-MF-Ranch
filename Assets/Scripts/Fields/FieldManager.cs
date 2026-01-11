@@ -3,10 +3,10 @@ using UnityEngine;
 // ReSharper disable UnusedMember.Global
 namespace Fields {
     public class FieldManager : MonoBehaviour {
-        public FieldPlot plotPrefab;
-        public int width = 3;
-        public int height = 3;
-        public float spacing = 1.5f;
+        [SerializeField] private FieldPlot plotPrefab;
+        [SerializeField] private int width = 3;
+        [SerializeField] private int height = 3;
+        [SerializeField] private float spacing = 1.5f;
 
         private FieldPlot[,] _plots;
 

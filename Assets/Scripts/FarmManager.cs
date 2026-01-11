@@ -1,13 +1,7 @@
 using UnityEngine;
 
-public class FarmManager : MonoBehaviour {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
-        
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
-    }
-}
+// . Use fields
+// L Add use() function in items based on their type
+// ? Add player
+// L Add map & travels
+public class FarmManager : MonoBehaviour {}

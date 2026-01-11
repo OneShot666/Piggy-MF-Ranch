@@ -8,40 +8,40 @@ using Items;
 namespace Market {
     public class MarketManager : MonoBehaviour {
         [Header("References")]
-        public InventoryManager inventoryUI;
+        [SerializeField] private InventoryManager inventoryUI;
 
         [Header("Market Settings")]
-        public MarketItemPool itemPool;
-        public bool avoidDuplicates = true;
+        [SerializeField] private MarketItemPool itemPool;
+        [SerializeField] private bool avoidDuplicates = true;
         [Tooltip("Quantity of item available in this market")]
-        public int stallSize = 6;
+        [SerializeField] private int stallSize = 6;
         [Tooltip("Fixed number of rows to display.")]
-        public int rowsToDisplay = 2;
-        public int maxStackOffer = 10;
+        [SerializeField] private int rowsToDisplay = 2;
+        [SerializeField] private int maxStackOffer = 10;
 
         [Header("Refresh Settings")]
         [Tooltip("Button to refresh offers")]
-        public Button refreshButton;
+        [SerializeField] private Button refreshButton;
         [Tooltip("Text inside the button to show cost")]
-        public Text refreshCostText;
+        [SerializeField] private Text refreshCostText;
         [Tooltip("Cost for the first paid refresh")]
-        public int baseRefreshCost = 5; 
+        [SerializeField] private int baseRefreshCost = 5; 
         [Tooltip("How much the cost increases each time")]
-        public int costIncrement = 5;
+        [SerializeField] private int costIncrement = 5;
 
         [Header("UI Settings")]
         [Tooltip("If true, odd rows are shifted right and even rows left.")]
-        public bool useStaggeredLayout;
+        [SerializeField] private bool useStaggeredLayout;
         [Tooltip("RectTransform where to place items")]
-        public RectTransform itemsDisplayArea;
+        [SerializeField] private RectTransform itemsDisplayArea;
         [Tooltip("Prefab UI : icon + price + quantity")]
-        public GameObject itemUIPrefab;
+        [SerializeField] private GameObject itemUIPrefab;
         [Tooltip("Space between items (in pixels).")]
-        public Vector2 spacing = new(60, 30);
-        public float maxItemSize = 100f;
+        [SerializeField] private Vector2 spacing = new(60, 30);
+        [SerializeField] private float maxItemSize = 100f;
 
         [Header("Offers (Generated)")]
-        public List<MarketOffer> currentOffers = new();
+        [SerializeField] private List<MarketOffer> currentOffers = new();
 
         private readonly List<GameObject> _activeUIItems = new();
         public static event System.Action OnGlobalPurchase;
@@ -79,9 +79,9 @@ namespace Market {
 
         [ContextMenu("Refresh market")]
         private void TryRefreshMarket() {
-            if (inventoryUI.money < _currentRefreshCost) return;                // If don't have enough money
+            if (inventoryUI.Money < _currentRefreshCost) return;                // If don't have enough money
 
-            inventoryUI.money -= _currentRefreshCost;                           // Pay refresh
+            inventoryUI.AddMoney(-_currentRefreshCost);                         // Pay refresh
             inventoryUI.UpdateMoneyUI();
 
             if (_currentRefreshCost == 0) _currentRefreshCost = baseRefreshCost;// Increase refresh price
@@ -102,7 +102,7 @@ namespace Market {
                 refreshCostText.color = Color.green;
             } else {
                 refreshCostText.text = $"{_currentRefreshCost} $";
-                bool canAfford = inventoryUI.money >= _currentRefreshCost;      // Check if enough money
+                bool canAfford = inventoryUI.Money >= _currentRefreshCost;      // Check if enough money
                 refreshCostText.color = canAfford ? Color.white : Color.red;
             }
         }
@@ -133,8 +133,7 @@ namespace Market {
                 }
 
                 MarketOffer offer = new MarketOffer {                           // Create offer
-                    item = item,
-                    quantity = Random.Range(1, maxStackOffer + 1)
+                    item = item, quantity = Random.Range(1, maxStackOffer + 1)
                 };
                 offer.basePrice = item.buyPrice * offer.quantity;
 
@@ -152,9 +151,9 @@ namespace Market {
 
             MarketOffer offer = currentOffers[index];
 
-            if (inventory.money < offer.FinalPrice) return false;
+            if (inventory.Money < offer.FinalPrice) return false;
 
-            inventory.money -= offer.FinalPrice;
+            inventory.AddMoney(-offer.FinalPrice);
             inventory.AddItem(offer.item, offer.quantity);
 
             currentOffers.RemoveAt(index);
@@ -163,6 +162,7 @@ namespace Market {
             return true;
         }
 
+        // Not called everytime in Update loop so it's just a "refresh" of the market
         private void DisplayMarket() {                                          // UI Display
             Canvas.ForceUpdateCanvases();                                       // Update canvas size immediately
 
@@ -221,8 +221,8 @@ namespace Market {
                 GameObject ui = Instantiate(itemUIPrefab, itemsDisplayArea);
                 _activeUIItems.Add(ui);
 
-                var uiItem = ui.GetComponent<UIItemMarket>();
-                if (uiItem) uiItem.Init(i, this, inventoryUI);
+                var uiItem = ui.GetComponent<UIItemMarket>();                   // Assign item data
+                if (uiItem) uiItem.Init(i, this, inventoryUI, currentOffers[i]);
 
                 RectTransform rt = ui.GetComponent<RectTransform>();
                 rt.anchorMin = rt.anchorMax = new Vector2(0, 1);                // Automatic positioning
@@ -242,34 +242,6 @@ namespace Market {
                     else posX += shiftAmount;
 
                     rt.anchoredPosition = new Vector2(posX, posY);
-                }
-
-                // Assign item data
-                var offer = currentOffers[i];
-                var slot = ui.GetComponent<UIItemSlot>();
-                if (slot) slot.Init(offer.item, offer.quantity);
-                ui.transform.Find("ItemImage").GetComponent<Image>().sprite = offer.item.icon;
-                ui.transform.Find("QuantityText").GetComponent<Text>().text = "x" + offer.quantity;
-
-                var nameText = ui.transform.Find("NameText").GetComponent<Text>();
-                nameText.color = offer.item.GetRarityColor();                   // Apply rarity color to name text
-                nameText.text = offer.item.name;
-
-                Text priceText = ui.transform.Find("PriceText").GetComponent<Text>();
-                priceText.text = offer.FinalPrice + " $";
-                if (inventoryUI.money < offer.FinalPrice) priceText.color = Color.red;  // Show if can buy product or not
-                
-                Transform discountTransform = ui.transform.Find("DiscountImage");
-                if (discountTransform) {
-                    bool hasDiscount = offer.discount > 0;
-                    discountTransform.gameObject.SetActive(hasDiscount);
-                    if (hasDiscount) {
-                        Text discountText = discountTransform.Find("DiscountText").GetComponent<Text>();
-                        if (discountText) {
-                            discountText.color = offer.GetDiscountColor();
-                            discountText.text = offer.GetDiscountText();
-                        }
-                    }
                 }
             }
 

@@ -1,8 +1,10 @@
 using UnityEngine;
 
+// ReSharper disable UnassignedField.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 #pragma warning disable CS8524
-// ReSharper disable InconsistentNaming
-// ReSharper disable UnusedMember.Global
 namespace Items {
     public enum ItemType { Coin, Seed, Food, Potion, Tool, Charm }
     public enum ItemRarity { Common, Uncommon, Rare, Epic, Legendary, Unique }

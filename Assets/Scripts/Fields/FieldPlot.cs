@@ -5,22 +5,23 @@ using Items;
 // ReSharper disable InconsistentNaming
 namespace Fields {
     public class FieldPlot : MonoBehaviour {
-        public enum PlotState { Empty, Growing, Ready }
+        private enum PlotState { Empty, Growing, Ready }
 
         [Header("References")]
-        public SpriteRenderer spriteRenderer;                                       // Field image
-        public Sprite emptySprite;
-        public Sprite growingSprite;
-        public Sprite readySprite;
+        [SerializeField] private SpriteRenderer spriteRenderer;                 // Field image
+        [SerializeField] private Sprite emptySprite;
+        [SerializeField] private Sprite growingSprite;
+        [SerializeField] private Sprite readySprite;
 
         [Header("Runtime Data")]
-        public PlotState state = PlotState.Empty;
-        public ItemData plantedSeed;
-        private float growTimer;
+        [SerializeField] private PlotState state = PlotState.Empty;
+        [SerializeField] private ItemData plantedSeed;
 
         [Header("Events")]
-        public UnityEvent<ItemData> OnHarvest;                                      // Called when harvest field
-        public UnityEvent<ItemData> OnPlant;                                        // Called when planting seeds
+        public UnityEvent<ItemData> OnHarvest;                                  // Called when harvest field
+        public UnityEvent<ItemData> OnPlant;                                    // Called when planting seeds
+
+        private float growTimer;
 
         private void Update() {
             if (state != PlotState.Growing) return;

@@ -7,22 +7,22 @@ using UnityEngine;
 namespace Items {
     public class UIItemOverlayManager : MonoBehaviour {
         [Header("References")]
-        public RectTransform overlayRoot;
-        public Image itemImage;
-        public Text nameText;
-        public Text typeText;
-        public Text buyPriceText;
-        public Text sellPriceText;
-        public Text descriptionText;
+        [SerializeField] private RectTransform overlayRoot;
+        [SerializeField] private Image itemImage;
+        [SerializeField] private Text nameText;
+        [SerializeField] private Text typeText;
+        [SerializeField] private Text buyPriceText;
+        [SerializeField] private Text sellPriceText;
+        [SerializeField] private Text descriptionText;
 
         [Header("Optional fields")]
-        public Text nutritionText;
-        public Text growTimeText;
-        public Text cropNameText;
-        public Image cropImage;
+        [SerializeField] private Text nutritionText;
+        [SerializeField] private Text growTimeText;
+        [SerializeField] private Text cropNameText;
+        [SerializeField] private Image cropImage;
 
         [Header("Position setting")]
-        public Vector2 mouseOffset = new(145, 55); 
+        [SerializeField] private Vector2 mouseOffset = new(145, 55); 
 
         public static UIItemOverlayManager Instance;
         private ItemData _currentItem;
@@ -47,10 +47,31 @@ namespace Items {
 
         private void FollowMouse() {
             Camera cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
+            RectTransform canvasRect = _canvas.transform as RectTransform;
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform, 
-                Mouse.current.position.ReadValue(), cam, out var pos);
-            overlayRoot.anchoredPosition = pos + mouseOffset;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, 
+                Mouse.current.position.ReadValue(), cam, out var localMousePos);// Get local mouse pos
+
+            Vector2 targetPos = localMousePos + mouseOffset;
+
+            if (canvasRect) {
+                Vector2 size = overlayRoot.rect.size;                           // Get overlay screen data
+                Vector2 pivot = overlayRoot.pivot;
+
+                float minX = canvasRect.rect.xMin + size.x * pivot.x;           // Get canvas size
+                float maxX = canvasRect.rect.xMax - size.x * (1 - pivot.x);
+                float minY = canvasRect.rect.yMin + size.y * pivot.y;
+                float maxY = canvasRect.rect.yMax - size.y * (1 - pivot.y);
+
+                targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);             // Keep overlay fully on screen
+                targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
+            }
+
+            overlayRoot.anchoredPosition = targetPos;                           // Place on final position
+        }
+
+        public bool IsActive() {
+            return transform.gameObject.activeSelf;
         }
 
         public void Show(ItemData item) {

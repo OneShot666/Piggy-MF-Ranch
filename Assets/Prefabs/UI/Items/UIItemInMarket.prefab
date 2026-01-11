@@ -150,8 +150,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: -50%
 --- !u!1 &3031937485254081007
@@ -163,9 +163,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1816578142799350966}
+  - component: {fileID: 2741894884559992675}
+  - component: {fileID: 4921646453175835387}
   - component: {fileID: 8727612577624727218}
   - component: {fileID: 2077835425379609346}
-  - component: {fileID: 9111738944603509267}
   m_Layer: 5
   m_Name: UIItemInMarket
   m_TagString: Untagged
@@ -197,6 +198,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2741894884559992675
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031937485254081007}
+  m_CullTransparentMesh: 1
+--- !u!114 &4921646453175835387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031937485254081007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8727612577624727218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +276,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4921646453175835387}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -253,20 +292,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1a9a9049d4f174089fbea58fb16e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9111738944603509267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3031937485254081007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592184037e49900429460c688bada007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  quantity: 0
+  offer:
+    item: {fileID: 0}
+    quantity: 0
+    basePrice: 0
+    discount: 0
+  backgroundImage: {fileID: 4921646453175835387}
+  itemIcon: {fileID: 7702599614645360632}
+  quantityText: {fileID: 4348660170314728017}
+  nameText: {fileID: 8192735660375659155}
+  priceText: {fileID: 707461290218950344}
+  discountBadge: {fileID: 8188068069546000510}
+  discountText: {fileID: 517296738123411662}
 --- !u!1 &4365082952982176017
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,8 +379,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: x0
 --- !u!1 &6581781206321922893
@@ -421,8 +458,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '[name]'
 --- !u!1 &8188068069546000510
@@ -442,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4318880984410430023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -576,7 +613,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '[price] $'

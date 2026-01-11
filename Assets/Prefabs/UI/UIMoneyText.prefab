@@ -92,6 +92,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6dee218574d1a4e833688a4f9a25b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  isOpened: 0
+  inventorySize: {x: 8, y: 6}
+  money: 500
+  inventoryButton: {fileID: 0}
+  uiInventoryPanel: {fileID: 0}
+  inventoryBgImage: {fileID: 0}
+  slotsContainer: {fileID: 0}
+  viewportRect: {fileID: 0}
+  slotPrefab: {fileID: 5298366506605459201, guid: 5206c5169c4055f4c8810df50482784b, type: 3}
   moneyText: {fileID: 8502300826096965238}
-  money: 100
+  items: []
