@@ -107,7 +107,7 @@ namespace Items {
         }
 
         public void Hide() {
-            overlayRoot.gameObject.SetActive(false);
+            if (overlayRoot) overlayRoot.gameObject.SetActive(false);
             _currentItem = null;
         }
     }

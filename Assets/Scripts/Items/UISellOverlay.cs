@@ -2,8 +2,6 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-// ? Script disable self -> move script in a panel parent
-// ! Upgrade script to select quantity to sell
 #pragma warning disable CS0414 // Field is assigned but its value is never used
 namespace Items {
     public class UISellOverlay : MonoBehaviour {
@@ -13,7 +11,7 @@ namespace Items {
         private ItemInstance _targetInstance;
         private InventoryManager _manager;
         private RectTransform _root;
-        private Canvas _canvas;
+        private Canvas _parentCanvas;
 
         private int _quantityToSell = 1;
 
@@ -25,7 +23,8 @@ namespace Items {
             Instance = this;
 
             _manager = FindFirstObjectByType<InventoryManager>();
-            _canvas = GetComponentInParent<Canvas>();
+            Canvas[] allCanvases = GetComponentsInParent<Canvas>();             // To avoid getting self canvas
+            _parentCanvas = allCanvases.Length > 1 ? allCanvases[^1] : GetComponentInParent<Canvas>();
             _root = GetComponent<RectTransform>();
 
             Hide();                                                             // Hide by default
@@ -39,8 +38,8 @@ namespace Items {
         }
 
         private void FollowMouse() {
-            Camera cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
-            RectTransform canvasRect = _canvas.transform as RectTransform;
+            Camera cam = _parentCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _parentCanvas.worldCamera;
+            RectTransform canvasRect = _parentCanvas.transform as RectTransform;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, 
                 Mouse.current.position.ReadValue(), cam, out var pos);// Get local mouse pos
 

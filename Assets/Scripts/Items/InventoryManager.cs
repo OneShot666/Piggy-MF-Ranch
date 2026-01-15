@@ -26,14 +26,15 @@ namespace Items {
         public List<ItemInstance> items = new();
 
         private readonly List<InventorySlot> _uiSlots = new();                  // List of generated slots
-        
+
+        public bool IsOpened => isOpened;
         public int Money => money;
 
         private void Start() {
             if (!inventoryBgImage && uiInventoryPanel) inventoryBgImage = uiInventoryPanel.GetComponent<RectTransform>();
 
             if (inventoryButton) {
-                inventoryButton.onClick.AddListener(ToggleInventory);
+                inventoryButton.onClick.AddListener(ToggleOpening);
                 UpdateIconButton();
             }
             
@@ -41,9 +42,7 @@ namespace Items {
             StartCoroutine(InitInventoryDelay());
         }
 
-        private void Update() {                                                 // Open inventory with 'I'
-            if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame) ToggleInventory();
-
+        private void Update() {
             if (isOpened && Mouse.current.leftButton.wasPressedThisFrame) CheckClickOutside();
         }
 
@@ -96,10 +95,10 @@ namespace Items {
             bool isMouseOnInv = RectTransformUtility.RectangleContainsScreenPoint(
                 inventoryBgImage, Mouse.current.position.ReadValue(), null);
 
-            if (!isMouseOnInv) ToggleInventory();                               // Close if click outside
+            if (!isMouseOnInv) ToggleOpening();                               // Close if click outside
         }
 
-        private void ToggleInventory() {
+        public void ToggleOpening() {
             isOpened = !isOpened;
             
             if (uiInventoryPanel) {
