@@ -1,49 +1,62 @@
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Scenes;
 using Items;
 
-// ... Polishing fields generation
-// . Making switch between scenes work
-// ! Add water fields, plant seeds and harvest functions
-// L Add use() function in items based on their type
-// L Add map & travels
+// . Add water fields, plant seeds and harvest functions -> make proto-player or triggers
+// ! Add use() function in items based on their type
+// ! Make save (money, inventory, crop fields, markets...)
 // ? Add player
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
+// ReSharper disable PossibleInvalidCastExceptionInForeachLoop
 public class GameManager : MonoBehaviour {
-    [Header("Settings")]
+    [Header("Persistence")]
+    [Tooltip("Objects that stay between scenes (inventory is found automatically)")]
+    [SerializeField] private List<GameObject> persistentObjects = new();
+
+    [Header("Scene list")]
+    [SerializeField] private SceneField islandSceneName;
+    [SerializeField] private SceneField houseSceneName;
     [SerializeField] private SceneField farmSceneName;
     [SerializeField] private SceneField marketSceneName;
+    [SerializeField] private SceneField raceSceneName;
 
     private InventoryManager _inventory;
-
+    
     public static GameManager Instance { get; private set; }
 
     private void Awake() {
         if (!Instance) {
             Instance = this;
             DontDestroyOnLoad(gameObject);                                      // Stay between scene
+
+            foreach (GameObject obj in persistentObjects) if (obj) DontDestroyOnLoad(obj);
         } else Destroy(gameObject);
     }
 
-    private void Start() {
-        _inventory = FindFirstObjectByType<InventoryManager>();                 // Try to find inventory in scene
-    }
-
     private void Update() {
+        if (!_inventory) _inventory = InventoryManager.Instance;                // Try to find inventory in scene
+        if (_inventory) DontDestroyOnLoad(_inventory.gameObject);
+
         HandleGlobalInputs();
     }
 
     private void HandleGlobalInputs() {
-        if (Keyboard.current == null) return;
+        Keyboard kb = Keyboard.current;
+        if (kb == null) return;
 
-        if (Keyboard.current.tabKey.wasPressedThisFrame) ToggleInventory();     // Open/close inventory with Tab
+        if (kb.tabKey.wasPressedThisFrame) ToggleInventory();                   // Open/close inventory with Tab
 
-        if (Keyboard.current.f1Key.wasPressedThisFrame) LoadScene(farmSceneName);   // Scene shortcuts
-        if (Keyboard.current.f2Key.wasPressedThisFrame) LoadScene(marketSceneName);
+        // Scene shortcuts
+        if (kb.f1Key.wasPressedThisFrame || kb.digit1Key.wasPressedThisFrame) LoadScene(islandSceneName);
+        if (kb.f2Key.wasPressedThisFrame || kb.digit2Key.wasPressedThisFrame) LoadScene(houseSceneName);
+        if (kb.f3Key.wasPressedThisFrame || kb.digit3Key.wasPressedThisFrame) LoadScene(farmSceneName);
+        if (kb.f4Key.wasPressedThisFrame || kb.digit4Key.wasPressedThisFrame) LoadScene(marketSceneName);
+        if (kb.f5Key.wasPressedThisFrame || kb.digit5Key.wasPressedThisFrame) LoadScene(raceSceneName);
 
-        if (Keyboard.current.escapeKey.wasPressedThisFrame) HandleEscape();     // Check which UI to close
+        if (kb.escapeKey.wasPressedThisFrame) HandleEscape();                   // Check which UI to close
     }
 
     private void ToggleInventory() {
@@ -52,10 +65,13 @@ public class GameManager : MonoBehaviour {
 
     private void HandleEscape() {
         if (_inventory && _inventory.IsOpened) _inventory.ToggleOpening();      // Close inventory first
-        else Debug.Log("Opening main menu...");                                 // L Close Main Menu
+        else LoadScene(islandSceneName);
     }
 
-    private void LoadScene(SceneField scene) {
-        if (scene != null && !string.IsNullOrEmpty(scene.SceneName)) SceneManager.LoadScene(scene.SceneName);
+    public void LoadScene(SceneField scene) {
+        if (scene == null || string.IsNullOrEmpty(scene.SceneName)) return;
+        if (SceneManager.GetActiveScene().name == scene.SceneName) return;      // Don't load current scene
+
+        SceneManager.LoadScene(scene.SceneName);
     }
 }

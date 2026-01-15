@@ -24,12 +24,17 @@ namespace Items {
         [Header("Position setting")]
         [SerializeField] private Vector2 mouseOffset = new(145, 55); 
 
-        public static UIItemOverlayManager Instance;
+        public static UIItemOverlayManager Instance { get; private set; }
         private ItemData _currentItem;
         private Canvas _canvas;
 
         void Awake() {
+            if (Instance && Instance != this) {
+                gameObject.hideFlags = HideFlags.HideInHierarchy; Destroy(gameObject); return;
+            }                                                                   // Destroy self if is clone
+
             Instance = this;
+
             _canvas = GetComponentInParent<Canvas>();
 
             var group = overlayRoot.GetComponent<CanvasGroup>();
@@ -75,7 +80,7 @@ namespace Items {
         }
 
         public void Show(ItemData item) {
-            if (_currentItem == item && overlayRoot.gameObject.activeSelf) return;
+            if (!overlayRoot || _currentItem == item && overlayRoot.gameObject.activeSelf) return;
 
             overlayRoot.gameObject.SetActive(true);
             _currentItem = item;

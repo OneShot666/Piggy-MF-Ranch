@@ -17,7 +17,7 @@ namespace Fields {
         }
 
         private void SetupGrid() {
-            GridLayoutGroup grid = GetComponent<GridLayoutGroup>();             // Config GridLayoutGroup
+            GridLayoutGroup grid = GetComponent<GridLayoutGroup>();             // Config own GridLayoutGroup composant
             if (!grid) grid = gameObject.AddComponent<GridLayoutGroup>();
 
             grid.cellSize = fieldSize;
@@ -34,6 +34,7 @@ namespace Fields {
                 for (int x = 0; x < width; x++) {
                     var plot = Instantiate(plotPrefab, transform);              // Auto-placed by GridLayoutGroup
                     plot.name = $"Plot_{x}_{y}";
+                    plot.Init(fieldSize);                                       // Set size of plots
                     _plots[x, y] = plot;
                 }
             }

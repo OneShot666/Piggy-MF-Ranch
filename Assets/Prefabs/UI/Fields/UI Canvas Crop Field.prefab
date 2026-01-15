@@ -123,8 +123,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 250, y: 250}
-  m_Spacing: {x: 50, y: 50}
+  m_CellSize: {x: 200, y: 200}
+  m_Spacing: {x: 40, y: 40}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &7032665894321319668
@@ -141,6 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plotPrefab: {fileID: 2281172794440595030, guid: e28286f2768795246aa138c9911cb9a6, type: 3}
   width: 3
-  height: 3
-  fieldSize: {x: 250, y: 250}
-  spacing: {x: 50, y: 50}
+  height: 2
+  fieldSize: {x: 200, y: 200}
+  spacing: {x: 40, y: 40}

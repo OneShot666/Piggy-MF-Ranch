@@ -45,7 +45,7 @@ namespace Items {
             if (UISellOverlay.Instance.IsActive() && eventData.button == PointerEventData.InputButton.Right) {
                 if (_manager) _manager.SellItem(_instance, _instance.quantity); // Sell the whole slot
                 UIItemOverlayManager.Instance?.Hide();                          // Hide item overlay
-                UISellOverlay.Instance?.Hide();                                 // Hide sell overlay
+                UISellOverlay.Instance.Hide();                                  // Hide sell overlay
             }
         }
 
@@ -56,7 +56,7 @@ namespace Items {
 
         public void OnPointerExit(PointerEventData eventData) {
             UIItemOverlayManager.Instance?.Hide();
-            UISellOverlay.Instance?.Hide();
+            if (UISellOverlay.Instance) UISellOverlay.Instance.Hide();
         }
 
         public void OnDisable() {

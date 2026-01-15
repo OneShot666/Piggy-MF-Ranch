@@ -26,9 +26,19 @@ namespace Items {
         public List<ItemInstance> items = new();
 
         private readonly List<InventorySlot> _uiSlots = new();                  // List of generated slots
+        
+        public static InventoryManager Instance { get; private set; }
 
         public bool IsOpened => isOpened;
         public int Money => money;
+
+        private void Awake() {
+            if (Instance && Instance != this) {
+                gameObject.hideFlags = HideFlags.HideInHierarchy; Destroy(gameObject); return;
+            }                                                                   // Destroy self if is clone
+
+            Instance = this;                                                    // Else create instance
+        }
 
         private void Start() {
             if (!inventoryBgImage && uiInventoryPanel) inventoryBgImage = uiInventoryPanel.GetComponent<RectTransform>();

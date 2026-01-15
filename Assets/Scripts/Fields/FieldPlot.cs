@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Items;
+using UnityEngine.UI;
 
 namespace Fields {
     public class FieldPlot : MonoBehaviour {
@@ -23,7 +24,25 @@ namespace Fields {
 
         private float _growTimer;
 
-        private void Start() {
+        public void Init(Vector2 pixelSize) {
+            RectTransform rt = GetComponent<RectTransform>();
+            rt.sizeDelta = pixelSize;
+
+            int totalCols = size.x + 2;
+            int totalRows = size.y + 2;
+
+            GridLayoutGroup grid = gridContainer.GetComponent<GridLayoutGroup>();
+
+            if (grid) {
+                float tileW = pixelSize.x / totalCols;
+                float tileH = pixelSize.y / totalRows;
+
+                grid.cellSize = new Vector2(tileW, tileH);
+                grid.spacing = Vector2.zero;
+                grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+                grid.constraintCount = totalCols;
+            }
+
             GenerateField();
         }
 

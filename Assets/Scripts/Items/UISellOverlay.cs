@@ -78,7 +78,7 @@ namespace Items {
         }
 
         public bool IsActive() {
-            return transform.gameObject.activeSelf;
+            return _root.gameObject.activeSelf;
         }
 
         public void Show(ItemInstance instance, Vector3 position) {
@@ -86,8 +86,8 @@ namespace Items {
 
             if (_manager) _manager.ToggleScrolling(false);
 
-            transform.gameObject.SetActive(true);
-            transform.position = position;                                 // Place next to slot
+            _root.gameObject.SetActive(true);
+            _root.position = position;                                 // Place next to slot
 
             _targetInstance = instance;
             _quantityToSell = 1;
@@ -98,7 +98,7 @@ namespace Items {
         public void Hide() {
             if (_manager) _manager.ToggleScrolling(true);
 
-            transform.gameObject.SetActive(false);
+            if (this && _root) _root.gameObject.SetActive(false);
             _targetInstance = null;
         }
     }
