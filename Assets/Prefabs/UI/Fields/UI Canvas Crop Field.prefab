@@ -116,15 +116,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 50
-    m_Right: 50
-    m_Top: 50
-    m_Bottom: 50
-  m_ChildAlignment: 0
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 40, y: 40}
+  m_Spacing: {x: 30, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &7032665894321319668
@@ -143,4 +143,4 @@ MonoBehaviour:
   width: 3
   height: 2
   fieldSize: {x: 200, y: 200}
-  spacing: {x: 40, y: 40}
+  spacing: {x: 30, y: 20}

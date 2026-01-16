@@ -16,6 +16,8 @@ namespace Fields {
             GeneratePlots();
         }
 
+        public FieldPlot[,] GetAllPlots() => _plots;
+
         private void SetupGrid() {
             GridLayoutGroup grid = GetComponent<GridLayoutGroup>();             // Config own GridLayoutGroup composant
             if (!grid) grid = gameObject.AddComponent<GridLayoutGroup>();
@@ -38,11 +40,6 @@ namespace Fields {
                     _plots[x, y] = plot;
                 }
             }
-        }
-
-        public FieldPlot GetPlotAt(int gridX, int gridY) {
-            if (gridX < 0 || gridX >= width || gridY < 0 || gridY >= height) return null;
-            return _plots[gridX, gridY];
         }
     }
 }

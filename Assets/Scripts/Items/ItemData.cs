@@ -29,9 +29,11 @@ namespace Items {
         public int maxStack = 99;
 
         [Header("Special Parameters")]
-        public int nutritionValue;                                                  // For pig food
-        public float growTime;                                                      // For seed
-        public ItemData cropProduced;                                               // Collected item after grow
+        public int nutritionValue;                                              // For pig food
+        public float growTime;                                                  // For seed
+        public ItemData cropProduced;                                           // Collected item after grow
+        public float boost;                                                     // For potion
+        public float duration;                                                  // If need a timer
 
         public Color GetRarityColor() {
             return rarity switch {

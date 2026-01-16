@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 using Items;
+using Save;
 
-// ! Allow player to choose which seed to plant -> creating overlay
 namespace Fields {
     public class FieldPlot : MonoBehaviour, IPointerClickHandler {
         [Header("References")]
@@ -54,10 +54,6 @@ namespace Fields {
             }
         }
 
-        private void SetCropsSprite(Sprite s) {
-            foreach (var tile in _centerTiles) tile.SetCrop(s);
-        }
-
         public void OnPointerClick(PointerEventData eventData) {                // When interact with field
             if (HasSomethingToHarvest()) HarvestAll();
             else if (IsAnyTileDry()) WaterAll();
@@ -74,19 +70,6 @@ namespace Fields {
             foreach (var tile in _centerTiles)
                 if (tile.CurrentState == FieldTile.TileState.Empty && !tile.IsWet) return true;
             return false;
-        }
-
-        private void RefreshGroundVisuals() {
-            int totalW = size.x + 2;
-            int totalH = size.y + 2;
-            int i = 0;
-            for (int y = totalH - 1; y >= 0; y--) {
-                for (int x = 0; x < totalW; x++) {
-                    Sprite s = fieldSprites.GetSprite(x, y, totalW, totalH, _tiles[i].IsWet);
-                    _tiles[i].SetGround(s, _tiles[i].IsWet);
-                    i++;
-                }
-            }
         }
 
         private void WaterAll() {
@@ -124,12 +107,74 @@ namespace Fields {
         }
 
         private void HarvestAll() {                                              // Add result to inventory
+            bool hasChanged = false;
+
             foreach (var tile in _centerTiles) {
-                ItemData result = tile.Harvest();
-                if (result) InventoryManager.Instance.AddItem(result);
+                if (tile.CurrentState == FieldTile.TileState.Ready) {
+                    ItemData result = tile.Harvest();
+                    if (result) {
+                        InventoryManager.Instance.AddItem(result);
+                        hasChanged = true;
+                    }
+                }
             }
 
-            RefreshGroundVisuals();                                             // Update visuals once harvest -> dry
+            if (hasChanged) CheckIfFieldShouldDry();                            // Update visuals once harvest -> dry
+        }
+
+        private void CheckIfFieldShouldDry() {
+            bool stillHasCrops = false;
+
+            foreach (var tile in _centerTiles) {                                // Check if there is still a seed in crop
+                if (tile.CurrentState != FieldTile.TileState.Empty) {
+                    stillHasCrops = true;
+                    break;
+                }
+            }
+
+            if (!stillHasCrops) foreach (var tile in _tiles) tile.SetWetness(false);    // If crop is empty, make all tile dry
+
+            RefreshGroundVisuals();
+        }
+
+        private void RefreshGroundVisuals() {
+            int totalW = size.x + 2;
+            int totalH = size.y + 2;
+            int i = 0;
+            for (int y = totalH - 1; y >= 0; y--) {
+                for (int x = 0; x < totalW; x++) {
+                    Sprite s = fieldSprites.GetSprite(x, y, totalW, totalH, _tiles[i].IsWet);
+                    _tiles[i].SetGround(s, _tiles[i].IsWet);
+                    i++;
+                }
+            }
+        }
+
+        public FieldSaveData GetPlotSaveData() {
+            FieldSaveData plotData = new FieldSaveData();
+            foreach (var tile in _centerTiles) {
+                plotData.tiles.Add(tile.GetSaveData());
+            }
+            return plotData;
+        }
+
+        public TileSaveData GetSaveData(int index=0) {
+            return new TileSaveData { state = (int)_centerTiles[index].CurrentState,
+                isWet = _centerTiles[index].IsWet, seedName = _centerTiles[index].GetPlantedSeedName(),
+                growTimer = _centerTiles[index].GetTimer()
+            };
+        }
+
+        public void LoadPlotData(FieldSaveData data, List<ItemData> allItems) {
+            for (int i = 0; i < _centerTiles.Count; i++) {
+                if (i >= data.tiles.Count) break;
+
+                var tData = data.tiles[i];
+                ItemData seed = allItems.Find(s => s.name == tData.seedName);   // Find seed by name
+                _centerTiles[i].LoadData(tData, seed);
+            }
+
+            RefreshGroundVisuals();
         }
     }
 }

@@ -26,13 +26,11 @@ namespace Items {
         public List<ItemInstance> items = new();
 
         private readonly List<InventorySlot> _uiSlots = new();                  // List of generated slots
-        private ItemData _selectedSeed;
 
         public static InventoryManager Instance { get; private set; }
 
         public bool IsOpened => isOpened;
         public int Money => money;
-        public ItemData SelectedSeed => _selectedSeed;
 
         private void Awake() {
             if (Instance && Instance != this) {
@@ -58,9 +56,9 @@ namespace Items {
             if (isOpened && Mouse.current.leftButton.wasPressedThisFrame) CheckClickOutside();
         }
 
-        public void AddMoney(int amount) => money += amount;
+        public void SetMoney(int amount) => money = amount;
 
-        public void SetSelectedSeed(ItemData data) => _selectedSeed = data;
+        public void AddMoney(int amount) => money += amount;
 
         private IEnumerator InitInventoryDelay() {
             uiInventoryPanel.SetActive(true);                                   // Activate to get size
@@ -125,7 +123,7 @@ namespace Items {
             if (inventoryScrollRect) inventoryScrollRect.vertical = canScroll;
         }
 
-        private void RefreshUI() {                                              // Update slots
+        public void RefreshUI() {                                               // Update slots
             for (int i = 0; i < _uiSlots.Count; i++) {
                 if (i < items.Count) _uiSlots[i].SetItem(items[i]);             // Display item
                 else _uiSlots[i].Clear();                                       // Or display empty slot
@@ -144,6 +142,43 @@ namespace Items {
             int total = 0;
             foreach (var item in items) if (item.data == data) total += item.quantity;
             return total;
+        }
+        
+        public void UseItem(ItemInstance instance) {
+            if (instance == null || !instance.data) return;
+
+            ItemData data = instance.data;
+            bool consumed = false;
+
+            switch (data.type) {
+                case ItemType.Food:
+                    consumed = UseFood(data);
+                    break;
+
+                case ItemType.Potion:
+                    consumed = UsePotion(data);
+                    break;
+
+                case ItemType.Seed:                                             // L Open SeedSelector if in field scene
+                    break;
+
+                case ItemType.Tool:                                             // L Equip tool
+                    break;
+            }
+
+            if (consumed) RemoveItem(data);                                     // Remove one instance of item
+        }
+
+        private bool UseFood(ItemData data) {                                   // Consume food item
+            Debug.Log($"Miam ! +{data.nutritionValue} nutrition.");             // L Add food logic
+    
+            return true;                                                        // Consumed successfully
+        }
+
+        private bool UsePotion(ItemData data) {                                 // Drink potion
+            Debug.Log("Effet de potion appliqué !");                            // L Add potion logic
+
+            return true;                                                        // Consumed successfully
         }
 
         public bool AddItem(ItemData data, int amount = 1) {                    // Manage stack & capacity

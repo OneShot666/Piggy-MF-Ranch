@@ -65,7 +65,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
+  m_CellSize: {x: 40, y: 40}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
@@ -147,6 +147,3 @@ MonoBehaviour:
   - {fileID: 165295216, guid: 0c9a94aa8646b81419bfd0d9bd3429bb, type: 3}
   - {fileID: -314278046, guid: 0c9a94aa8646b81419bfd0d9bd3429bb, type: 3}
   - {fileID: -1488036103, guid: 0c9a94aa8646b81419bfd0d9bd3429bb, type: 3}
-  isWet: 0
-  state: 0
-  plantedSeed: {fileID: 0}

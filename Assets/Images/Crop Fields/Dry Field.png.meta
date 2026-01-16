@@ -103,10 +103,10 @@ TextureImporter:
       name: Dry Field_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 358
-        width: 160
-        height: 160
+        x: 6
+        y: 363
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,10 +125,10 @@ TextureImporter:
       name: Dry Field_1
       rect:
         serializedVersion: 2
-        x: 183
-        y: 358
-        width: 160
-        height: 160
+        x: 186
+        y: 363
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Dry Field_2
       rect:
         serializedVersion: 2
-        x: 363
-        y: 358
-        width: 160
-        height: 160
+        x: 366
+        y: 363
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: Dry Field_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 186
-        width: 160
-        height: 160
+        x: 6
+        y: 191
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: Dry Field_4
       rect:
         serializedVersion: 2
-        x: 183
-        y: 186
-        width: 160
-        height: 160
+        x: 186
+        y: 191
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: Dry Field_5
       rect:
         serializedVersion: 2
-        x: 363
-        y: 186
-        width: 160
-        height: 160
+        x: 366
+        y: 191
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: Dry Field_6
       rect:
         serializedVersion: 2
-        x: 3
-        y: 14
-        width: 160
-        height: 160
+        x: 6
+        y: 19
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: Dry Field_7
       rect:
         serializedVersion: 2
-        x: 183
-        y: 14
-        width: 160
-        height: 160
+        x: 186
+        y: 19
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +279,10 @@ TextureImporter:
       name: Dry Field_8
       rect:
         serializedVersion: 2
-        x: 363
-        y: 14
-        width: 160
-        height: 160
+        x: 366
+        y: 19
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,7 +311,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":3.0,"y":12.0},"gridSpritePadding":{"x":20.0,"y":12.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":150.0,"y":150.0},"gridSpriteOffset":{"x":6.0,"y":17.0},"gridSpritePadding":{"x":30.0,"y":22.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Dry Field_0: 442374606237565763
       Dry Field_1: 731685687

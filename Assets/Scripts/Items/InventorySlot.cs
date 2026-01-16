@@ -34,8 +34,6 @@ namespace Items {
             if (_instance == null || !UISellOverlay.Instance) return;
 
             if (eventData.button == PointerEventData.InputButton.Left) {        // If click on slot
-                if (_instance.data.type == ItemType.Seed) InventoryManager.Instance.SetSelectedSeed(_instance.data);
-
                 if (UISellOverlay.Instance.IsActive()) {                        // If click again, sell current quantity
                     int amount = UISellOverlay.Instance.SelectedQuantity;
                     if (_manager) _manager.SellItem(_instance, amount);
@@ -46,10 +44,12 @@ namespace Items {
                 }
             }
 
-            if (UISellOverlay.Instance.IsActive() && eventData.button == PointerEventData.InputButton.Right) {
-                if (_manager) _manager.SellItem(_instance, _instance.quantity); // Sell the whole slot
-                UIItemOverlayManager.Instance?.Hide();                          // Hide item overlay
-                UISellOverlay.Instance.Hide();                                  // Hide sell overlay
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                if (UISellOverlay.Instance.IsActive()) {
+                    if (_manager) _manager.SellItem(_instance, _instance.quantity); // Sell the whole slot
+                    UIItemOverlayManager.Instance?.Hide();                          // Hide item overlay
+                    UISellOverlay.Instance.Hide();                                  // Hide sell overlay
+                } else _manager.UseItem(_instance);
             }
         }
 
