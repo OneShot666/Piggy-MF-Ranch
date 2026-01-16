@@ -5,7 +5,8 @@ using UnityEngine;
 using Scenes;
 using Items;
 
-// . Add water fields, plant seeds and harvest functions -> make proto-player or triggers
+// ... Making crop field dry when empty
+// . Add close button function to Seed Selector
 // ! Add use() function in items based on their type
 // ! Make save (money, inventory, crop fields, markets...)
 // ? Add player

@@ -26,11 +26,13 @@ namespace Items {
         public List<ItemInstance> items = new();
 
         private readonly List<InventorySlot> _uiSlots = new();                  // List of generated slots
-        
+        private ItemData _selectedSeed;
+
         public static InventoryManager Instance { get; private set; }
 
         public bool IsOpened => isOpened;
         public int Money => money;
+        public ItemData SelectedSeed => _selectedSeed;
 
         private void Awake() {
             if (Instance && Instance != this) {
@@ -56,9 +58,9 @@ namespace Items {
             if (isOpened && Mouse.current.leftButton.wasPressedThisFrame) CheckClickOutside();
         }
 
-        public void AddMoney(int amount) {
-            money += amount;
-        }
+        public void AddMoney(int amount) => money += amount;
+
+        public void SetSelectedSeed(ItemData data) => _selectedSeed = data;
 
         private IEnumerator InitInventoryDelay() {
             uiInventoryPanel.SetActive(true);                                   // Activate to get size
@@ -138,6 +140,12 @@ namespace Items {
             if (inventoryButton) inventoryButton.interactable = !isOpened;      // Can click only to open
         }
 
+        public int GetTotalQuantity(ItemData data) {
+            int total = 0;
+            foreach (var item in items) if (item.data == data) total += item.quantity;
+            return total;
+        }
+
         public bool AddItem(ItemData data, int amount = 1) {                    // Manage stack & capacity
             if (data.stackable) {                                               // Make stacks
                 foreach (var item in items) {
@@ -148,7 +156,7 @@ namespace Items {
                         item.quantity += toAdd;
                         amount -= toAdd;
 
-                        if (amount <= 0) { RefreshUI(); return true; }          // All inventory has been added
+                        if (amount <= 0) { RefreshUI(); return true; }          // All item stack has been added in inventory
                     }
                 }
             }

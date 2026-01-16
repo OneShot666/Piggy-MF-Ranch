@@ -15,9 +15,10 @@ MonoBehaviour:
   itemName: Corn Seed
   description: Allow to grow corns
   icon: {fileID: -3629688415828508889, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  rarity: 0
   type: 1
-  buyPrice: 20
-  sellPrice: 10
+  buyPrice: 4
+  sellPrice: 2
   stackable: 1
   maxStack: 99
   nutritionValue: 0

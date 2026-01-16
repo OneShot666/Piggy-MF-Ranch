@@ -15,9 +15,10 @@ MonoBehaviour:
   itemName: Banana Seed
   description: Allow to grow bananas
   icon: {fileID: -3629688415828508889, guid: d3a606c823fcdf14b813f17fbe155c13, type: 3}
+  rarity: 0
   type: 1
-  buyPrice: 24
-  sellPrice: 12
+  buyPrice: 6
+  sellPrice: 3
   stackable: 1
   maxStack: 99
   nutritionValue: 0

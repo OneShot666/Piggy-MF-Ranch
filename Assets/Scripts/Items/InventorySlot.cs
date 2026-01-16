@@ -28,10 +28,14 @@ namespace Items {
             if (quantityText) quantityText.text = newItem.quantity > 1 ? $"x{newItem.quantity}" : ""; // Display if more than 1
         }
 
+        public int GetQuantity() => _instance.quantity;
+
         public void OnPointerClick(PointerEventData eventData) {
             if (_instance == null || !UISellOverlay.Instance) return;
 
             if (eventData.button == PointerEventData.InputButton.Left) {        // If click on slot
+                if (_instance.data.type == ItemType.Seed) InventoryManager.Instance.SetSelectedSeed(_instance.data);
+
                 if (UISellOverlay.Instance.IsActive()) {                        // If click again, sell current quantity
                     int amount = UISellOverlay.Instance.SelectedQuantity;
                     if (_manager) _manager.SellItem(_instance, amount);

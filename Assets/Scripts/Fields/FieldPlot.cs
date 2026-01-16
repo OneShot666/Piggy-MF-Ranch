@@ -1,12 +1,11 @@
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using Items;
-using UnityEngine.UI;
 
+// ! Allow player to choose which seed to plant -> creating overlay
 namespace Fields {
-    public class FieldPlot : MonoBehaviour {
-        private enum PlotState { Empty, Growing, Ready }
-
+    public class FieldPlot : MonoBehaviour, IPointerClickHandler {
         [Header("References")]
         [SerializeField] private Vector2Int size = new(3, 3);                   // Doesn't include borders
         [SerializeField] private FieldSprites fieldSprites;
@@ -14,34 +13,14 @@ namespace Fields {
         [SerializeField] private Transform gridContainer;                       // Must have GridLayoutGroup
         [SerializeField] private List<Sprite> growthStages;
 
-        [Header("Grow settings")]
-        [SerializeField] private bool isWet;
-        [SerializeField] private PlotState state = PlotState.Empty;
-        [SerializeField] private ItemData plantedSeed;
-
         private readonly List<FieldTile> _tiles = new();
         private readonly List<FieldTile> _centerTiles = new();                  // Useful tile where plants grows
-
-        private float _growTimer;
+        
+        public List<Sprite> GrowthStages => growthStages;
 
         public void Init(Vector2 pixelSize) {
             RectTransform rt = GetComponent<RectTransform>();
             rt.sizeDelta = pixelSize;
-
-            int totalCols = size.x + 2;
-            int totalRows = size.y + 2;
-
-            GridLayoutGroup grid = gridContainer.GetComponent<GridLayoutGroup>();
-
-            if (grid) {
-                float tileW = pixelSize.x / totalCols;
-                float tileH = pixelSize.y / totalRows;
-
-                grid.cellSize = new Vector2(tileW, tileH);
-                grid.spacing = Vector2.zero;
-                grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-                grid.constraintCount = totalCols;
-            }
 
             GenerateField();
         }
@@ -61,9 +40,13 @@ namespace Fields {
                 for (int x = 0; x < totalW; x++) {
                     GameObject go = Instantiate(tilePrefab, gridContainer);
                     FieldTile tile = go.GetComponent<FieldTile>();
-                    
-                    tile.SetGround(fieldSprites.GetSprite(x, y, totalW, totalH, isWet));
-                    _tiles.Add(tile);
+
+                    if (tile) {
+                        tile.SetTileParent(this);
+                        Sprite s = fieldSprites.GetSprite(x, y, totalW, totalH, tile.IsWet);
+                        tile.SetGround(s, tile.IsWet);
+                        _tiles.Add(tile);
+                    }
 
                     if (x > 0 && x < totalW - 1 && y > 0 && y < totalH - 1)     // If center tile
                         _centerTiles.Add(tile);
@@ -71,35 +54,26 @@ namespace Fields {
             }
         }
 
-        private void Update() {
-            if (state != PlotState.Growing || !isWet) return;
-
-            _growTimer += Time.deltaTime;
-            UpdateGrowthVisuals();
-
-            if (_growTimer >= plantedSeed.growTime) {
-                state = PlotState.Ready;
-                SetCropsSprite(plantedSeed.cropProduced.icon);                  // Display last status (ready to be harvest)
-            }
-        }
-
-        private void UpdateGrowthVisuals() {
-            if (!plantedSeed || growthStages.Count == 0) return;
-
-            float progress = _growTimer / plantedSeed.growTime;                  // Get current status index
-            int stageIndex = Mathf.FloorToInt(progress * growthStages.Count);
-            stageIndex = Mathf.Clamp(stageIndex, 0, growthStages.Count - 1);
-
-            SetCropsSprite(growthStages[stageIndex]);
-        }
-
         private void SetCropsSprite(Sprite s) {
             foreach (var tile in _centerTiles) tile.SetCrop(s);
         }
 
-        public void Water() {
-            isWet = true;
-            RefreshGroundVisuals();
+        public void OnPointerClick(PointerEventData eventData) {                // When interact with field
+            if (HasSomethingToHarvest()) HarvestAll();
+            else if (IsAnyTileDry()) WaterAll();
+            else SeedSelector.Instance.Open(this);
+        }
+
+        private bool HasSomethingToHarvest() {
+            foreach (var tile in _centerTiles) 
+                if (tile.CurrentState == FieldTile.TileState.Ready) return true;
+            return false;
+        }
+
+        private bool IsAnyTileDry() {
+            foreach (var tile in _centerTiles)
+                if (tile.CurrentState == FieldTile.TileState.Empty && !tile.IsWet) return true;
+            return false;
         }
 
         private void RefreshGroundVisuals() {
@@ -108,30 +82,54 @@ namespace Fields {
             int i = 0;
             for (int y = totalH - 1; y >= 0; y--) {
                 for (int x = 0; x < totalW; x++) {
-                    _tiles[i].SetGround(fieldSprites.GetSprite(x, y, totalW, totalH, isWet));
+                    Sprite s = fieldSprites.GetSprite(x, y, totalW, totalH, _tiles[i].IsWet);
+                    _tiles[i].SetGround(s, _tiles[i].IsWet);
                     i++;
                 }
             }
         }
 
-        public bool Plant(ItemData seed) {
-            if (state != PlotState.Empty || seed.type != ItemType.Seed) return false;
-
-            plantedSeed = seed;
-            _growTimer = 0f;
-            state = PlotState.Growing;
-            UpdateGrowthVisuals();
-            return true;
+        private void WaterAll() {
+            int totalW = size.x + 2;
+            int totalH = size.y + 2;
+            
+            int i = 0;
+            for (int y = totalH - 1; y >= 0; y--) {
+                for (int x = 0; x < totalW; x++) {
+                    Sprite s = fieldSprites.GetSprite(x, y, totalW, totalH, true);
+                    _tiles[i].Water(s);
+                    i++;
+                }
+            }
         }
 
-        public void Harvest() {                                                 // Add result to inventory
-            if (state != PlotState.Ready) return;
+        public void PlantMax(ItemData seed) {
+            InventoryManager inv = InventoryManager.Instance;
+            if (!inv) return;
 
-            plantedSeed = null;
-            state = PlotState.Empty;
-            isWet = false;                                                      // Field become dry after harvest
-            SetCropsSprite(null);
-            RefreshGroundVisuals();
+            int availableSeeds = inv.GetTotalQuantity(seed);
+            int plantedCount = 0;
+
+            foreach (var tile in _centerTiles) {
+                if (availableSeeds <= 0) break;
+
+                if (tile.CurrentState == FieldTile.TileState.Empty && tile.IsWet) {
+                    tile.Plant(seed);                                           // Each tile manage self
+                    availableSeeds--;
+                    plantedCount++;
+                }
+            }
+
+            if (plantedCount > 0) inv.RemoveItem(seed, plantedCount);
+        }
+
+        private void HarvestAll() {                                              // Add result to inventory
+            foreach (var tile in _centerTiles) {
+                ItemData result = tile.Harvest();
+                if (result) InventoryManager.Instance.AddItem(result);
+            }
+
+            RefreshGroundVisuals();                                             // Update visuals once harvest -> dry
         }
     }
 }
