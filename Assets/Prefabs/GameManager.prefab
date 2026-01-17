@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3189517286715918923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2783858722363670480}
+  - component: {fileID: 2028819165066684501}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2783858722363670480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189517286715918923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028819165066684501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189517286715918923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a593e20b9a9cf4f9807a68c02db039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistentObjects: []
+  islandSceneName:
+    sceneAsset: {fileID: 102900000, guid: a107701394d242744b99b79897a238f0, type: 3}
+    sceneName: OneShotIslandScene
+  houseSceneName:
+    sceneAsset: {fileID: 102900000, guid: cb8704ee298c646438a21ab1bce95f7c, type: 3}
+    sceneName: FlamVeninScene
+  farmSceneName:
+    sceneAsset: {fileID: 102900000, guid: 17165701df630444297e628f173ff6de, type: 3}
+    sceneName: OneShotFieldScene
+  marketSceneName:
+    sceneAsset: {fileID: 102900000, guid: 4aadc731f519e1c42974bd3de2a17282, type: 3}
+    sceneName: OneShotMarketScene
+  raceSceneName:
+    sceneAsset: {fileID: 102900000, guid: eb34992f0fe68254b8494bf290305827, type: 3}
+    sceneName: TsunakaScene

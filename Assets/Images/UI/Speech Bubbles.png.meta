@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 102413d7832d006438081671eb7ef6d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8366774116975321174
+    second: Speech Bubbles_0
+  - first:
+      213: -1483628973316673792
+    second: Speech Bubbles_1
+  - first:
+      213: 5616427338169197029
+    second: Speech Bubbles_2
+  - first:
+      213: -6939732373235013939
+    second: Speech Bubbles_3
+  - first:
+      213: -5150949335809899317
+    second: Speech Bubbles_4
+  - first:
+      213: 4859533464537307390
+    second: Speech Bubbles_5
+  - first:
+      213: 3144911356527441244
+    second: Speech Bubbles_6
+  - first:
+      213: 1201739740866723850
+    second: Speech Bubbles_7
+  - first:
+      213: 8551263442675922863
+    second: Speech Bubbles_8
+  - first:
+      213: 2195545098380740168
+    second: Speech Bubbles_9
+  - first:
+      213: -4868664105555513020
+    second: Speech Bubbles_10
+  - first:
+      213: 2889604144446081895
+    second: Speech Bubbles_11
+  - first:
+      213: 8829360709740091050
+    second: Speech Bubbles_12
+  - first:
+      213: 5793215731056671467
+    second: Speech Bubbles_13
+  - first:
+      213: -6609646763259073423
+    second: Speech Bubbles_14
+  - first:
+      213: -1884358221409159600
+    second: Speech Bubbles_15
+  - first:
+      213: 6438633046697307464
+    second: Speech Bubbles_16
+  - first:
+      213: -6558449429795447171
+    second: Speech Bubbles_17
+  - first:
+      213: 6126525664633899621
+    second: Speech Bubbles_18
+  - first:
+      213: -1286911593880897424
+    second: Speech Bubbles_19
+  - first:
+      213: 2421220155474978276
+    second: Speech Bubbles_20
+  - first:
+      213: -7190022188351881921
+    second: Speech Bubbles_21
+  - first:
+      213: -3035684618231960455
+    second: Speech Bubbles_22
+  - first:
+      213: -19468413533172093
+    second: Speech Bubbles_23
+  - first:
+      213: -688342920155174756
+    second: Speech Bubbles_24
+  - first:
+      213: -394517601924795388
+    second: Speech Bubbles_25
+  - first:
+      213: 2842268930017469810
+    second: Speech Bubbles_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Speech Bubbles_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 207
+        width: 141
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6502f36fab0cc1470800000000000000
+      internalID: 8366774116975321174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 207
+        width: 87
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00f6bf23f47196be0800000000000000
+      internalID: -1483628973316673792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_2
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 207
+        width: 88
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e12e5e28ee81fd40800000000000000
+      internalID: 5616427338169197029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_3
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 207
+        width: 89
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc66c01cc2e11bf90800000000000000
+      internalID: -6939732373235013939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_4
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 207
+        width: 85
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc44407bed62488b0800000000000000
+      internalID: -5150949335809899317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_5
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 237
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef89ed760f7807340800000000000000
+      internalID: 4859533464537307390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 141
+        width: 105
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55f8ef5738f4ab20800000000000000
+      internalID: 3144911356527441244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 102
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00c4de5def6da010800000000000000
+      internalID: 1201739740866723850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_8
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 147
+        width: 123
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa77b796bc03ca670800000000000000
+      internalID: 8551263442675922863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_9
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 144
+        width: 106
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 846855d62a4287e10800000000000000
+      internalID: 2195545098380740168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_10
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 149
+        width: 69
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4413ba19ac70f6cb0800000000000000
+      internalID: -4868664105555513020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_11
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 192
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b843bd8afe91820800000000000000
+      internalID: 2889604144446081895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_12
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 10
+        width: 95
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa659d919c0388a70800000000000000
+      internalID: 8829360709740091050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_13
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 146
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea76dc7303a56050800000000000000
+      internalID: 5793215731056671467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_14
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 68
+        width: 63
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ce129c941d544a0800000000000000
+      internalID: -6609646763259073423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_15
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 68
+        width: 56
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056f15f6e2a69d5e0800000000000000
+      internalID: -1884358221409159600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_16
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 100
+        width: 55
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84deb7384ae9a5950800000000000000
+      internalID: 6438633046697307464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_17
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 10
+        width: 62
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7edda3edf4bbf4a0800000000000000
+      internalID: -6558449429795447171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_18
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 71
+        width: 117
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56a41dbd1aac50550800000000000000
+      internalID: 6126525664633899621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_19
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 101
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078b56549b8f32ee0800000000000000
+      internalID: -1286911593880897424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_20
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 60
+        width: 55
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e52a1a37e6e99120800000000000000
+      internalID: 2421220155474978276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_21
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 56
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3dfb100ae8e73c90800000000000000
+      internalID: -7190022188351881921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 10
+        width: 150
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97caa286ce41fd5d0800000000000000
+      internalID: -3035684618231960455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_23
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 10
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ec30fb495dabff0800000000000000
+      internalID: -19468413533172093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_24
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 10
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98ee78d2c38276f0800000000000000
+      internalID: -688342920155174756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_25
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 10
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40432afc454668af0800000000000000
+      internalID: -394517601924795388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Bubbles_26
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 10
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27522d96884c17720800000000000000
+      internalID: 2842268930017469810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Speech Bubbles_0: 8366774116975321174
+      Speech Bubbles_1: -1483628973316673792
+      Speech Bubbles_10: -4868664105555513020
+      Speech Bubbles_11: 2889604144446081895
+      Speech Bubbles_12: 8829360709740091050
+      Speech Bubbles_13: 5793215731056671467
+      Speech Bubbles_14: -6609646763259073423
+      Speech Bubbles_15: -1884358221409159600
+      Speech Bubbles_16: 6438633046697307464
+      Speech Bubbles_17: -6558449429795447171
+      Speech Bubbles_18: 6126525664633899621
+      Speech Bubbles_19: -1286911593880897424
+      Speech Bubbles_2: 5616427338169197029
+      Speech Bubbles_20: 2421220155474978276
+      Speech Bubbles_21: -7190022188351881921
+      Speech Bubbles_22: -3035684618231960455
+      Speech Bubbles_23: -19468413533172093
+      Speech Bubbles_24: -688342920155174756
+      Speech Bubbles_25: -394517601924795388
+      Speech Bubbles_26: 2842268930017469810
+      Speech Bubbles_3: -6939732373235013939
+      Speech Bubbles_4: -5150949335809899317
+      Speech Bubbles_5: 4859533464537307390
+      Speech Bubbles_6: 3144911356527441244
+      Speech Bubbles_7: 1201739740866723850
+      Speech Bubbles_8: 8551263442675922863
+      Speech Bubbles_9: 2195545098380740168
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,544 @@
+fileFormatVersion: 2
+guid: 6f1087e382dc8674a9d7c34281fa8f63
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6864069086054517901
+    second: Pokepig Tilesheet_0
+  - first:
+      213: -8384588979227173573
+    second: Pokepig Tilesheet_1
+  - first:
+      213: 3657503601707740866
+    second: Pokepig Tilesheet_2
+  - first:
+      213: 509237191187650837
+    second: Pokepig Tilesheet_3
+  - first:
+      213: 9210446239320598756
+    second: Pokepig Tilesheet_4
+  - first:
+      213: -1332143124027005700
+    second: Pokepig Tilesheet_5
+  - first:
+      213: 95895902096137404
+    second: Pokepig Tilesheet_6
+  - first:
+      213: -7880843302432952802
+    second: Pokepig Tilesheet_7
+  - first:
+      213: 1917809214794290140
+    second: Pokepig Tilesheet_8
+  - first:
+      213: -6865806168340138298
+    second: Pokepig Tilesheet_9
+  - first:
+      213: 3442768840156034594
+    second: Pokepig Tilesheet_10
+  - first:
+      213: -4309243981548934431
+    second: Pokepig Tilesheet_11
+  - first:
+      213: 2818728439896059091
+    second: Pokepig Tilesheet_12
+  - first:
+      213: -3615988488958196916
+    second: Pokepig Tilesheet_13
+  - first:
+      213: -1732114569795198449
+    second: Pokepig Tilesheet_14
+  - first:
+      213: 9000450975886766164
+    second: Pokepig Tilesheet_15
+  - first:
+      213: -8029478574218906334
+    second: Pokepig Tilesheet_16
+  - first:
+      213: -3297838586420225921
+    second: Pokepig Tilesheet_17
+  - first:
+      213: -6473917788460422335
+    second: Pokepig Tilesheet_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 375
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373fafb988dedb0a0800000000000000
+      internalID: -6864069086054517901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 375
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d52813fb4f3ab80800000000000000
+      internalID: -8384588979227173573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_2
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 375
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce6080c52012c230800000000000000
+      internalID: 3657503601707740866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_3
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 375
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519582ff68c211700800000000000000
+      internalID: 509237191187650837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_4
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 265
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8698d3e0412df70800000000000000
+      internalID: 9210446239320598756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_5
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 265
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4246ef2e6438de0800000000000000
+      internalID: -1332143124027005700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_6
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 265
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc1bdb90d0b45100800000000000000
+      internalID: 95895902096137404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_7
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 265
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ea7fb55ce91a290800000000000000
+      internalID: -7880843302432952802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 155
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3d8c2e15d6d9a10800000000000000
+      internalID: 1917809214794290140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_9
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 155
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c6766f9aa1c7b0a0800000000000000
+      internalID: -6865806168340138298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 155
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 226b841050c27cf20800000000000000
+      internalID: 3442768840156034594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_11
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 155
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea294d1e6d7234c0800000000000000
+      internalID: -4309243981548934431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 45
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dcab42f4922e1720800000000000000
+      internalID: 2818728439896059091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_13
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 45
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43cebba0ad61ddc0800000000000000
+      internalID: -3615988488958196916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_14
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 45
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f022415d9fa46f7e0800000000000000
+      internalID: -1732114569795198449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pokepig Tilesheet_15
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 45
+        width: 115
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4507c04e97608ec70800000000000000
+      internalID: 9000450975886766164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 477b65bf94eca3b45973dacc6271a894
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":115.0,"y":110.0},"gridSpriteOffset":{"x":20.0,"y":15.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Pokepig Tilesheet_0: -6864069086054517901
+      Pokepig Tilesheet_1: -8384588979227173573
+      Pokepig Tilesheet_10: 3442768840156034594
+      Pokepig Tilesheet_11: -4309243981548934431
+      Pokepig Tilesheet_12: 2818728439896059091
+      Pokepig Tilesheet_13: -3615988488958196916
+      Pokepig Tilesheet_14: -1732114569795198449
+      Pokepig Tilesheet_15: 9000450975886766164
+      Pokepig Tilesheet_2: 3657503601707740866
+      Pokepig Tilesheet_3: 509237191187650837
+      Pokepig Tilesheet_4: 9210446239320598756
+      Pokepig Tilesheet_5: -1332143124027005700
+      Pokepig Tilesheet_6: 95895902096137404
+      Pokepig Tilesheet_7: -7880843302432952802
+      Pokepig Tilesheet_8: 1917809214794290140
+      Pokepig Tilesheet_9: -6865806168340138298
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49835b2a318331f48a7a606a43827c33, type: 3}
+  m_Name: RareMarketPool
+  m_EditorClassIdentifier: 
+  possibleItems:
+  - {fileID: 11400000, guid: 70de964071c0fcd49acb311ca03b1eb2, type: 2}
+  - {fileID: 11400000, guid: fe17bad7d34f7214492bc7a65957cdf7, type: 2}
+  - {fileID: 11400000, guid: 88dc91aca15a32346bd0c2e553ea35e8, type: 2}
+  - {fileID: 11400000, guid: f93a3355729bb404e9986aba96ca4f4f, type: 2}
+  - {fileID: 11400000, guid: cea0e58733b95a847b6a133fa5505fbb, type: 2}

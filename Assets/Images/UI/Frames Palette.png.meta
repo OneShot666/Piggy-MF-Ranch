@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: 575b348f48423c44ab83106dbd710698
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6168716274054712347
+    second: Frames Palette_0
+  - first:
+      213: -7574533422872714905
+    second: Frames Palette_1
+  - first:
+      213: -2584414558635865783
+    second: Frames Palette_2
+  - first:
+      213: 2464475583021361089
+    second: Frames Palette_3
+  - first:
+      213: 8254013516805945380
+    second: Frames Palette_4
+  - first:
+      213: 6101070038464079988
+    second: Frames Palette_5
+  - first:
+      213: -986908361172024181
+    second: Frames Palette_6
+  - first:
+      213: 1205318484641077285
+    second: Frames Palette_7
+  - first:
+      213: 1810665235637308892
+    second: Frames Palette_8
+  - first:
+      213: 8314829427006668095
+    second: Frames Palette_9
+  - first:
+      213: 4366431820090808003
+    second: Frames Palette_10
+  - first:
+      213: -1393635020559599879
+    second: Frames Palette_11
+  - first:
+      213: 2247658230766477173
+    second: Frames Palette_12
+  - first:
+      213: -4318048693280116588
+    second: Frames Palette_13
+  - first:
+      213: 1512713520442075486
+    second: Frames Palette_14
+  - first:
+      213: -4134758614413021752
+    second: Frames Palette_15
+  - first:
+      213: -7881570760617715555
+    second: Frames Palette_16
+  - first:
+      213: -6847645147890124581
+    second: Frames Palette_17
+  - first:
+      213: 679642635062023262
+    second: Frames Palette_18
+  - first:
+      213: 8729133854509948774
+    second: Frames Palette_19
+  - first:
+      213: -5731842340743301613
+    second: Frames Palette_20
+  - first:
+      213: -3408920235525587564
+    second: Frames Palette_21
+  - first:
+      213: -3407648011410675496
+    second: Frames Palette_22
+  - first:
+      213: -988506779268178323
+    second: Frames Palette_23
+  - first:
+      213: 5568046223412318299
+    second: Frames Palette_24
+  - first:
+      213: -1683310909548286504
+    second: Frames Palette_25
+  - first:
+      213: -4088449293526441207
+    second: Frames Palette_26
+  - first:
+      213: -3036812902978507444
+    second: Frames Palette_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Frames Palette_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 271
+        width: 90
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1cc33b94ceab9550800000000000000
+      internalID: 6168716274054712347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 239
+        width: 112
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7612956cbf9d1e690800000000000000
+      internalID: -7574533422872714905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_2
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 239
+        width: 143
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9494928d6a0522cd0800000000000000
+      internalID: -2584414558635865783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_3
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 259
+        width: 110
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7ac934c73933220800000000000000
+      internalID: 2464475583021361089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_4
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 252
+        width: 98
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428bd78df852c8270800000000000000
+      internalID: 8254013516805945380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_5
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 245
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4782e6800ea5ba450800000000000000
+      internalID: 6101070038464079988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_6
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 245
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b848a7a031ccd42f0800000000000000
+      internalID: -986908361172024181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_7
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 222
+        width: 93
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5285e3696c62ab010800000000000000
+      internalID: 1205318484641077285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 162
+        width: 128
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd8f414076c02910800000000000000
+      internalID: 1810665235637308892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 140
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d72bc5f45346370800000000000000
+      internalID: 8314829427006668095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_10
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 212
+        width: 110
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c699742b9ea89c30800000000000000
+      internalID: 4366431820090808003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_11
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 215
+        width: 90
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f630052550d8ace0800000000000000
+      internalID: -1393635020559599879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_12
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 179
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f91559049413f10800000000000000
+      internalID: 2247658230766477173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_13
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 179
+        width: 56
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 490f23a67953314c0800000000000000
+      internalID: -4318048693280116588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 137
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5961e0aeec3ef410800000000000000
+      internalID: 1512713520442075486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_15
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 108
+        width: 110
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdece372f26e96c0800000000000000
+      internalID: -4134758614413021752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_16
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 159
+        width: 115
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98964dc6290f9290800000000000000
+      internalID: -7881570760617715555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_17
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 117
+        width: 123
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8f414b40748f0a0800000000000000
+      internalID: -6847645147890124581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_18
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 98
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e54151d20639e6900800000000000000
+      internalID: 679642635062023262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_19
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 98
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66fd6e2edfc142970800000000000000
+      internalID: 8729133854509948774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_20
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 96
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316b37b72c76470b0800000000000000
+      internalID: -5731842340743301613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_21
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 97
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d3bd56b1511b0d0800000000000000
+      internalID: -3408920235525587564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_22
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 7
+        width: 62
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8ec48203a95b0d0800000000000000
+      internalID: -3407648011410675496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_23
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 108
+        width: 115
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e97a3525e1842f0800000000000000
+      internalID: -988506779268178323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_24
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 19
+        width: 152
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5052771a8ca54d40800000000000000
+      internalID: 5568046223412318299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_25
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 23
+        width: 203
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dda5d575ada3a8e0800000000000000
+      internalID: -1683310909548286504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_26
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 13
+        width: 87
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903e8217709e247c0800000000000000
+      internalID: -4088449293526441207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Palette_27
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 21
+        width: 169
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4da4a421c21bd5d0800000000000000
+      internalID: -3036812902978507444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Frames Palette_0: 6168716274054712347
+      Frames Palette_1: -7574533422872714905
+      Frames Palette_10: 4366431820090808003
+      Frames Palette_11: -1393635020559599879
+      Frames Palette_12: 2247658230766477173
+      Frames Palette_13: -4318048693280116588
+      Frames Palette_14: 1512713520442075486
+      Frames Palette_15: -4134758614413021752
+      Frames Palette_16: -7881570760617715555
+      Frames Palette_17: -6847645147890124581
+      Frames Palette_18: 679642635062023262
+      Frames Palette_19: 8729133854509948774
+      Frames Palette_2: -2584414558635865783
+      Frames Palette_20: -5731842340743301613
+      Frames Palette_21: -3408920235525587564
+      Frames Palette_22: -3407648011410675496
+      Frames Palette_23: -988506779268178323
+      Frames Palette_24: 5568046223412318299
+      Frames Palette_25: -1683310909548286504
+      Frames Palette_26: -4088449293526441207
+      Frames Palette_27: -3036812902978507444
+      Frames Palette_3: 2464475583021361089
+      Frames Palette_4: 8254013516805945380
+      Frames Palette_5: 6101070038464079988
+      Frames Palette_6: -986908361172024181
+      Frames Palette_7: 1205318484641077285
+      Frames Palette_8: 1810665235637308892
+      Frames Palette_9: 8314829427006668095
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
