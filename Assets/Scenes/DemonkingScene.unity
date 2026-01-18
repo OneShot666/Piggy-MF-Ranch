@@ -149,6 +149,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mutationChance: 0.03
+  specialRecipes:
+  - {fileID: 11400000, guid: 0da174053c6d4f6409abf6134bbc9dc6, type: 2}
+  - {fileID: 11400000, guid: 6dfcbbfc8d6a2cc4da34f21a10547bcd, type: 2}
+  - {fileID: 11400000, guid: 486ed5809e253ac4fa8336fa48e583cc, type: 2}
+  - {fileID: 11400000, guid: e006d9734bd60bf4f8f32e7b8db46868, type: 2}
+  colorPowerAffinities:
+  - {fileID: 11400000, guid: 827c261c6aa86fb4681859a2947d2d54, type: 2}
+  - {fileID: 11400000, guid: 88a078cde22c7eb45bb6078e88ae7b05, type: 2}
+  - {fileID: 11400000, guid: 8d7d39d2dafddd14c8fde0dec6e9dadf, type: 2}
+  - {fileID: 11400000, guid: 07cce3f6623bdc44e986dc8ae3ca8657, type: 2}
 --- !u!4 &828920419
 Transform:
   m_ObjectHideFlags: 0

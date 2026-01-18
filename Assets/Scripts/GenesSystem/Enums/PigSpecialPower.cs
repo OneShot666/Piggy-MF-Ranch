@@ -6,5 +6,4 @@ public enum PigSpecialPower
     MatingChance,
     XPBoost,
     GeneralBoost,
-    Random
 }
