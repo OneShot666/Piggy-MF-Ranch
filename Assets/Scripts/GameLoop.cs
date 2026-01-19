@@ -1,16 +1,18 @@
+using Basic;
+using Managers;
 using UnityEngine;
 
 public class GameLoop : MonoBehaviour {
     public FarmManager farmManager;
     public PigManager pigManager;
     public float dayLength = 60f;
-    private float timer = 0f;
+    private float _timer;
     public int dayCount = 1;
 
     void Update() {
-        timer += Time.deltaTime;
-        if (timer >= dayLength) {
-            timer = 0f;
+        _timer += Time.deltaTime;
+        if (_timer >= dayLength) {
+            _timer = 0f;
             NextDay();
         }
     }

@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a593e20b9a9cf4f9807a68c02db039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistentObjects: []
+  persistentObjects:
+  - {fileID: 0}
   islandSceneName:
     sceneAsset: {fileID: 102900000, guid: a107701394d242744b99b79897a238f0, type: 3}
     sceneName: OneShotIslandScene
@@ -60,3 +61,7 @@ MonoBehaviour:
   raceSceneName:
     sceneAsset: {fileID: 102900000, guid: eb34992f0fe68254b8494bf290305827, type: 3}
     sceneName: TsunakaScene
+  portSceneName:
+    sceneAsset: {fileID: 102900000, guid: 0ebc2f15833900343a29c6f14ac35a6d, type: 3}
+    sceneName: PortScene
+  allPossibleItems: []
