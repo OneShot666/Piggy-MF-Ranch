@@ -4,6 +4,7 @@ using System.Text;
 using UnityEngine;
 using System.IO;
 using Basic;
+using Pigs;
 
 public class SaveSystem : MonoBehaviour {
     private string SavePath => Application.persistentDataPath + "/save.dat";

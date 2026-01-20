@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c5075e5bc3725e4e904a50656cce144
+guid: 317e056478b42414f9f9e38f7e61d8fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7877997846765864981
-    second: Item Overlay Image Frame_0
+      213: 1936322969936824757
+    second: Breeding enclosure illustration_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item Overlay Image Frame_0
+      name: Breeding enclosure illustration_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 63
-        width: 514
-        height: 514
+        x: 0
+        y: 0
+        width: 1536
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51885cd5d45445d60800000000000000
-      internalID: 7877997846765864981
+      spriteID: 5b983896b733fda10800000000000000
+      internalID: 1936322969936824757
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Item Overlay Image Frame_0: 7877997846765864981
+      Breeding enclosure illustration_0: 1936322969936824757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

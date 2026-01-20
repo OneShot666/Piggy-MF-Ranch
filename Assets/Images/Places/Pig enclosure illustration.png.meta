@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c5075e5bc3725e4e904a50656cce144
+guid: 4f8f4d611209c734780c86946b59b76f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7877997846765864981
-    second: Item Overlay Image Frame_0
+      213: -4606317319679258041
+    second: Pig enclosure illustration_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item Overlay Image Frame_0
+      name: Pig enclosure illustration_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 63
-        width: 514
-        height: 514
+        x: 0
+        y: 0
+        width: 1536
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51885cd5d45445d60800000000000000
-      internalID: 7877997846765864981
+      spriteID: 742d9c59dc21310c0800000000000000
+      internalID: -4606317319679258041
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Item Overlay Image Frame_0: 7877997846765864981
+      Pig enclosure illustration_0: -4606317319679258041
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

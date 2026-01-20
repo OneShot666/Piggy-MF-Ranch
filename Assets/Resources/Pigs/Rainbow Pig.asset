@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737194012cdf4dc482e922827ee02c96, type: 3}
+  m_Name: Rainbow Pig
+  m_EditorClassIdentifier: 
+  icon: {fileID: -2242743431996505919, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
+  color: 5
+  rarity: 3
+  baseSpeed: 15
+  baseEndurance: 100
+  passivePower: 5
+  activePower: 3

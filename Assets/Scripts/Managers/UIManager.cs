@@ -1,4 +1,5 @@
 using Basic;
+using Pigs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +13,10 @@ namespace Managers {
             if (pig == null) return;
             pigStatsText.text = $"Couleur: {pig.Color}\nRareté: {pig.Rarity}\nVitesse: {pig.Speed}\n" +
                 $"Pouvoir: {pig.PassivePower}\nGénération: {pig.Generation}";
-            hungerBar.value = pig.WellBeing.Hunger;
-            happinessBar.value = pig.WellBeing.Happiness;
-            cleanlinessBar.value = pig.WellBeing.Cleanliness;
-            enduranceBar.value = pig.WellBeing.Endurance;
+            hungerBar.value = pig.Hunger;
+            happinessBar.value = pig.Happiness;
+            cleanlinessBar.value = pig.Cleanliness;
+            enduranceBar.value = pig.Endurance;
         }
 
         public void DisplayResources(int gold, int food, int energy, int day) {

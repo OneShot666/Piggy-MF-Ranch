@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace GenesSystem.Colors {
-    [CreateAssetMenu(fileName = "ColorPowerAffinityData", menuName = "Scriptable Objects/ColorPowerAffinityData")]
+namespace Breeding.Colors {
+    [CreateAssetMenu(fileName = "ColorPowerAffinityData", menuName = "Pigs/Color Power")]
     public class ColorPowerAffinityData : ScriptableObject {
         public PigColor color;
         public PigPassivePower favoredPower;

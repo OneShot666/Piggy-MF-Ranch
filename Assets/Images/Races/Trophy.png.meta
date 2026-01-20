@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c5075e5bc3725e4e904a50656cce144
+guid: 7818cd42996ca394191c3324c6faaa9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7877997846765864981
-    second: Item Overlay Image Frame_0
+      213: -2138534889620764463
+    second: Trophy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 50, y: 180, z: 50, w: 124}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item Overlay Image Frame_0
+      name: Trophy_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 63
-        width: 514
-        height: 514
+        x: 54
+        y: 182
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51885cd5d45445d60800000000000000
-      internalID: 7877997846765864981
+      spriteID: 1d8006c29d56252e0800000000000000
+      internalID: -2138534889620764463
       vertices: []
       indices: 
       edges: []
@@ -126,16 +126,18 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":300.0,"y":300.0},"gridSpriteOffset":{"x":54.0,"y":130.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Item Overlay Image Frame_0: 7877997846765864981
+      Trophy_0: -2138534889620764463
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

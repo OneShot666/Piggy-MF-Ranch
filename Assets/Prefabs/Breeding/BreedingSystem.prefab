@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6454718795185443245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4180540242225225663}
+  - component: {fileID: 3242444161367169090}
+  m_Layer: 0
+  m_Name: BreedingSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4180540242225225663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454718795185443245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3242444161367169090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454718795185443245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823fb7eb15284934983e38bc4f99c947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutationChance: 0.03
+  specialRecipes:
+  - {fileID: 11400000, guid: 0da174053c6d4f6409abf6134bbc9dc6, type: 2}
+  - {fileID: 11400000, guid: 6dfcbbfc8d6a2cc4da34f21a10547bcd, type: 2}
+  - {fileID: 11400000, guid: 486ed5809e253ac4fa8336fa48e583cc, type: 2}
+  - {fileID: 11400000, guid: e006d9734bd60bf4f8f32e7b8db46868, type: 2}
+  colorPowerAffinities:
+  - {fileID: 11400000, guid: 827c261c6aa86fb4681859a2947d2d54, type: 2}
+  - {fileID: 11400000, guid: 88a078cde22c7eb45bb6078e88ae7b05, type: 2}
+  - {fileID: 11400000, guid: 8d7d39d2dafddd14c8fde0dec6e9dadf, type: 2}
+  - {fileID: 11400000, guid: 07cce3f6623bdc44e986dc8ae3ca8657, type: 2}
+  raritySettings:
+  - {fileID: 11400000, guid: a9616eda6dbc3754f89a2469796bc53f, type: 2}
+  - {fileID: 11400000, guid: 299e4d1530873e846968ba55a78eda98, type: 2}
+  - {fileID: 11400000, guid: ae4d0e276a24de94db06d5cfbcf700d3, type: 2}
+  - {fileID: 11400000, guid: b40b33190934d254fa6241470c8906e4, type: 2}
+  - {fileID: 11400000, guid: 5c3f0e6481ac5bc4798fb3a98fc1f4e0, type: 2}

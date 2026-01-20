@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace GenesSystem {
-    [CreateAssetMenu(fileName = "PigGeneProfile", menuName = "Scriptable Objects/PigGeneProfile")]
+namespace Breeding {
+    [CreateAssetMenu(fileName = "PigGeneProfile", menuName = "Pigs/PigGeneProfile")]
     public class PigGeneProfile : ScriptableObject {
         public PigColor color;
         public PigRarity rarity;

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Basic;
+using Pigs;
 
 public class RaceManager : MonoBehaviour {
     public List<Pig> racePigs = new List<Pig>();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Basic;
+using Pigs;
 
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable Unity.RedundantEventFunction
@@ -36,7 +37,7 @@ namespace Managers {
         void Update() {
             // Ici, on pourrait décrémenter le bien-être de chaque cochon
             foreach (var pig in pigs) {
-                pig.WellBeing.DecrementAll(Time.deltaTime);
+                pig.DecrementAll(Time.deltaTime);
             }
         }
     }

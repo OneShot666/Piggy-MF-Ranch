@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace GenesSystem.Colors {
-    [CreateAssetMenu(fileName = "SpecialColorRecipeData", menuName = "Scriptable Objects/SpecialColorRecipeData")]
+namespace Breeding.Colors {
+    [CreateAssetMenu(fileName = "PassiveColorRecipeData", menuName = "Pigs/Passive Color Recipe")]
     public class PassiveColorRecipeData : ScriptableObject {
         public PigColor parentColorA;
         public PigColor parentColorB;
