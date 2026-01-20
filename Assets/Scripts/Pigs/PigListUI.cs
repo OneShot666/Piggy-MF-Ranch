@@ -30,7 +30,7 @@ public class PigListUI : MonoBehaviour
         foreach (var pig in pigManager.pigs)
         {
             PigButtonUI button = Instantiate(pigButtonPrefab, content, false);
-            button.Init(pig, OnPigSelected);
+            button.Init(pig);
         }
 
         if (pigManager.pigs.Count > 0)

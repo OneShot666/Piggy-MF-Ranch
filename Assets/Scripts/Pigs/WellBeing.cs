@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System;
-//TODO: chance augmentée d'avoir un cochon rare si propre: half done
-// Seuils de faim et les 2 de propretés qui augmentent la joie si > 60%, entre 40 et 60 rien, en-dessous ça baisse: done
+//TODO:
 // Satiety is the energy used to take part in a race: not done
-// Le cochon se sali plus vite en fonction de l'enclos: not done
 // L'enclos se sali plus vite en fonction du nombre de cochons: not done
 // Si le cochon a faim il perd en vitesse: not done
 // Une barre de vie qui fait mourir le cochon quand elle atteint 0 et qui s'active quand satiety ou cleanliness = 0: not done
@@ -58,10 +56,13 @@ public class WellBeing {
         bool isClean = CleanlinessPig >= 60f && CleanlinessEnclosure >= 60f;
         bool isDirty = CleanlinessPig < 40f || CleanlinessEnclosure < 40f;
 
-        if (stomachEmpty || isDirty)
-            Happiness = Mathf.Clamp(Happiness - decreaseHappinessPerSecond * deltaTime, 0, 100);
-        else if (stomachFull && isClean)
-            Happiness = Mathf.Clamp(Happiness + increaseHappinessPerSecond * deltaTime, 0, 100);
+        if (Happiness >= 100f && stomachFull && isClean) return;
+    	if (Happiness <= 0f && (stomachEmpty || isDirty)) return;
+
+    	if (stomachEmpty || isDirty)
+        	Happiness = Mathf.Max(0, Happiness - decreaseHappinessPerSecond * deltaTime);
+    	else if (stomachFull && isClean)
+        	Happiness = Mathf.Min(100, Happiness + increaseHappinessPerSecond * deltaTime);
         
         Notify();
     }

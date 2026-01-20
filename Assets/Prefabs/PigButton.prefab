@@ -285,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: {fileID: 926544288574239906}
   button: {fileID: 4499525620738951555}
+  pigManager: {fileID: 2892671628718622856, guid: 308b15958b5bea141a2f0f2435961d5f, type: 3}
 --- !u!1 &8231065921501803522
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +297,6 @@ GameObject:
   - component: {fileID: 5153886248222979934}
   - component: {fileID: 6409583361766397219}
   - component: {fileID: 6477705948587085912}
-  - component: {fileID: 8911612868229360404}
   m_Layer: 5
   m_Name: PigIcon
   m_TagString: Untagged
@@ -361,15 +361,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8911612868229360404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231065921501803522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8fbe1553f2b64abb11abcc44158ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

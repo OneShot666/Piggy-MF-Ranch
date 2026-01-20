@@ -4,10 +4,18 @@ using UnityEngine;
 public class PigManager : MonoBehaviour
 {
     public List<Pig> pigs = new List<Pig>();
+	public Pig CurrentPig { get; private set; }
 
     public void AddPig(Pig pig)
     {
         pigs.Add(pig);
+		if (CurrentPig == null)
+            CurrentPig = pig;
+    }
+
+	public void SelectPig(Pig pig)
+    {
+        CurrentPig = pig;
     }
 
     public Pig GetPig(int index)

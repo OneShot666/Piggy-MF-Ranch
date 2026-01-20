@@ -6,7 +6,7 @@ public class PigWellBeingUI : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private PigManager pigManager;
-    [SerializeField] private int pigIndex = 0;
+    //[SerializeField] private int pigIndex = 0;
 
     [Header("UI Bars")]
     [SerializeField] private Slider happinessBar;
@@ -32,7 +32,7 @@ public class PigWellBeingUI : MonoBehaviour
 
     void Update()
     {
-        Pig pig = pigManager.GetPig(pigIndex);
+        Pig pig = pigManager.CurrentPig;
         if (pig == null) return;
 
         WellBeing wb = pig.WellBeing;
