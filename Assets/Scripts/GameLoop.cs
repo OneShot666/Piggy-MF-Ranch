@@ -1,5 +1,6 @@
 using UnityEngine;
 using Managers;
+using PigManager = Managers.PigManager;
 
 public class GameLoop : MonoBehaviour {
     public FarmManager farmManager;

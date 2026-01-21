@@ -1,12 +1,17 @@
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine;
 
 namespace UI {
+    [RequireComponent(typeof(Image))]
     public class UIButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         [SerializeField] private bool hideByDefault = true;
         [SerializeField] private GameObject visualToToggle;
 
         private void Awake() {
+            Image image = GetComponent<Image>();
+            image.raycastTarget = true;
+
             if (visualToToggle) visualToToggle.SetActive(!hideByDefault);
         }
 

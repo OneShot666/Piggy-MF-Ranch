@@ -1,7 +1,7 @@
-﻿using Managers;
-using UnityEngine.EventSystems;
+﻿using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
+using Managers;
 using Pigs;
 
 namespace Breeding {
@@ -14,7 +14,8 @@ namespace Breeding {
         [SerializeField] private Image selectedRenderer;
 
         private Pig _data;
-        private BreedingManager _manager;
+        private PigManager _pigManager;
+        private BreedingManager _breedManager;
         private RectTransform _rectTransform;
         private RectTransform _container;
         private Vector2 _targetPosition;
@@ -23,7 +24,18 @@ namespace Breeding {
         public void Setup(Pig data, RectTransform container, BreedingManager manager) {
             _data = data;
             _container = container;
-            _manager = manager;
+            _breedManager = manager;
+            _rectTransform = GetComponent<RectTransform>();
+
+            if (pigRenderer) pigRenderer.sprite = data.Icon;
+            if (selectedRenderer) selectedRenderer.enabled = false;
+            SetNewDestination();
+        }
+
+        public void Setup(Pig data, RectTransform container, PigManager manager) {
+            _data = data;
+            _container = container;
+            _pigManager = manager;
             _rectTransform = GetComponent<RectTransform>();
 
             if (pigRenderer) pigRenderer.sprite = data.Icon;
@@ -73,7 +85,8 @@ namespace Breeding {
         }
 
         public void OnPointerClick(PointerEventData eventData) {                // When click on pig
-            _manager.SelectParent(_data);
+            if (_breedManager) _breedManager.SelectParent(_data);
+            else if (_pigManager) _pigManager.OnPigClick(_data, eventData.position);
         }
 
         private void OnDisable() {

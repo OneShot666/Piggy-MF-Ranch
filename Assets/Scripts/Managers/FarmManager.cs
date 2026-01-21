@@ -35,9 +35,9 @@ namespace Managers {
         }
 
         public void SellPig(PigManager pigManager, int pigIndex, int price) {
-            if (pigIndex < 0 || pigIndex >= pigManager.pigs.Count) return;
+            if (pigIndex < 0 || pigIndex >= pigManager.Pigs.Count) return;
 
-            pigManager.pigs.RemoveAt(pigIndex);
+            pigManager.Pigs.RemoveAt(pigIndex);
             AddGold(price);
         }
 

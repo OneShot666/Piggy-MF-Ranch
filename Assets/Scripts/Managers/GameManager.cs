@@ -10,6 +10,7 @@ using Save;
 
 // L Increase timer of seeds (grow too fast)
 // ? Add watering can
+// L [Enclosure/Breeding scenes] Multiply speed of pigs byb their real speed to move in areas
 // L Make shortcuts menu (UI) for places (scenes) in island scene
 // L Upgrade save system to save pigs
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
@@ -24,6 +25,7 @@ namespace Managers {
         [SerializeField] private SceneField islandSceneName;
         [SerializeField] private SceneField houseSceneName;
         [SerializeField] private SceneField farmSceneName;
+        [SerializeField] private SceneField breedSceneName;
         [SerializeField] private SceneField marketSceneName;
         [SerializeField] private SceneField raceSceneName;
         [SerializeField] private SceneField portSceneName;
@@ -78,6 +80,7 @@ namespace Managers {
             if (kb.f4Key.wasPressedThisFrame || kb.digit4Key.wasPressedThisFrame) LoadScene(marketSceneName);
             if (kb.f5Key.wasPressedThisFrame || kb.digit5Key.wasPressedThisFrame) LoadScene(raceSceneName);
             if (kb.f6Key.wasPressedThisFrame || kb.digit6Key.wasPressedThisFrame) LoadScene(portSceneName);
+            if (kb.f7Key.wasPressedThisFrame || kb.digit7Key.wasPressedThisFrame) LoadScene(breedSceneName);
 
             if (kb.escapeKey.wasPressedThisFrame) HandleEscape();                   // Check which UI to close
         }
@@ -98,8 +101,7 @@ namespace Managers {
             SceneManager.LoadScene(scene.SceneName);
         }
 
-        private void SaveFullGame()
-        {
+        private void SaveFullGame() {
             if (!_inventory) return;
 
             GlobalSaveData data = new GlobalSaveData { money = _inventory.Money }; // Save money and inventory content

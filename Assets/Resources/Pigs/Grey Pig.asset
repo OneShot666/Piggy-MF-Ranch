@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737194012cdf4dc482e922827ee02c96, type: 3}
   m_Name: Grey Pig
   m_EditorClassIdentifier: 
-  icon: {fileID: -1253832126966768097, guid: c393fc68272c6c44cbc39826992ef33b, type: 3}
+  icon: {fileID: -3365234672281028479, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
   color: 6
   rarity: 4
   baseSpeed: 5
