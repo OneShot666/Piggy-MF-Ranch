@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 7235860101278655021}
   - component: {fileID: 2890417912347517604}
   m_Layer: 5
-  m_Name: UI Canvas Seed Selector
+  m_Name: UI Seed Selector Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

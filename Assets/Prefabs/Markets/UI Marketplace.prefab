@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5373453920255043293}
   - component: {fileID: 5967121209255959150}
   m_Layer: 5
-  m_Name: UIMarketplace
+  m_Name: UI Marketplace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

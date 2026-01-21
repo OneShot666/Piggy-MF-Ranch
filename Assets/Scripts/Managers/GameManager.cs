@@ -10,6 +10,8 @@ using Save;
 
 // L Increase timer of seeds (grow too fast)
 // ? Add watering can
+// L Make shortcuts menu (UI) for places (scenes) in island scene
+// L Upgrade save system to save pigs
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 // ReSharper disable PossibleInvalidCastExceptionInForeachLoop
 namespace Managers {

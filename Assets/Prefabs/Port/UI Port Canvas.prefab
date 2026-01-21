@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1293136222459266995}
   - component: {fileID: 1997682910609209962}
   m_Layer: 5
-  m_Name: UI Canvas Port
+  m_Name: UI Port Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

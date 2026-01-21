@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 7105697214319172868}
   - component: {fileID: 6146864724849199956}
   m_Layer: 5
-  m_Name: UI Canvas Island
+  m_Name: UI Island Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

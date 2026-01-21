@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Pigs {
+    /// <summary> ScriptableObject class to have an object for each type of pig (based on rarity) </summary>
     [CreateAssetMenu(fileName = "NewPigData", menuName = "Pigs/Pig")]
     public class PigData : ScriptableObject {
         public Sprite icon;

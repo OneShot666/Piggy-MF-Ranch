@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8826479784844441439}
   - component: {fileID: 3838454425093662872}
   m_Layer: 5
-  m_Name: UI Canvas Market
+  m_Name: UI Market Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

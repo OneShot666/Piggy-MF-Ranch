@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8912868979943878066}
   - component: {fileID: 9054359391588713889}
   m_Layer: 5
-  m_Name: UISeedButton
+  m_Name: UI Seed Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -2200038374121049925, guid: c393fc68272c6c44cbc39826992ef33b, type: 3}
   color: 8
-  rarity: 3
-  baseSpeed: 10
+  rarity: 4
+  baseSpeed: 11
   baseEndurance: 100
   passivePower: 3
   activePower: 3

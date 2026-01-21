@@ -7,8 +7,10 @@ namespace Managers {
     public class FarmManager : MonoBehaviour {
         public int gold;
         public int food;
-        public int energy = 100; // Daily energy
+        public int energy = 100;                                                // Daily energy
         public List<bool> enclosuresClean = new();
+        
+        public bool hasAutoHarvest;                                             // ? Make upgrades in game
 
         public void AddGold(int amount) {
             gold += amount;

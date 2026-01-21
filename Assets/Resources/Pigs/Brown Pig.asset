@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: -977228331374655454, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
   color: 1
   rarity: 1
-  baseSpeed: 5
-  baseEndurance: 100
-  passivePower: 0
+  baseSpeed: 6
+  baseEndurance: 110
+  passivePower: 2
   activePower: 0

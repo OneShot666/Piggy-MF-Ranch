@@ -17,5 +17,5 @@ MonoBehaviour:
   rarity: 2
   baseSpeed: 10
   baseEndurance: 100
-  passivePower: 2
+  passivePower: 4
   activePower: 0

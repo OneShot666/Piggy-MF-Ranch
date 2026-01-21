@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737194012cdf4dc482e922827ee02c96, type: 3}
   m_Name: Pink Pig
   m_EditorClassIdentifier: 
-  icon: {fileID: -315201252150137715, guid: c393fc68272c6c44cbc39826992ef33b, type: 3}
+  icon: {fileID: 7396659066281352090, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
   color: 0
   rarity: 0
   baseSpeed: 3

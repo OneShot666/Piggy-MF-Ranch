@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Breeding.Colors;
 using UnityEngine;
-using Basic;
 using Pigs;
 
 // Public enums
@@ -25,6 +24,10 @@ namespace Breeding {
 
         [Header("Rarity Data Settings")]
         [SerializeField] private List<RarityData> raritySettings = new();
+
+        [Header("Database")]
+        [Tooltip("Each scriptables objects of pigs")]
+        [SerializeField] private List<PigData> pigDatabase = new(); 
 
         #region Structures et Dictionnaires
     
@@ -50,10 +53,11 @@ namespace Breeding {
         public Pig Breed(Pig parent1, Pig parent2) {
             if (!CanBreed(parent1, parent2)) return null;
 
-            bool isMutation = parent1.Color == PigColor.Rainbow || parent2.Color == PigColor.Rainbow || 
+            bool isMutation = parent1.SkinColor == PigColor.Rainbow || parent2.SkinColor == PigColor.Rainbow || 
                 Random.value < mutationChance;
 
             PigColor offspringColor = GetOffspringColor(parent1, parent2, isMutation);
+            Sprite babyIcon = GetSpriteForColor(offspringColor);
             PigRarity offspringRarity = GetOffspringRarity(parent1, parent2);
 
             float speed = CalculateStat(parent1.Speed, parent2.Speed, offspringRarity, isMutation);
@@ -64,9 +68,10 @@ namespace Breeding {
             int mutationBonus = Mathf.Max(parent1.MutationBonus, parent2.MutationBonus);
             int generation = Mathf.Max(parent1.Generation, parent2.Generation) + 1;
 
-            Pig newPig = new Pig(offspringColor, offspringRarity, speed, passivePower, activePower, mutationBonus, generation);
-            if (passivePower == null || activePower == null) newPig.FailedToGainPower();
-            return newPig;
+            Pig piglet = new Pig(babyIcon, offspringColor, offspringRarity, speed, 
+                passivePower, activePower, mutationBonus, generation);
+            if (passivePower == null || activePower == null) piglet.FailedToGainPower();
+            return piglet;
         }
 
         /// <summary> Check if two pigs can reproduce. </summary>
@@ -75,6 +80,14 @@ namespace Breeding {
         /// <returns>True si la reproduction est possible.</returns>
         private bool CanBreed(Pig parent1, Pig parent2) {
             return parent1 != null && parent2 != null && parent1.IsFitForBreeding() && parent2.IsFitForBreeding();
+        }
+
+        /// <summary> Find the pig image based on its image </summary>
+        /// <param name="color">Color of pig</param>
+        /// <returns>Icon of pig</returns>
+        private Sprite GetSpriteForColor(PigColor color) {
+            PigData data = pigDatabase.Find(p => p.color == color);
+            return data ? data.icon : null;
         }
         #endregion
 
@@ -87,174 +100,12 @@ namespace Breeding {
         }
         #endregion
 
-        #region Tests
-        [ContextMenu("Analytical Lineage Test")]
-        public void TestLigneeAnalytique() {
-            Debug.Log("<color=orange><b>=== START OF ANALYTICAL GENEALOGY TEST ===</b></color>");
-
-            // Initializing starting parents (Generation 0)
-            Pig parentA = new Pig(PigColor.Pink, PigRarity.Common, 10f, 
-                PigPassivePower.None, PigActivePower.None, 0, 0);
-            Pig parentB = new Pig(PigColor.Brown, PigRarity.Common, 10f, 
-                PigPassivePower.None, PigActivePower.None, 0, 0);
-        
-            // We force optimal conditions to see maximum potential
-            parentA.InitBestCondition(false, true, true, false);
-            parentB.InitBestCondition(false, true, true, false);
-
-            for (int gen = 1; gen <= 100; gen++) {
-                Debug.Log($"<color=white><b>--- GENERATION {gen} ---</b></color>");
-                Debug.Log($"Parents: {parentA.Rarity} (Vit:{parentA.Speed:F1}) x {parentB.Rarity} (Vit:{parentB.Speed:F1})");
-
-                // --- PROBABILITY CALCULATIONS ---
-                PigRarity[] rarities = (PigRarity[])System.Enum.GetValues(typeof(PigRarity));
-                float[] weights = new float[rarities.Length];
-                int maxIndex = Mathf.Min(Mathf.Max((int)parentA.Rarity, (int)parentB.Rarity) + 1, rarities.Length - 1);
-                float cleanlinessFactor = (parentA.Cleanliness + parentB.Cleanliness) / 200f;
-
-                float totalWeight = 0;
-                string probReport = "Calculated probabilities : ";
-
-                for (int i = 0; i <= maxIndex; i++) {
-                    float dist = Mathf.Abs(GetRarityData(rarities[i]).coeff - 
-                        (GetRarityData(parentA.Rarity).coeff + GetRarityData(parentB.Rarity).coeff) / 2f);
-                    weights[i] = 1f / (1f + dist);
-                    if (i > Mathf.Max((int)parentA.Rarity, (int)parentB.Rarity)) weights[i] *= cleanlinessFactor;
-                    totalWeight += weights[i];
-                }
-
-                for (int i = 0; i < rarities.Length; i++) {
-                    if (i <= maxIndex) {
-                        float prc = (weights[i] / totalWeight) * 100f;
-                        probReport += $"| {rarities[i]}: {prc:F0}% ";
-                    } else {
-                        probReport += $"| <color=red>{rarities[i]}: BLOCKED</color> ";
-                    }
-                }
-                Debug.Log(probReport);
-
-                // --- REAL REPRODUCTION ---
-                Pig piglet = Breed(parentA, parentB);
-
-                // DISPLAYING RESULT
-                string mutationText = piglet.Color != parentA.Color && piglet.Color != parentB.Color ? 
-                    " <color=magenta>[NEW COLOR !]</color>" : "";
-                Debug.Log($"<b>PIGLET RESULT :</b> {piglet.Color} | {piglet.Rarity} | Vit: {piglet.Speed:F2} | " +
-                    $"Endurance: {piglet.Endurance:F2} |  {piglet.PassivePower} | {piglet.ActivePower} {mutationText}");
-
-                // SELECTION FOR NEXT GENERATION
-                // We always replace "least good" parent (Rarity priority then Speed)
-                if ((int)parentA.Rarity < (int)parentB.Rarity || (parentA.Rarity == parentB.Rarity && parentA.Speed < parentB.Speed))
-                    parentA = piglet;
-                else
-                    parentB = piglet;
-            }
-
-            Debug.Log("<color=orange><b>=== END OF GENEALOGY TEST ===</b></color>");
-        }
-
-        [ContextMenu("Affinity Test: Powers")]
-        public void TestAffinitePouvoirs() {
-            Debug.Log("<color=cyan><b>=== GENETIC LABORATORY: AFFINITY TEST ===</b></color>");
-
-            PigColor couleurTest = PigColor.Brown;                              //  Color to test
-            int nombreTests = 1000;
-
-            // Dictionary for counting results
-            Dictionary<PigPassivePower, int> resultats = new Dictionary<PigPassivePower, int>();
-            foreach (PigPassivePower p in System.Enum.GetValues(typeof(PigPassivePower))) resultats[p] = 0;
-
-            // Simulation of "empty" parents (None) to see if affinity creates awakening
-            Pig p1 = new Pig(PigColor.Pink, PigRarity.Common, 10f, 
-                PigPassivePower.None, PigActivePower.None, 0, 0);
-            Pig p2 = new Pig(PigColor.Pink, PigRarity.Common, 10f, 
-                PigPassivePower.None, PigActivePower.None, 0, 0);
-            p1.InitBestCondition(false, false, true, false);
-            p2.InitBestCondition(false, false, true, false);
-
-            for (int i = 0; i < nombreTests; i++) {
-                // We force mutation to see weight draws
-                PigPassivePower? powerObtenu = GetChildPassivePower(p1.PassivePower, p2.PassivePower,couleurTest, true);
-                if (powerObtenu != null) resultats[(PigPassivePower)powerObtenu]++;
-            }
-
-            // Displaying statistics
-            Debug.Log($"<color=yellow>Results for {nombreTests} births of color {couleurTest} (Forced Mutation) :</color>");
-            foreach (var entry in resultats) {
-                float pourcentage = entry.Value / (float)nombreTests * 100f;
-                string highlight = entry.Value > nombreTests / 5 ? "<color=green><b>(BOOSTED)</b></color>" : "";
-                Debug.Log($"- {entry.Key}: {entry.Value} ({pourcentage:F1}%) {highlight}");
-            }
-        }
-
-        [ContextMenu("Detailed Genetic Test")]
-        public void TestGenetiqueDetaille() {
-            Debug.Log("<color=cyan><b>=== DETAILED GENETIC TEST (10,000 Births) ===</b></color>");
-
-            // Test parents: Two Roses (Standard colors)
-            Pig p1 = new Pig(PigColor.Pink, PigRarity.Common, 10, 
-                PigPassivePower.None, PigActivePower.None, 0, 0);
-            Pig p2 = new Pig(PigColor.Pink, PigRarity.Common, 10, 
-                PigPassivePower.None, PigActivePower.None, 0, 0);
-
-            // Dictionaries for counting
-            Dictionary<PigColor, int> totalByColor = new Dictionary<PigColor, int>();
-            Dictionary<PigColor, int> mutationsPerColor = new Dictionary<PigColor, int>();
-
-            foreach (PigColor c in System.Enum.GetValues(typeof(PigColor))) {
-                totalByColor[c] = 0; 
-                mutationsPerColor[c] = 0;
-            }
-
-            int totalTests = 10000;
-            int totalMutationsActives = 0;
-
-            for (int i = 0; i < totalTests; i++) {
-                // 1. We calculate whether a mutation SHOULD occur (3% chance according to your code)
-                // Note: We use same logic as in your Breed() method
-                bool isMutation = Random.value < mutationChance; 
-                if (isMutation) totalMutationsActives++;
-
-                // 2. We obtain color
-                PigColor colorResult = GetOffspringColor(p1, p2, isMutation);
-
-                totalByColor[colorResult]++;
-                if (isMutation) mutationsPerColor[colorResult]++;
-            }
-
-            // --- DISPLAYING RESULTS ---
-            Debug.Log($"<color=yellow>Birth Report (Mutation Chance: {mutationChance*100}%)</color>");
-            Debug.Log($"Total number of mutations triggered : {totalMutationsActives} / {totalTests}");
-
-            foreach (PigColor c in System.Enum.GetValues(typeof(PigColor))) {
-                if (totalByColor[c] == 0) continue;                          // Don't display colors at 0%
-
-                float prcTotal = totalByColor[c] / (float)totalTests * 100f;
-                int nbMutations = mutationsPerColor[c];
-                float prcMutationDansCetteCouleur = totalByColor[c] > 0 ? nbMutations / (float)totalByColor[c] * 100f : 0;
-
-                Debug.Log($"- <b>{c}:</b> {prcTotal:F1}% du total " +
-                    $"<color=orange>[Muted: {nbMutations} ({prcMutationDansCetteCouleur:F1}% of this color)]</color>");
-            }
-
-            // RULES CHECK
-            bool beigeFound = totalByColor[PigColor.Beige] > 0;
-            bool goldenFound = totalByColor[PigColor.Golden] > 0;
-
-            if (!beigeFound && !goldenFound)
-                Debug.Log("<color=green>SUCCESS: <b>No recipe color (Beige/Golden) appeared by mistake..</color>");
-            else
-                Debug.Log("<color=red><b>ERROR: </b>Recipe colors appeared without right parents !</color>");
-        }
-        #endregion Tests
-
         #region Helpers
         /// <summary> Calculate color of offspring, taking into account mutations and special combinations. </summary>
         private PigColor GetOffspringColor(Pig parent1, Pig parent2, bool isMutation) {
             PigColor[] allColors = (PigColor[])System.Enum.GetValues(typeof(PigColor));
             float[] weights = new float[allColors.Length];
 
-            // --- PROBABILITY SETTINGS ---
             float standardWeight = 20f;                                         // Total percentage of standard colors
             float parentBonus = 40f;                                            // Parental influence
             float recipeBonus = 50f;                                            // Top priority to recipes
@@ -264,21 +115,19 @@ namespace Breeding {
         
                 weights[i] = IsStandardColor(currentColor) ? standardWeight : 0f;   // BASIC CHANCE (Standard colors only)
 
-                // PARENTAL BONUS (Applies even if it's a special color)
-                if (currentColor == parent1.Color) weights[i] += parentBonus;
-                if (currentColor == parent2.Color) weights[i] += parentBonus;
+                if (currentColor == parent1.SkinColor) weights[i] += parentBonus;   // Bonus from parents
+                if (currentColor == parent2.SkinColor) weights[i] += parentBonus;
 
-                foreach (var recipe in specialRecipes) {                        // BONUS RECIPES
-                    if (((parent1.Color == recipe.parentColorA && parent2.Color == recipe.parentColorB) ||
-                    (parent1.Color == recipe.parentColorB && parent2.Color == recipe.parentColorA)) 
+                foreach (var recipe in specialRecipes) {                        // Special recipes
+                    if (((parent1.SkinColor == recipe.parentColorA && parent2.SkinColor == recipe.parentColorB) ||
+                    (parent1.SkinColor == recipe.parentColorB && parent2.SkinColor == recipe.parentColorA)) 
                     && currentColor == recipe.result) {
                         weights[i] += recipeBonus; 
                     }
                 }
             }
 
-            // 4. MUTATION (Opening of all colors)
-            if (isMutation) {
+            if (isMutation) {                                                   // Chance to change color
                 for (var i = 0; i < allColors.Length; i++) {
                     PigColor currentColor = allColors[i];
 

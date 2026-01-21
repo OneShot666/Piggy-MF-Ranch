@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7898767253178794015}
-  - component: {fileID: 7989503893689339555}
+  - component: {fileID: 2632729766279849986}
   m_Layer: 5
   m_Name: Showcase
   m_TagString: Untagged
@@ -33,10 +33,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 315}
-  m_SizeDelta: {x: 520, y: 180}
+  m_AnchoredPosition: {x: 0, y: 330}
+  m_SizeDelta: {x: 560, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7989503893689339555
+--- !u!114 &2632729766279849986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1333029230757305599}
   - component: {fileID: 857111033775736890}
   m_Layer: 5
-  m_Name: UIFoodMarket
+  m_Name: UI Rare Market
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,8 +96,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 700, y: 700}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &820324822344426197
 CanvasRenderer:
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6747782220569737180, guid: c5f3dc08c7ff0a64ba531bd760cb4db3, type: 3}
+  m_Sprite: {fileID: -8475898405897009591, guid: 686e8bb5b40e3e644a817974e24de58d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -150,12 +150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 0}
-  itemPool: {fileID: 11400000, guid: b63887e4412643e499c0621367cadc9d, type: 2}
+  itemPool: {fileID: 11400000, guid: d41573f2809abd04cbd5a578c5cf9365, type: 2}
   avoidDuplicates: 1
-  stallSize: 8
-  maxStackOffer: 20
+  stallSize: 3
+  rowsToDisplay: 1
+  maxStackOffer: 1
   itemsDisplayArea: {fileID: 7898767253178794015}
   itemUIPrefab: {fileID: 3031937485254081007, guid: 80ffd704b6d34714ea0f9372c13a0183, type: 3}
   spacing: {x: 60, y: 30}
-  maxItemSize: 80
+  maxItemSize: 100
   currentOffers: []

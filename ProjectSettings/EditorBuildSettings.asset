@@ -24,17 +24,20 @@ EditorBuildSettings:
     path: Assets/Scenes/OneShotFieldScene.unity
     guid: 17165701df630444297e628f173ff6de
   - enabled: 1
-    path: Assets/Scenes/DemonKingScene.unity
-    guid: 8acb9d6794e636e45a75bbe44c8864cd
-  - enabled: 1
     path: Assets/Scenes/FlamVeninScene.unity
     guid: cb8704ee298c646438a21ab1bce95f7c
+  - enabled: 1
+    path: Assets/Scenes/DemonkingScene.unity
+    guid: 82888681ba626ee41a3d9c05e6d77730
   - enabled: 1
     path: Assets/Scenes/TsunakaScene.unity
     guid: eb34992f0fe68254b8494bf290305827
   - enabled: 1
     path: Assets/Scenes/PortScene.unity
     guid: 0ebc2f15833900343a29c6f14ac35a6d
+  - enabled: 1
+    path: Assets/Scenes/DemonkingScene.unity
+    guid: 82888681ba626ee41a3d9c05e6d77730
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -11,7 +11,7 @@ namespace Managers {
 
         public void DisplayPigStats(Pig pig) {
             if (pig == null) return;
-            pigStatsText.text = $"Couleur: {pig.Color}\nRareté: {pig.Rarity}\nVitesse: {pig.Speed}\n" +
+            pigStatsText.text = $"Couleur: {pig.SkinColor}\nRareté: {pig.Rarity}\nVitesse: {pig.Speed}\n" +
                 $"Pouvoir: {pig.PassivePower}\nGénération: {pig.Generation}";
             hungerBar.value = pig.Hunger;
             happinessBar.value = pig.Happiness;
