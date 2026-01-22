@@ -1,12 +1,17 @@
 fileFormatVersion: 2
-guid: e5da1d880b311497b9ed8213592e283a
+<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+guid: 292af6e908b897d4c95ecb4107135687
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 2308992394051145817
-    second: Icon_Arrow_Next_0
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+========
+guid: 0d5084537a2148641901e8f4e4de62ad
+TextureImporter:
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
+>>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -46,7 +51,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,7 +72,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+========
   swizzle: 50462976
+>>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
@@ -76,6 +84,21 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+========
+>>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,36 +119,35 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+  - serializedVersion: 3
+    buildTarget: Server
+========
+  - serializedVersion: 4
+    buildTarget: Android
+>>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+========
+    ignorePlatformSupport: 0
+>>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Icon_Arrow_Next_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 47
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9505f7c49503b0020800000000000000
-      internalID: 2308992394051145817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -134,10 +156,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Icon_Arrow_Next_0: 2308992394051145817
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318658
+  packageName: GUI Pro - Fantasy Hero
+  packageVersion: 1.0.2
+  assetPath: Assets/Layer Lab/Scripts/Icon_Arrow_Next.png
+  uploadId: 755147
