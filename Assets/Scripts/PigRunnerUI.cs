@@ -1,32 +1,24 @@
+using TMPro;
 using UnityEngine;
 
 public class PigRunnerUI : MonoBehaviour
 {
-    public float speed = 5f;
-    public Transform finishLine;
+    [Header("TMP dans le Canvas World Space du prefab")]
+    [SerializeField] private TMP_Text nameText;
 
-    private bool finished = false;
+    private static readonly Color32 PlayerNameColor = new Color32(255, 0, 92, 255);
 
-    void Update()
+    void Awake()
     {
-        if (finished || finishLine == null)
-            return;
-
-        // Avance vers la ligne d'arrivée
-        transform.position += Vector3.right * speed * Time.deltaTime;
-
-        // Vérifie si la ligne d'arrivée est atteinte
-        if (transform.position.x >= finishLine.position.x)
-        {
-            Vector3 pos = transform.position;
-            pos.x = finishLine.position.x;
-            transform.position = pos;
-            finished = true;
-        }
+        if (nameText == null)
+            nameText = GetComponentInChildren<TMP_Text>(true);
     }
 
-    public bool IsFinished()
+    public void SetName(string displayName, bool isPlayer)
     {
-        return finished;
+        if (nameText == null) return;
+
+        nameText.text = displayName;
+        nameText.color = isPlayer ? PlayerNameColor : Color.white;
     }
 }
