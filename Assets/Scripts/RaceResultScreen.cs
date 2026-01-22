@@ -29,6 +29,10 @@ public class RaceResultsScreen : MonoBehaviour
     [SerializeField] private float lookIntervalMin = 0.6f;
     [SerializeField] private float lookIntervalMax = 1.2f;
 
+    [Header("Refs")]
+    [Tooltip("RaceManager à appeler pour ré-afficher le bouton Start Race")]
+    [SerializeField] private RaceManager raceManager;
+
     private Coroutine playerAnimCoroutine;
     private Transform currentPlayerPig;
     private Vector3 currentPlayerBaseLocalPos;
@@ -57,6 +61,14 @@ public class RaceResultsScreen : MonoBehaviour
         SetFx(rain, false);
 
         if (endScreenRoot != null) endScreenRoot.SetActive(false);
+    }
+
+    // Bouton UI "Continuer"
+    public void Continue()
+    {
+        Hide();
+        if (raceManager != null)
+            raceManager.ShowStartButton();
     }
 
     public void Show(List<Sprite> rankedSprites, int playerRank) // playerRank: 1..6

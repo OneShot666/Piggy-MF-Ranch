@@ -16,11 +16,15 @@ public class RaceManager : MonoBehaviour
 
     [Header("Aller-retour")]
     [Tooltip("2 aller-retour + 1 aller = 5 longueurs. Se termine à l'arrivée.")]
-    public int totalLengths = 15;
+    public int totalLengths = 5;
 
     [Header("Joueur")]
     [Range(0, 5)] public int playerRunnerIndex = 5;
     public string playerDisplayName = "Player";
+
+    [Header("UI")]
+    [Tooltip("Bouton UI 'Start Race' à masquer pendant la course (optionnel).")]
+    [SerializeField] private GameObject startRaceButton;
 
     [Header("UI Fin de course")]
     [SerializeField] private RaceResultsScreen resultsScreen;
@@ -38,7 +42,9 @@ public class RaceManager : MonoBehaviour
 
     private bool racing = false;
 
-    void Start() => LaunchSixPigs();
+    // ⚠️ IMPORTANT:
+    // Ne pas lancer la course automatiquement.
+    // Le bouton UI doit appeler StartRace().
 
     void Update()
     {
@@ -99,6 +105,18 @@ public class RaceManager : MonoBehaviour
         }
     }
 
+    // Appelé par le bouton UI
+    public void StartRace()
+    {
+        if (racing) return;
+
+        if (startRaceButton != null)
+            startRaceButton.SetActive(false);
+
+        LaunchSixPigs();
+        racing = true;
+    }
+
     private void OnRaceFinished()
     {
         // rankedSprites: 1->6
@@ -121,7 +139,11 @@ public class RaceManager : MonoBehaviour
         if (resultsScreen != null)
             resultsScreen.Show(rankedSprites, playerRank);
 
-        // Cleanup course runners
+        Cleanup();
+    }
+
+    private void Cleanup()
+    {
         foreach (var t in runners)
             if (t) Destroy(t.gameObject);
 
@@ -135,12 +157,19 @@ public class RaceManager : MonoBehaviour
 
     private void LaunchSixPigs()
     {
-        runners.Clear();
-        speedAbs.Clear();
-        lengthsDone.Clear();
-        direction.Clear();
-        targetX.Clear();
-        finishOrder.Clear();
+        Cleanup();
+
+        if (startLine == null || finishLine == null)
+        {
+            Debug.LogWarning("RaceManager: startLine/finishLine non assignées.");
+            return;
+        }
+
+        if (pigPrefabs == null || pigPrefabs.Count == 0)
+        {
+            Debug.LogWarning("RaceManager: pigPrefabs vide.");
+            return;
+        }
 
         float stepY = laneHeight / (6 + 1);
         float bottomY = startLine.position.y - laneHeight * 0.5f;
@@ -168,7 +197,7 @@ public class RaceManager : MonoBehaviour
             targetX.Add(finishX);
             ApplyFacing(inst, +1);
 
-            // Nom (si tu utilises PigRunnerUI)
+            // Nom (si PigRunnerUI existe)
             var ui = inst.GetComponent<PigRunnerUI>();
             if (ui == null) ui = inst.GetComponentInChildren<PigRunnerUI>(true);
 
@@ -181,8 +210,6 @@ public class RaceManager : MonoBehaviour
             if (ui != null)
                 ui.SetName(displayName, isPlayer);
         }
-
-        racing = true;
     }
 
     private void ApplyFacing(Transform t, int dir)
@@ -200,4 +227,11 @@ public class RaceManager : MonoBehaviour
         s.x = Mathf.Abs(s.x) * (dir > 0 ? 1f : -1f);
         t.localScale = s;
     }
+
+    public void ShowStartButton()
+    {
+        if (startRaceButton != null)
+            startRaceButton.SetActive(true);
+    }
+
 }
