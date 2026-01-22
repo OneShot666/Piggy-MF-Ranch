@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
 guid: 8364082ac000a1c44a62cd8f72830ccb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
-========
-guid: e5da1d880b311497b9ed8213592e283a
-TextureImporter:
-  internalIDToNameTable: []
-  externalObjects: {}
-  serializedVersion: 12
->>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -71,34 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
-<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
+  applyGammaDecoding: 1
   swizzle: 50462976
-========
->>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
-========
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
->>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,25 +93,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
   - serializedVersion: 4
     buildTarget: Android
-========
-  - serializedVersion: 3
-    buildTarget: Server
->>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
     ignorePlatformSupport: 0
-========
->>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -162,10 +141,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 318658
-  packageName: GUI Pro - Fantasy Hero
-  packageVersion: 1.0.2
-  assetPath: Assets/Layer Lab/Scripts/Icon_Arrow_Next.png
-  uploadId: 755147
