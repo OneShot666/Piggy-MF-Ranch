@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using Breeding;
 
 namespace Pigs {
     [System.Serializable]
     public class Pig {
         [Header("Identity")]
         public Sprite Icon { get; }
+        public string name = "Pig";
         public float Health { get; set; } = 100f;
         public PigColor SkinColor { get; }
         public PigRarity Rarity { get; }

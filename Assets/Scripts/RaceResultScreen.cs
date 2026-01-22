@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using Races;
+// ReSharper disable Unity.PerformanceCriticalCodeInvocation
 
 
 public class RaceResultsScreen : MonoBehaviour {
@@ -32,7 +33,7 @@ public class RaceResultsScreen : MonoBehaviour {
 
     [Header("Refs")]
     [Tooltip("RaceManager � appeler pour r�-afficher le bouton Start Race")]
-    [SerializeField] private RaceManager _raceManager;
+    [SerializeField] private RaceManager raceManager;
 
     private Coroutine _playerAnimCoroutine;
     private Transform _currentPlayerPig;
@@ -48,15 +49,13 @@ public class RaceResultsScreen : MonoBehaviour {
         SetFx(rain, false);
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         StopPlayerAnim();
         SetFx(confetti, false);
         SetFx(rain, false);
     }
 
-    public void Hide()
-    {
+    private void Hide() {
         StopPlayerAnim();
         SetFx(confetti, false);
         SetFx(rain, false);
@@ -65,15 +64,13 @@ public class RaceResultsScreen : MonoBehaviour {
     }
 
     // Bouton UI "Continuer"
-    public void Continue()
-    {
+    public void Continue() {
         Hide();
-        if (_raceManager != null)
-            _raceManager.ShowStartButton();
+        if (raceManager)
+            raceManager.ShowStartButton();
     }
 
-    public void Show(List<Sprite> rankedSprites, int playerRank) // playerRank: 1..6
-    {
+    public void Show(List<Sprite> rankedSprites, int playerRank) { // playerRank: 1..6
         if (endScreenRoot) endScreenRoot.SetActive(true);
 
         // Place sprites into spot pigs (1..6)
@@ -119,32 +116,25 @@ public class RaceResultsScreen : MonoBehaviour {
             : StartCoroutine(LoseIdleLookLoop(_currentPlayerPig));
     }
 
-    private void SetFx(ParticleSystem ps, bool enable)
-    {
-        if (ps == null) return;
+    private void SetFx(ParticleSystem ps, bool enable) {
+        if (!ps) return;
 
-        if (enable)
-        {
+        if (enable) {
             ps.gameObject.SetActive(true);
             ps.Play(true);
-        }
-        else
-        {
+        } else {
             ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             ps.gameObject.SetActive(false);
         }
     }
 
-    private void StopPlayerAnim()
-    {
-        if (_playerAnimCoroutine != null)
-        {
+    private void StopPlayerAnim() {
+        if (_playerAnimCoroutine != null) {
             StopCoroutine(_playerAnimCoroutine);
             _playerAnimCoroutine = null;
         }
 
-        if (_currentPlayerPig)
-        {
+        if (_currentPlayerPig) {
             _currentPlayerPig.localPosition = _currentPlayerBaseLocalPos;
             Vector3 e = _currentPlayerPig.localEulerAngles;
             e.y = 0f;
@@ -154,10 +144,8 @@ public class RaceResultsScreen : MonoBehaviour {
         _currentPlayerPig = null;
     }
 
-    private IEnumerator Top3AnimLoop(Transform pig)
-    {
-        while (!endScreenRoot || endScreenRoot.activeInHierarchy)
-        {
+    private IEnumerator Top3AnimLoop(Transform pig) {
+        while (!endScreenRoot || endScreenRoot.activeInHierarchy) {
             ToggleLook(pig);
             yield return JumpOnce(pig);
             yield return JumpOnce(pig);
@@ -169,18 +157,15 @@ public class RaceResultsScreen : MonoBehaviour {
         }
     }
 
-    private IEnumerator LoseIdleLookLoop(Transform pig)
-    {
-        while (!endScreenRoot || endScreenRoot.activeInHierarchy)
-        {
+    private IEnumerator LoseIdleLookLoop(Transform pig) {
+        while (!endScreenRoot || endScreenRoot.activeInHierarchy) {
             float wait = Random.Range(lookIntervalMin, lookIntervalMax);
             yield return new WaitForSeconds(wait);
             ToggleLook(pig);
         }
     }
 
-    private void ToggleLook(Transform pig)
-    {
+    private void ToggleLook(Transform pig) {
         if (!pig) return;
 
         Vector3 e = pig.localEulerAngles;
@@ -188,16 +173,14 @@ public class RaceResultsScreen : MonoBehaviour {
         pig.localEulerAngles = e;
     }
 
-    private IEnumerator JumpOnce(Transform pig)
-    {
+    private IEnumerator JumpOnce(Transform pig) {
         if (!pig) yield break;
 
         Vector3 start = _currentPlayerBaseLocalPos;
         Vector3 up = start + new Vector3(0f, jumpOffsetY, 0f);
 
         float t = 0f;
-        while (t < jumpUpTime)
-        {
+        while (t < jumpUpTime) {
             t += Time.deltaTime;
             float a = Mathf.Clamp01(t / jumpUpTime);
             pig.localPosition = Vector3.Lerp(start, up, a);
@@ -205,8 +188,7 @@ public class RaceResultsScreen : MonoBehaviour {
         }
 
         t = 0f;
-        while (t < jumpDownTime)
-        {
+        while (t < jumpDownTime) {
             t += Time.deltaTime;
             float a = Mathf.Clamp01(t / jumpDownTime);
             pig.localPosition = Vector3.Lerp(up, start, a);

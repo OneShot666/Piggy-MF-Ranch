@@ -1,22 +1,19 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 
-public class PigRunnerUI : MonoBehaviour
-{
+public class PigRunnerUI : MonoBehaviour {
     [Header("TMP dans le Canvas World Space du prefab")]
     [SerializeField] private TMP_Text nameText;
 
-    private static readonly Color32 PlayerNameColor = new Color32(255, 0, 92, 255);
+    private static readonly Color32 PlayerNameColor = new(255, 0, 92, 255);
 
-    void Awake()
-    {
-        if (nameText == null)
+    void Awake() {
+        if (!nameText)
             nameText = GetComponentInChildren<TMP_Text>(true);
     }
 
-    public void SetName(string displayName, bool isPlayer)
-    {
-        if (nameText == null) return;
+    public void SetName(string displayName, bool isPlayer) {
+        if (!nameText) return;
 
         nameText.text = displayName;
         nameText.color = isPlayer ? PlayerNameColor : Color.white;

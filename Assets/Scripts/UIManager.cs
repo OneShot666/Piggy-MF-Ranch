@@ -1,30 +1,29 @@
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using Pigs;
 
-public class UIManager : MonoBehaviour
-{
+public class UIManager : MonoBehaviour {
     public Text pigStatsText;
     public Slider hungerBar, happinessBar, cleanlinessBar;
     public Text goldText, foodText, energyText, dayText;
 
-    public void DisplayPigStats(Pig pig)
-    {
+    public void DisplayPigStats(Pig pig) {
         if (pig == null) return;
-        pigStatsText.text = $"Couleur: {pig.Color}\nRareté: {pig.Rarity}\nVitesse: {pig.Speed}\nEndurance: {pig.Endurance}\nPouvoir: {pig.SpecialPower}\nGénération: {pig.Generation}";
-        hungerBar.value = pig.WellBeing.Hunger;
-        happinessBar.value = pig.WellBeing.Happiness;
-        cleanlinessBar.value = pig.WellBeing.Cleanliness;
+        pigStatsText.text = $"Couleur: {pig.SkinColor}\nRarity: {pig.Rarity}\n" +
+            $"Vitesse: {pig.Speed}\nEndurance: {pig.Endurance}\n" +
+            $"Pouvoir: {pig.ActivePower}\nGï¿½nï¿½ration: {pig.Generation}";
+        hungerBar.value = pig.Hunger;
+        happinessBar.value = pig.Happiness;
+        cleanlinessBar.value = pig.Cleanliness;
     }
 
-    public void DisplayResources(int gold, int food, int energy, int day)
-    {
+    public void DisplayResources(int gold, int food, int energy, int day) {
         goldText.text = $"Or: {gold}";
         foodText.text = $"Nourriture: {food}";
-        energyText.text = $"Énergie: {energy}";
+        energyText.text = $"Energy: {energy}";
         dayText.text = $"Jour: {day}";
     }
-    public void ShowRaceResults(Pig winner)
-    {
-        Debug.Log($"{winner.Name} a gagné la course !");
+    public void ShowRaceResults(Pig winner) {
+        Debug.Log($"{winner.name} a won la course !");
     }
 }

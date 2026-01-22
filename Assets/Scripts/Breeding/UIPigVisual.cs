@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using Managers;
+using Races;
 using Pigs;
 
 namespace Breeding {
@@ -10,8 +11,9 @@ namespace Breeding {
         [Header("Settings")]
         [SerializeField] private float moveSpeed = 50f;
         [SerializeField] private Vector2 changeTargetTimeRange = new(2, 8);
-        [SerializeField] private Image pigRenderer;
-        [SerializeField] private Image selectedRenderer;
+        [SerializeField] private Image selectedImage;
+        [SerializeField] private Image pigImage;
+        [SerializeField] private Text nameText;
 
         [Header("Health UI")]
         [SerializeField] private Slider healthSlider;
@@ -21,6 +23,7 @@ namespace Breeding {
         private Pig _data;
         private PigManager _pigManager;
         private BreedingManager _breedManager;
+        private RaceManager _raceManager;
         private RectTransform _rectTransform;
         private RectTransform _container;
         private Vector2 _targetPosition;
@@ -45,6 +48,15 @@ namespace Breeding {
             InitVisuals();
         }
 
+        public void Setup(Pig data, RectTransform container, RaceManager manager) {
+            _data = data;
+            _container = container;
+            _raceManager = manager;
+            _rectTransform = GetComponent<RectTransform>();
+
+            InitVisuals();
+        }
+
         private void SetNewDestination() {                                      // Go to random position on container
             _changeTimer = Random.Range(changeTargetTimeRange.x, changeTargetTimeRange.y);
             float halfW = _container.rect.width / 2f;
@@ -53,8 +65,9 @@ namespace Breeding {
         }
 
         private void InitVisuals() {
-            if (pigRenderer) pigRenderer.sprite = _data.Icon;
-            if (selectedRenderer) selectedRenderer.enabled = false;
+            if (pigImage) pigImage.sprite = _data.Icon;
+            if (selectedImage) selectedImage.enabled = false;
+            if (nameText) nameText.enabled = false;
 
             if (healthSlider) {                                                 // Init life slider
                 healthSlider.value = _data.Health;
@@ -88,7 +101,7 @@ namespace Breeding {
             if (Mathf.Abs(deltaX) > 0.1f) {                                     // If pig moving
                 float scaleX = deltaX > 0 ? -1f : 1f;                           // Change orientation if change direction
 
-                if (pigRenderer) pigRenderer.transform.localScale = new Vector3(scaleX, 1, 1);  // Apply scale to image
+                if (pigImage) pigImage.transform.localScale = new Vector3(scaleX, 1, 1);  // Apply scale to image
             }
         }
 
@@ -112,12 +125,12 @@ namespace Breeding {
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
-            if (selectedRenderer) selectedRenderer.enabled = true;
+            if (selectedImage) selectedImage.enabled = true;
             if (_data != null) UIPigOverlayManager.Instance?.Show(_data);
         }
 
         public void OnPointerExit(PointerEventData eventData) {
-            if (selectedRenderer) selectedRenderer.enabled = false;
+            if (selectedImage) selectedImage.enabled = false;
             UIPigOverlayManager.Instance?.Hide();
         }
 
@@ -127,7 +140,7 @@ namespace Breeding {
         }
 
         private void OnDisable() {
-            if (selectedRenderer) selectedRenderer.enabled = false;
+            if (selectedImage) selectedImage.enabled = false;
             UIPigOverlayManager.Instance?.Hide();
         }
     }

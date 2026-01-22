@@ -56,14 +56,14 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: f4bcfe3885b9235458255e47e35f99b5, type: 3}
     sceneName: Enclosure Scene
   breedSceneName:
-    sceneAsset: {fileID: 102900000, guid: 82888681ba626ee41a3d9c05e6d77730, type: 3}
+    sceneAsset: {fileID: 102900000, guid: d04b497b0ecb6a2468057632bbeb6710, type: 3}
     sceneName: Breeding Scene
   marketSceneName:
     sceneAsset: {fileID: 102900000, guid: 4aadc731f519e1c42974bd3de2a17282, type: 3}
     sceneName: Market Scene
   raceSceneName:
-    sceneAsset: {fileID: 102900000, guid: eb34992f0fe68254b8494bf290305827, type: 3}
-    sceneName: TsunakaScene
+    sceneAsset: {fileID: 102900000, guid: 1c745aad9312d1b4692ec833b3e49964, type: 3}
+    sceneName: RaceScene
   portSceneName:
     sceneAsset: {fileID: 102900000, guid: 0ebc2f15833900343a29c6f14ac35a6d, type: 3}
     sceneName: Port Scene

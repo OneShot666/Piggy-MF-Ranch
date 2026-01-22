@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Managers;
+using Pigs;
 
 public class FarmManager : MonoBehaviour {
     public bool hasAutoHarvest;
@@ -16,7 +18,7 @@ public class FarmManager : MonoBehaviour {
         food += amount;
     }
 
-    public void UseEnergy(int amount) {
+    private void UseEnergy(int amount) {
         energy = Mathf.Max(0, energy - amount);
     }
 
@@ -31,8 +33,8 @@ public class FarmManager : MonoBehaviour {
     }
 
     public void SellPig(PigManager pigManager, int pigIndex, int price) {
-        if (pigIndex >= 0 && pigIndex < pigManager.pigs.Count) {
-            pigManager.pigs.RemoveAt(pigIndex);
+        if (pigIndex >= 0 && pigIndex < pigManager.Pigs.Count) {
+            pigManager.Pigs.RemoveAt(pigIndex);
             AddGold(price);
         }
     }
@@ -40,7 +42,7 @@ public class FarmManager : MonoBehaviour {
     public void TrainPig(Pig pig, float speedBoost, float enduranceBoost, int energyCost) {
         if (energy >= energyCost) {
             pig.Speed += speedBoost;
-            pig.Endurance += enduranceBoost;
+            pig.Rest(enduranceBoost);
             UseEnergy(energyCost);
         }
     }

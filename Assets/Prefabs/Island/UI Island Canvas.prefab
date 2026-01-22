@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene:
-    sceneAsset: {fileID: 102900000, guid: eb34992f0fe68254b8494bf290305827, type: 3}
-    sceneName: TsunakaScene
+    sceneAsset: {fileID: 102900000, guid: 1c745aad9312d1b4692ec833b3e49964, type: 3}
+    sceneName: RaceScene
 --- !u!1 &1174925861383123021
 GameObject:
   m_ObjectHideFlags: 0
