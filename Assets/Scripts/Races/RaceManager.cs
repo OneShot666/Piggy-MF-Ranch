@@ -1,14 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD:Assets/Scripts/Races/RaceManager.cs
-using System.Collections.Generic;
 using Basic;
 using Pigs;
-=======
->>>>>>> tsunaka-branch:Assets/Scripts/RaceManager.cs
 
-public class RaceManager : MonoBehaviour
-{
+public class RaceManager : MonoBehaviour {
     [Header("Lignes")]
     public Transform startLine;
     public Transform finishLine;
@@ -97,15 +92,12 @@ public class RaceManager : MonoBehaviour
                 targetX[i] = (newDir > 0) ? finishX : startX;
                 ApplyFacing(t, newDir);
             }
-<<<<<<< HEAD:Assets/Scripts/Races/RaceManager.cs
+
             // Simulate power effect
             if (pig.PassivePower == PigPassivePower.Sprint && Random.value < 0.05f) {
                 duration -= 1f; // Speed boost
-=======
-            else
-            {
-                t.position = p;
->>>>>>> tsunaka-branch:Assets/Scripts/RaceManager.cs
+            } else {
+                t.position = p;													// ???
             }
         }
 

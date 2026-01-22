@@ -1,9 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using Races;
 
-public class RaceResultsScreen : MonoBehaviour
-{
+
+public class RaceResultsScreen : MonoBehaviour {
     [Header("Root")]
     [SerializeField] private GameObject endScreenRoot;
 
@@ -30,18 +31,18 @@ public class RaceResultsScreen : MonoBehaviour
     [SerializeField] private float lookIntervalMax = 1.2f;
 
     [Header("Refs")]
-    [Tooltip("RaceManager à appeler pour ré-afficher le bouton Start Race")]
-    [SerializeField] private RaceManager raceManager;
+    [Tooltip("RaceManager ï¿½ appeler pour rï¿½-afficher le bouton Start Race")]
+    [SerializeField] private RaceManager _raceManager;
 
-    private Coroutine playerAnimCoroutine;
-    private Transform currentPlayerPig;
-    private Vector3 currentPlayerBaseLocalPos;
+    private Coroutine _playerAnimCoroutine;
+    private Transform _currentPlayerPig;
+    private Vector3 _currentPlayerBaseLocalPos;
 
     void Awake()
     {
-        if (endScreenRoot != null) endScreenRoot.SetActive(false);
-        if (victoryObject != null) victoryObject.SetActive(false);
-        if (defeatObject != null) defeatObject.SetActive(false);
+        if (endScreenRoot) endScreenRoot.SetActive(false);
+        if (victoryObject) victoryObject.SetActive(false);
+        if (defeatObject) defeatObject.SetActive(false);
 
         SetFx(confetti, false);
         SetFx(rain, false);
@@ -60,33 +61,33 @@ public class RaceResultsScreen : MonoBehaviour
         SetFx(confetti, false);
         SetFx(rain, false);
 
-        if (endScreenRoot != null) endScreenRoot.SetActive(false);
+        if (endScreenRoot) endScreenRoot.SetActive(false);
     }
 
     // Bouton UI "Continuer"
     public void Continue()
     {
         Hide();
-        if (raceManager != null)
-            raceManager.ShowStartButton();
+        if (_raceManager != null)
+            _raceManager.ShowStartButton();
     }
 
     public void Show(List<Sprite> rankedSprites, int playerRank) // playerRank: 1..6
     {
-        if (endScreenRoot != null) endScreenRoot.SetActive(true);
+        if (endScreenRoot) endScreenRoot.SetActive(true);
 
         // Place sprites into spot pigs (1..6)
         for (int i = 0; i < spotPigs.Length; i++)
         {
             Transform spot = spotPigs[i];
-            if (spot == null) continue;
+            if (!spot) continue;
 
             var sr = spot.GetComponentInChildren<SpriteRenderer>(true);
-            if (sr == null) continue;
+            if (!sr) continue;
 
             Sprite s = (rankedSprites != null && i < rankedSprites.Count) ? rankedSprites[i] : null;
             sr.sprite = s;
-            sr.enabled = (s != null);
+            sr.enabled = s;
 
             // Reset rotation only
             Vector3 e = spot.localEulerAngles;
@@ -94,10 +95,10 @@ public class RaceResultsScreen : MonoBehaviour
             spot.localEulerAngles = e;
         }
 
-        bool isTop3 = playerRank >= 1 && playerRank <= 3;
+        bool isTop3 = playerRank is >= 1 and <= 3;
 
-        if (victoryObject != null) victoryObject.SetActive(isTop3);
-        if (defeatObject != null) defeatObject.SetActive(!isTop3);
+        if (victoryObject) victoryObject.SetActive(isTop3);
+        if (defeatObject) defeatObject.SetActive(!isTop3);
 
         // FX: top3 => confetti, sinon => rain
         SetFx(confetti, isTop3);
@@ -108,14 +109,14 @@ public class RaceResultsScreen : MonoBehaviour
         int idx = playerRank - 1;
         if (idx < 0 || idx >= spotPigs.Length) return;
 
-        currentPlayerPig = spotPigs[idx];
-        if (currentPlayerPig == null) return;
+        _currentPlayerPig = spotPigs[idx];
+        if (!_currentPlayerPig) return;
 
-        currentPlayerBaseLocalPos = currentPlayerPig.localPosition;
+        _currentPlayerBaseLocalPos = _currentPlayerPig.localPosition;
 
-        playerAnimCoroutine = isTop3
-            ? StartCoroutine(Top3AnimLoop(currentPlayerPig))
-            : StartCoroutine(LoseIdleLookLoop(currentPlayerPig));
+        _playerAnimCoroutine = isTop3
+            ? StartCoroutine(Top3AnimLoop(_currentPlayerPig))
+            : StartCoroutine(LoseIdleLookLoop(_currentPlayerPig));
     }
 
     private void SetFx(ParticleSystem ps, bool enable)
@@ -136,26 +137,26 @@ public class RaceResultsScreen : MonoBehaviour
 
     private void StopPlayerAnim()
     {
-        if (playerAnimCoroutine != null)
+        if (_playerAnimCoroutine != null)
         {
-            StopCoroutine(playerAnimCoroutine);
-            playerAnimCoroutine = null;
+            StopCoroutine(_playerAnimCoroutine);
+            _playerAnimCoroutine = null;
         }
 
-        if (currentPlayerPig != null)
+        if (_currentPlayerPig)
         {
-            currentPlayerPig.localPosition = currentPlayerBaseLocalPos;
-            Vector3 e = currentPlayerPig.localEulerAngles;
+            _currentPlayerPig.localPosition = _currentPlayerBaseLocalPos;
+            Vector3 e = _currentPlayerPig.localEulerAngles;
             e.y = 0f;
-            currentPlayerPig.localEulerAngles = e;
+            _currentPlayerPig.localEulerAngles = e;
         }
 
-        currentPlayerPig = null;
+        _currentPlayerPig = null;
     }
 
     private IEnumerator Top3AnimLoop(Transform pig)
     {
-        while (endScreenRoot == null || endScreenRoot.activeInHierarchy)
+        while (!endScreenRoot || endScreenRoot.activeInHierarchy)
         {
             ToggleLook(pig);
             yield return JumpOnce(pig);
@@ -170,7 +171,7 @@ public class RaceResultsScreen : MonoBehaviour
 
     private IEnumerator LoseIdleLookLoop(Transform pig)
     {
-        while (endScreenRoot == null || endScreenRoot.activeInHierarchy)
+        while (!endScreenRoot || endScreenRoot.activeInHierarchy)
         {
             float wait = Random.Range(lookIntervalMin, lookIntervalMax);
             yield return new WaitForSeconds(wait);
@@ -180,7 +181,7 @@ public class RaceResultsScreen : MonoBehaviour
 
     private void ToggleLook(Transform pig)
     {
-        if (pig == null) return;
+        if (!pig) return;
 
         Vector3 e = pig.localEulerAngles;
         e.y = (Mathf.Abs(e.y - 180f) < 0.1f) ? 0f : 180f;
@@ -189,9 +190,9 @@ public class RaceResultsScreen : MonoBehaviour
 
     private IEnumerator JumpOnce(Transform pig)
     {
-        if (pig == null) yield break;
+        if (!pig) yield break;
 
-        Vector3 start = currentPlayerBaseLocalPos;
+        Vector3 start = _currentPlayerBaseLocalPos;
         Vector3 up = start + new Vector3(0f, jumpOffsetY, 0f);
 
         float t = 0f;

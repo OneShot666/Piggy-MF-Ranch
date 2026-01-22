@@ -1,48 +1,44 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class FarmManager : MonoBehaviour
-{
-    public int Gold = 0;
-    public int Food = 0;
-    public int Energy = 100; // Daily energy
-    public List<bool> enclosuresClean = new List<bool>();
+public class FarmManager : MonoBehaviour {
+    public bool hasAutoHarvest;
+    public int gold;
+    public int food;
+    public int energy = 100;                                                    // Daily energy
+    public List<bool> enclosuresClean = new();
 
-    public void AddGold(int amount)
-    {
-        Gold += amount;
+    public void AddGold(int amount) {
+        gold += amount;
     }
-    public void AddFood(int amount)
-    {
-        Food += amount;
+
+    public void AddFood(int amount) {
+        food += amount;
     }
-    public void UseEnergy(int amount)
-    {
-        Energy = Mathf.Max(0, Energy - amount);
+
+    public void UseEnergy(int amount) {
+        energy = Mathf.Max(0, energy - amount);
     }
-    public void RestoreEnergy()
-    {
-        Energy = 100;
+
+    public void RestoreEnergy() {
+        energy = 100;
     }
-    public void SetEnclosureClean(int index, bool clean)
-    {
-        if (index >= 0 && index < enclosuresClean.Count)
-        {
+
+    public void SetEnclosureClean(int index, bool clean) {
+        if (index >= 0 && index < enclosuresClean.Count) {
             enclosuresClean[index] = clean;
         }
     }
-    public void SellPig(PigManager pigManager, int pigIndex, int price)
-    {
-        if (pigIndex >= 0 && pigIndex < pigManager.pigs.Count)
-        {
+
+    public void SellPig(PigManager pigManager, int pigIndex, int price) {
+        if (pigIndex >= 0 && pigIndex < pigManager.pigs.Count) {
             pigManager.pigs.RemoveAt(pigIndex);
             AddGold(price);
         }
     }
-    public void TrainPig(Pig pig, float speedBoost, float enduranceBoost, int energyCost)
-    {
-        if (Energy >= energyCost)
-        {
+
+    public void TrainPig(Pig pig, float speedBoost, float enduranceBoost, int energyCost) {
+        if (energy >= energyCost) {
             pig.Speed += speedBoost;
             pig.Endurance += enduranceBoost;
             UseEnergy(energyCost);
