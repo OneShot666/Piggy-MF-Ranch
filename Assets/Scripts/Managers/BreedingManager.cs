@@ -5,6 +5,8 @@ using UnityEngine;
 using Breeding;
 using Pigs;
 
+// L Add timer to breed new piglet
+// ? Add growth to pigs
 namespace Managers {
     public class BreedingManager : MonoBehaviour {
         [Header("Enclosure Config")]
@@ -50,6 +52,8 @@ namespace Managers {
 
             GameObject go = Instantiate(pigVisualPrefab, enclosureArea);
             go.GetComponent<UIPigVisual>().Setup(newPig, enclosureArea, this);
+            go.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-enclosureArea.rect.width / 2f, 
+                enclosureArea.rect.width / 2f), Random.Range(-enclosureArea.rect.height / 2f, enclosureArea.rect.height / 2f));
 
             _pigsInEnclosure.Add(newPig);
             _isFull = _pigsInEnclosure.Count >= capacity;

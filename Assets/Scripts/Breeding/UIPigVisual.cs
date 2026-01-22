@@ -9,9 +9,14 @@ namespace Breeding {
     public class UIPigVisual : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
         [Header("Settings")]
         [SerializeField] private float moveSpeed = 50f;
-        [SerializeField] private float changeTargetTime = 3f;
+        [SerializeField] private Vector2 changeTargetTimeRange = new(2, 8);
         [SerializeField] private Image pigRenderer;
         [SerializeField] private Image selectedRenderer;
+
+        [Header("Health UI")]
+        [SerializeField] private Slider healthSlider;
+        [SerializeField] private float healPerSecond = 1f; 
+        [SerializeField] private float damagePerSecond = 3f; 
 
         private Pig _data;
         private PigManager _pigManager;
@@ -19,6 +24,7 @@ namespace Breeding {
         private RectTransform _rectTransform;
         private RectTransform _container;
         private Vector2 _targetPosition;
+        private float _changeTimer;
         private float _timer;
 
         public void Setup(Pig data, RectTransform container, BreedingManager manager) {
@@ -27,9 +33,7 @@ namespace Breeding {
             _breedManager = manager;
             _rectTransform = GetComponent<RectTransform>();
 
-            if (pigRenderer) pigRenderer.sprite = data.Icon;
-            if (selectedRenderer) selectedRenderer.enabled = false;
-            SetNewDestination();
+            InitVisuals();
         }
 
         public void Setup(Pig data, RectTransform container, PigManager manager) {
@@ -38,15 +42,27 @@ namespace Breeding {
             _pigManager = manager;
             _rectTransform = GetComponent<RectTransform>();
 
-            if (pigRenderer) pigRenderer.sprite = data.Icon;
-            if (selectedRenderer) selectedRenderer.enabled = false;
-            SetNewDestination();
+            InitVisuals();
         }
 
         private void SetNewDestination() {                                      // Go to random position on container
+            _changeTimer = Random.Range(changeTargetTimeRange.x, changeTargetTimeRange.y);
             float halfW = _container.rect.width / 2f;
             float halfH = _container.rect.height / 2f;
             _targetPosition = new Vector2(Random.Range(-halfW, halfW), Random.Range(-halfH, halfH));
+        }
+
+        private void InitVisuals() {
+            if (pigRenderer) pigRenderer.sprite = _data.Icon;
+            if (selectedRenderer) selectedRenderer.enabled = false;
+
+            if (healthSlider) {                                                 // Init life slider
+                healthSlider.value = _data.Health;
+                healthSlider.maxValue = _data.HealthMax;
+                healthSlider.gameObject.SetActive(_data.Health < 100f);         // Hide by default
+            }
+            
+            SetNewDestination();
         }
 
         private void Update() {
@@ -57,8 +73,10 @@ namespace Breeding {
 
             UpdateFacingDirection();
 
+            HandleHealthLogic();
+
             _timer += Time.deltaTime;
-            if (_timer >= changeTargetTime || Vector2.Distance(_rectTransform.anchoredPosition, _targetPosition) < 1f) {
+            if (_timer >= _changeTimer || Vector2.Distance(_rectTransform.anchoredPosition, _targetPosition) < 1f) {
                 SetNewDestination();
                 _timer = 0;
             }
@@ -70,8 +88,27 @@ namespace Breeding {
             if (Mathf.Abs(deltaX) > 0.1f) {                                     // If pig moving
                 float scaleX = deltaX > 0 ? -1f : 1f;                           // Change orientation if change direction
 
-                if (pigRenderer) pigRenderer.transform.localScale = new Vector3(scaleX, 1f, 1f);    // Apply scale to image
+                if (pigRenderer) pigRenderer.transform.localScale = new Vector3(scaleX, 1, 1);  // Apply scale to image
             }
+        }
+
+        private void HandleHealthLogic() {
+            // Check if has a stat to 0
+            bool isInDanger = _data.Hunger <= 0 || _data.Happiness <= 0 || _data.Cleanliness <= 0 || _data.Endurance <= 0;
+
+            if (isInDanger)
+                _data.Health = Mathf.Max(0, _data.Health - damagePerSecond * Time.deltaTime);   // Piggy slowly dies
+            else if (_data.Health < _data.HealthMax)
+                _data.Health = Mathf.Min(_data.HealthMax, _data.Health + healPerSecond * Time.deltaTime);
+
+            if (healthSlider) {                                                 // Update life slider
+                healthSlider.value = _data.Health;
+                
+                bool showBar = _data.Health is < 100f and > 0;                  // Show if hurt
+                if (healthSlider.gameObject.activeSelf != showBar) healthSlider.gameObject.SetActive(showBar);
+            }
+
+            if (_data.Health <= 0) _pigManager.RemovePig(_data, gameObject);    // Piggy dies
         }
 
         public void OnPointerEnter(PointerEventData eventData) {

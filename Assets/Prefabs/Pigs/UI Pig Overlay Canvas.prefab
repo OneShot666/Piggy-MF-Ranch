@@ -119,7 +119,7 @@ MonoBehaviour:
   pigImage: {fileID: 2421910609816639948}
   summaryText: {fileID: 8348870768689727966}
   statsText: {fileID: 1579704799346251742}
-  mouseOffset: {x: 100, y: 100}
+  mouseOffset: {x: 120, y: 90}
 --- !u!1 &333534176223609372
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,12 +57,12 @@ namespace Managers {
             if (statsText) {
                 statsText.text = "";
 
-                statsText.text += $"Hunger : {pig.Hunger}/{pig.HungerMax}\n";
-                statsText.text += $"Happiness : {pig.Happiness}/{pig.HappinessMax}\n";
-                statsText.text += $"Cleanliness : {pig.Cleanliness}/{pig.CleanlinessMax}\n";
-                statsText.text += $"Endurance : {pig.Endurance}/{pig.EnduranceMax}\n";
-                statsText.text += $"Speed : {pig.Speed}\n";
-                statsText.text += $"Mutation chance :  : {pig.MutationBonus}%\n";
+                statsText.text += $"Hunger : {Mathf.Round(pig.Hunger)}/{pig.HungerMax}\n";
+                statsText.text += $"Happiness : {Mathf.Round(pig.Happiness)}/{pig.HappinessMax}\n";
+                statsText.text += $"Cleanliness : {Mathf.Round(pig.Cleanliness)}/{pig.CleanlinessMax}\n";
+                statsText.text += $"Endurance : {Mathf.Round(pig.Endurance)}/{pig.EnduranceMax}\n";
+                statsText.text += $"Speed : {pig.Speed} m/s\n";
+                statsText.text += $"Mutation chance :  {pig.MutationBonus}%\n";
                 statsText.text += $"Generation : {pig.Generation}";
             }
 

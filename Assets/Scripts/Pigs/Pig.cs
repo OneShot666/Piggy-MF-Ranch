@@ -5,6 +5,7 @@ namespace Pigs {
     public class Pig {
         [Header("Identity")]
         public Sprite Icon { get; }
+        public float Health { get; set; } = 100f;
         public PigColor SkinColor { get; }
         public PigRarity Rarity { get; }
         public float Speed { get; set; }
@@ -26,6 +27,7 @@ namespace Pigs {
         private float _cleanliness = 100f;
         private float _endurance =   100f;
 
+        public float HealthMax => 100f;
         public float Hunger => _hunger;
         public float Happiness => _happiness;
         public float Cleanliness => _cleanliness;
@@ -40,16 +42,23 @@ namespace Pigs {
         }
 
         public Pig(Sprite icon, PigColor skinColor, PigRarity rarity, float speed, PigPassivePower? passive, 
-            PigActivePower? active, int mutation, int gen) {  // Used in breeding features
+            PigActivePower? active, int mutation, int gen) {                    // Used in breeding features
             Icon = icon; SkinColor = skinColor; Rarity = rarity; Speed = speed;
             PassivePower = passive; ActivePower = active;
             MutationBonus = mutation; Generation = gen;
         }
         #endregion
 
+        #region Getters
+        public int GetHungerPercent() => Mathf.RoundToInt(_hunger / HungerMax * 100);
+        public int GetHappinessPercent() => Mathf.RoundToInt(_happiness / HappinessMax * 100);
+        public int GetCleanlinessPercent() => Mathf.RoundToInt(_cleanliness / CleanlinessMax * 100);
+        public int GetEndurancePercent() => Mathf.RoundToInt(_endurance / EnduranceMax * 100);
+        #endregion
+
         #region Condition Methods
         public bool InitBestCondition(bool changeHunger=true, bool changeHappiness=true, 
-            bool changeCleanliness=true, bool changeEndurance=true) {
+        bool changeCleanliness=true, bool changeEndurance=true) {
             bool changed = false;
 
             if (changeHunger && _hunger < HungerMax) { _hunger = HungerMax; changed = true; }
@@ -71,7 +80,7 @@ namespace Pigs {
 
         public void Cheer(float amount) => _happiness = Mathf.Min(HappinessMax, _happiness + amount);
 
-        public void Clean(float amount) => _cleanliness = Mathf.Min(Cleanliness, _cleanliness + amount);
+        public void Clean(float amount) => _cleanliness = Mathf.Min(CleanlinessMax, _cleanliness + amount);
 
         public void Rest(float amount) => _endurance = Mathf.Min(EnduranceMax, _endurance + amount);
 
