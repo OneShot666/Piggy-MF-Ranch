@@ -3,14 +3,14 @@ using Managers;
 
 public class GameLoop : MonoBehaviour {
     public FarmManager farmManager;
-    public PigManager pigManager;
+    public EnclosureManager enclosureManager;
     public float dayLength = 60f * 24;                                          // 1h = 1 min in game
     private float _timer;
     public int dayCount = 1;                                                    // ? Add UI to show day/night count
 
     private void Start() {
         if (!farmManager) FindFirstObjectByType<FarmManager>();
-        if (!pigManager) FindFirstObjectByType<PigManager>();
+        if (!enclosureManager) FindFirstObjectByType<EnclosureManager>();
     }
 
     void Update() {

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Breeding;
 
 namespace Pigs {
     [System.Serializable]
@@ -36,6 +35,12 @@ namespace Pigs {
         public float Endurance => _endurance;
 
         #region Constructors
+        public Pig(Sprite icon=null) {                                          // Default pig
+            Icon = icon; SkinColor = PigColor.Pink; Rarity = PigRarity.Common;
+            Speed = 3; EnduranceMax = 100; _endurance = 100; Generation = 1;
+            ActivePower = PigActivePower.None; PassivePower = PigPassivePower.None;
+        }
+
         public Pig(PigData data) {                                              // Use ScriptableObject data
             Icon = data.icon; SkinColor = data.color; Rarity = data.rarity;
             Speed = data.baseSpeed; EnduranceMax = data.baseEndurance;

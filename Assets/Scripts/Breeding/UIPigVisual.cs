@@ -21,47 +21,51 @@ namespace Breeding {
         [SerializeField] private float damagePerSecond = 3f; 
 
         private Pig _data;
-        private PigManager _pigManager;
+        private EnclosureManager _enclosureManager;
         private BreedingManager _breedManager;
         private RaceManager _raceManager;
         private RectTransform _rectTransform;
         private RectTransform _container;
         private Vector2 _targetPosition;
+        private static readonly Color PlayerNameColor = new(255, 0, 92, 255);
         private float _changeTimer;
         private float _timer;
+        private bool _isRacing;
+        
+        public Pig Data => _data;
 
-        public void Setup(Pig data, RectTransform container, BreedingManager manager) {
+        private void CommonSetUp(Pig data, RectTransform container) {
+            _rectTransform = GetComponent<RectTransform>();
+
             _data = data;
             _container = container;
-            _breedManager = manager;
-            _rectTransform = GetComponent<RectTransform>();
 
             InitVisuals();
         }
 
-        public void Setup(Pig data, RectTransform container, PigManager manager) {
-            _data = data;
-            _container = container;
-            _pigManager = manager;
-            _rectTransform = GetComponent<RectTransform>();
+        public void Setup(Pig data, RectTransform container, BreedingManager manager) {
+            _breedManager = manager;
+            CommonSetUp(data, container);
+        }
 
-            InitVisuals();
+        public void Setup(Pig data, RectTransform container, EnclosureManager manager) {
+            _enclosureManager = manager;
+            CommonSetUp(data, container);
         }
 
         public void Setup(Pig data, RectTransform container, RaceManager manager) {
-            _data = data;
-            _container = container;
             _raceManager = manager;
-            _rectTransform = GetComponent<RectTransform>();
-
-            InitVisuals();
+            CommonSetUp(data, container);
         }
 
-        private void SetNewDestination() {                                      // Go to random position on container
-            _changeTimer = Random.Range(changeTargetTimeRange.x, changeTargetTimeRange.y);
-            float halfW = _container.rect.width / 2f;
-            float halfH = _container.rect.height / 2f;
-            _targetPosition = new Vector2(Random.Range(-halfW, halfW), Random.Range(-halfH, halfH));
+        public void SetRunnerMode(string displayName, bool isPlayer) {
+            _isRacing = true;                                                   // Disable random movements (wandering)
+
+            if (nameText) {
+                nameText.enabled = true;
+                nameText.text = displayName;
+                nameText.color = isPlayer ? PlayerNameColor : Color.white;
+            }
         }
 
         private void InitVisuals() {
@@ -78,8 +82,15 @@ namespace Breeding {
             SetNewDestination();
         }
 
+        private void SetNewDestination() {                                      // Go to random position on container
+            _changeTimer = Random.Range(changeTargetTimeRange.x, changeTargetTimeRange.y);
+            float halfW = _container.rect.width / 2f;
+            float halfH = _container.rect.height / 2f;
+            _targetPosition = new Vector2(Random.Range(-halfW, halfW), Random.Range(-halfH, halfH));
+        }
+
         private void Update() {
-            if (!_container) return;
+            if (!_container || _isRacing) return;
 
             _rectTransform.anchoredPosition = Vector2.MoveTowards(_rectTransform.anchoredPosition, 
                 _targetPosition, moveSpeed * Time.deltaTime);                   // Move to target position
@@ -101,8 +112,13 @@ namespace Breeding {
             if (Mathf.Abs(deltaX) > 0.1f) {                                     // If pig moving
                 float scaleX = deltaX > 0 ? -1f : 1f;                           // Change orientation if change direction
 
-                if (pigImage) pigImage.transform.localScale = new Vector3(scaleX, 1, 1);  // Apply scale to image
+                if (pigImage) pigImage.transform.localScale = new Vector3(scaleX, 1, 1);  // Apply orientation to image
             }
+        }
+
+        public void UpdateFacingDirection(bool facingRight) {
+            float scaleX = facingRight ? -1f : 1f;
+            if (pigImage) pigImage.transform.localScale = new Vector3(scaleX, 1, 1);
         }
 
         private void HandleHealthLogic() {
@@ -121,7 +137,7 @@ namespace Breeding {
                 if (healthSlider.gameObject.activeSelf != showBar) healthSlider.gameObject.SetActive(showBar);
             }
 
-            if (_data.Health <= 0) _pigManager.RemovePig(_data, gameObject);    // Piggy dies
+            if (_data.Health <= 0) _enclosureManager.RemovePig(_data, gameObject);    // Piggy dies
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
@@ -136,7 +152,7 @@ namespace Breeding {
 
         public void OnPointerClick(PointerEventData eventData) {                // When click on pig
             if (_breedManager) _breedManager.SelectParent(_data);
-            else if (_pigManager) _pigManager.OnPigClick(_data, eventData.position);
+            else if (_enclosureManager) _enclosureManager.OnPigClick(_data, eventData.position);
         }
 
         private void OnDisable() {

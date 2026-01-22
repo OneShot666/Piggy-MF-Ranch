@@ -6,7 +6,7 @@ using Pigs;
 namespace Managers {
     public class RessourcesManager : MonoBehaviour {
         [Header("References")]
-        [SerializeField] private PigManager pigManager;
+        [SerializeField] private EnclosureManager enclosureManager;
         [SerializeField] private RectTransform menuRect;
         [SerializeField] private Text toggleButtonText;
 
@@ -69,9 +69,9 @@ namespace Managers {
         }
 
         private void UpdatePigStats() {
-            if (!pigManager) return;
+            if (!enclosureManager) return;
 
-            Pig currentPig = pigManager.GetCurrentPig();
+            Pig currentPig = enclosureManager.GetCurrentPig();
 
             if (currentPig != null) {                                           // Display pig stats (if any selected)
                 if (happinessSlider) {

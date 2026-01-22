@@ -1,221 +1,231 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
-// using Pigs;
+using Breeding;
+using Pigs;
 
+// ReSharper disable IteratorNeverReturns
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 namespace Races {
     public class RaceManager : MonoBehaviour {
-        [Header("Lignes")]
-        public Transform startLine;
-        public Transform finishLine;
+        [Header("Screens references")]
+        [SerializeField] private GameObject raceScreen;
+        [SerializeField] private GameObject resultsScreen;       // Le panel unique
+        [SerializeField] private Image resultsTitleImage;        // L'objet Image du titre
+        [SerializeField] private Sprite victoryTitleSprite;      // Le sprite "Victoire"
+        [SerializeField] private Sprite defeatTitleSprite;       // Le sprite "Défaite"
 
-        [Header("Visuels")]
-        public List<Transform> pigPrefabs;
+        [Header("Race Layout")]
+        [SerializeField] private RectTransform raceArea;
+        [SerializeField] private List<RectTransform> raceSlots = new();
+        [SerializeField] private RectTransform startLine;
+        [SerializeField] private RectTransform finishLine;
 
-        [Header("Course")]
-        public float laneHeight = 10f;
-        public float baseSpeed = 5f;
+        [Header("Race Settings")]
+        [SerializeField] private GameObject pigPrefab; // Un seul prefab maintenant
+        [SerializeField] private List<PigData> possiblePigsData; // Données pour varier les visuels
+        [SerializeField] private float minBaseSpeed = 150f;
+        [SerializeField] private float maxBaseSpeed = 250f;
+        [SerializeField] private int totalLengths = 3;
 
-        [Header("Aller-retour")]
-        [Tooltip("2 aller-retour + 1 aller = 5 longueurs. Se termine à l'arrivée.")]
-        public int totalLengths = 5;
-
-        [Header("Joueur")]
-        [Range(0, 5)] public int playerRunnerIndex = 5;
-        public string playerDisplayName = "Player";
-
-        [Header("UI")]
-        [Tooltip("Bouton UI 'Start Race' à masquer pendant la course (optionnel).")]
+        [Header("Player settings")]
+        [SerializeField] private string playerName = "Player_Pig";
+        [SerializeField] private PigData playerPigData; // Pour que le joueur ait un visuel précis
+        
+        [Header("UI & FX")]
         [SerializeField] private GameObject startRaceButton;
+        [SerializeField] private ParticleSystem confetti;
+        [SerializeField] private ParticleSystem rain;
+        [SerializeField] private Transform[] podiumSpotPigs = new Transform[6];
 
-        [Header("UI Fin de course")]
-        [SerializeField] private RaceResultsScreen resultsScreen;
+        [Header("Animation settings")]
+        [SerializeField] private float jumpOffsetY = 50f;
+        [SerializeField] private float jumpUpTime = 0.15f;
+        [SerializeField] private float top3LoopPause = 0.3f;
 
-        private readonly string[] _aiNames = { "Julien", "Jonathan", "Gabriel", "Nathan", "Rayane" };
-
-        private readonly List<Transform> _runners = new();
-        private readonly List<float> _speedAbs = new();
+        private readonly string[] _pigsNames = { "Julien", "Jonathan", "Gabriel", "Nathan", "Rayane" };
+        private readonly List<UIPigVisual> _runners = new();
+        private readonly List<float> _speeds = new();
         private readonly List<int> _lengthsDone = new();
         private readonly List<int> _direction = new();
-        private readonly List<float> _targetX = new();
-
-        // Finish order (indices dans runners)
         private readonly List<int> _finishOrder = new();
-
+        
+        private int _playerIndex;
         private bool _racing;
+        private Coroutine _endScreenCoroutine;
 
-        // ⚠️ IMPORTANT :
-        // Ne pas lancer la course automatiquement.
-        // Le bouton UI doit appeler StartRace().
+        private void Awake() {
+            ShowScreen(raceScreen);
+            SetFx(confetti, false);
+            SetFx(rain, false);
+        }
+
+        private void ShowScreen(GameObject screenToShow) {
+            if (raceScreen) raceScreen.SetActive(raceScreen == screenToShow);
+            if (resultsScreen) resultsScreen.SetActive(resultsScreen == screenToShow);
+        }
+
+        public void StartRace() {
+            if (_racing) return;
+            if (startRaceButton) startRaceButton.SetActive(false);
+            LaunchRace();
+            _racing = true;
+        }
+
+        private void LaunchRace() {
+            Cleanup();
+            _playerIndex = Random.Range(0, raceSlots.Count); 
+
+            int aiNameCursor = 0;
+
+            for (int i = 0; i < raceSlots.Count; i++) {
+                GameObject inst = Instantiate(pigPrefab, raceArea);
+                UIPigVisual visual = inst.GetComponent<UIPigVisual>();
+                RectTransform rt = inst.GetComponent<RectTransform>();
+
+                if (i < raceSlots.Count) rt.anchoredPosition = raceSlots[i].anchoredPosition;
+
+                bool isPlayer = i == _playerIndex;
+                
+                // On choisit les données (SO)
+                PigData data = isPlayer ? playerPigData : possiblePigsData[Random.Range(0, possiblePigsData.Count)];
+                string dName = isPlayer ? playerName : _pigsNames[Mathf.Clamp(aiNameCursor++, 0, _pigsNames.Length - 1)];
+
+                // On initialise le cochon avec ses données
+                Pig pigInstance = data.ToPig();
+                visual.Setup(pigInstance, raceArea, this);
+                
+                // IMPORTANT : On active le mode course pour stopper le mouvement aléatoire de UIPigVisual
+                visual.SetRunnerMode(dName, isPlayer);
+
+                _runners.Add(visual);
+                _speeds.Add(Random.Range(minBaseSpeed, maxBaseSpeed));
+                _lengthsDone.Add(0);
+                _direction.Add(1);
+                visual.UpdateFacingDirection(true); // Regarde à droite au départ
+            }
+        }
 
         void Update() {
             if (!_racing) return;
 
-            float startX = startLine.position.x;
-            float finishX = finishLine.position.x;
+            float startX = startLine.anchoredPosition.x;
+            float endX = finishLine.anchoredPosition.x;
 
             for (int i = 0; i < _runners.Count; i++) {
-                Transform t = _runners[i];
-                if (!t) continue;
-
                 if (_lengthsDone[i] >= totalLengths) continue;
 
-                float dir = _direction[i];
-                float tx = _targetX[i];
+                RectTransform rt = _runners[i].GetComponent<RectTransform>();
+                Vector2 pos = rt.anchoredPosition;
 
-                Vector3 p = t.position;
-                p.x += _speedAbs[i] * dir * Time.deltaTime;
+                pos.x += _speeds[i] * _direction[i] * Time.deltaTime;
 
-                bool reached = dir > 0 ? p.x >= tx : p.x <= tx;
+                float targetX = (_direction[i] > 0) ? endX : startX;
+                bool reached = (_direction[i] > 0) ? pos.x >= targetX : pos.x <= targetX;
+
                 if (reached) {
-                    p.x = tx;
-                    t.position = p;
-
+                    pos.x = targetX;
                     _lengthsDone[i]++;
 
-                    // Si le coureur vient de finir, on l'enregistre dans l'ordre d'arrivée
                     if (_lengthsDone[i] >= totalLengths) {
                         if (!_finishOrder.Contains(i)) _finishOrder.Add(i);
-
                         continue;
                     }
 
-                    // Sinon on repart
-                    _direction[i] = -_direction[i];
-                    int newDir = _direction[i];
-
-                    _targetX[i] = (newDir > 0) ? finishX : startX;
-                    ApplyFacing(t, newDir);
+                    _direction[i] *= -1;
+                    _runners[i].UpdateFacingDirection(_direction[i] == 1);
                 }
-
-                // Simulate power effect
-                // if (pig.PassivePower == PigPassivePower.Sprint && Random.value < 0.05f) {
-                //     duration -= 1f; // Speed boost
-                // } else {
-                //     t.position = p;													// ???
-                // }
+                rt.anchoredPosition = pos;
             }
 
-            // Fin : tout le monde a fini
-            if (_finishOrder.Count >= _runners.Count) {
-                _racing = false;
-                OnRaceFinished();
-            }
-        }
-
-        // Appelé par le bouton UI
-        public void StartRace() {
-            if (_racing) return;
-
-            if (startRaceButton) startRaceButton.SetActive(false);
-
-            LaunchSixPigs();
-            _racing = true;
+            if (_finishOrder.Count >= _runners.Count) OnRaceFinished();
         }
 
         private void OnRaceFinished() {
-            // rankedSprites: 1->6
-            List<Sprite> rankedSprites = new List<Sprite>(_runners.Count);
-
-            int playerRank = 6;
-
-            for (int rank = 0; rank < _finishOrder.Count; rank++) {
-                int runnerIndex = _finishOrder[rank];
-                Transform runner = _runners[runnerIndex];
-
-                var sr = runner ? runner.GetComponentInChildren<SpriteRenderer>() : null;
-                rankedSprites.Add(sr ? sr.sprite : null);
-
-                if (runnerIndex == playerRunnerIndex)
-                    playerRank = rank + 1; // 1..6
+            _racing = false;
+            int playerRank = _finishOrder.IndexOf(_playerIndex) + 1;
+            
+            List<Sprite> rankedSprites = new();
+            foreach (int runnerIdx in _finishOrder) {
+                // On utilise directement l'icône de la donnée Pig
+                rankedSprites.Add(_runners[runnerIdx].Data.Icon);
             }
 
-            if (resultsScreen)
-                resultsScreen.Show(rankedSprites, playerRank);
+            ShowResults(rankedSprites, playerRank);
+        }
 
+        private void ShowResults(List<Sprite> sprites, int rank) {
+            bool isVictory = rank <= 3;
+            ShowScreen(resultsScreen);
+
+            // 1. On change le titre
+            if (resultsTitleImage) {
+                resultsTitleImage.sprite = isVictory ? victoryTitleSprite : defeatTitleSprite;
+            }
+
+            // 2. On active les bons effets
+            SetFx(confetti, isVictory);
+            SetFx(rain, !isVictory);
+
+            // 3. Remplissage du podium (le reste du code est identique)
+            for (int i = 0; i < podiumSpotPigs.Length; i++) {
+                if (i >= sprites.Count) continue;
+                Image slotImg = podiumSpotPigs[i].GetComponentInChildren<Image>();
+                if (slotImg) {
+                    slotImg.sprite = sprites[i];
+                    slotImg.enabled = sprites[i];
+                }
+            }
+
+            if (_endScreenCoroutine != null) StopCoroutine(_endScreenCoroutine);
+            _endScreenCoroutine = StartCoroutine(EndScreenAnim(podiumSpotPigs[rank - 1], isVictory));
+        }
+
+        private IEnumerator EndScreenAnim(Transform playerSpot, bool victory) {
+            Vector3 startPos = playerSpot.localPosition;
+            while (true) {
+                if (victory) {
+                    float elapsed = 0;
+                    while (elapsed < jumpUpTime) {
+                        playerSpot.localPosition = Vector3.Lerp(startPos, startPos + Vector3.up * jumpOffsetY, elapsed / jumpUpTime);
+                        elapsed += Time.deltaTime;
+                        yield return null;
+                    }
+                    elapsed = 0;
+                    while (elapsed < jumpUpTime) {
+                        playerSpot.localPosition = Vector3.Lerp(startPos + Vector3.up * jumpOffsetY, startPos, elapsed / jumpUpTime);
+                        elapsed += Time.deltaTime;
+                        yield return null;
+                    }
+                    yield return new WaitForSeconds(top3LoopPause);
+                } else {
+                    playerSpot.localEulerAngles = new Vector3(0, 180, 0);
+                    yield return new WaitForSeconds(0.6f);
+                    playerSpot.localEulerAngles = Vector3.zero;
+                    yield return new WaitForSeconds(0.6f);
+                }
+            }
+        }
+
+        public void Continue() {
+            if (resultsScreen) resultsScreen.SetActive(false);
+            if (_endScreenCoroutine != null) StopCoroutine(_endScreenCoroutine);
             Cleanup();
-        }
-
-        private void Cleanup() {
-            foreach (var t in _runners)
-                if (t) Destroy(t.gameObject);
-
-            _runners.Clear();
-            _speedAbs.Clear();
-            _lengthsDone.Clear();
-            _direction.Clear();
-            _targetX.Clear();
-            _finishOrder.Clear();
-        }
-
-        private void LaunchSixPigs() {
-            Cleanup();
-
-            if (!startLine || !finishLine) {
-                Debug.LogWarning("RaceManager: startLine/finishLine non assignées.");
-                return;
-            }
-
-            if (pigPrefabs == null || pigPrefabs.Count == 0) {
-                Debug.LogWarning("RaceManager: pigPrefabs vide.");
-                return;
-            }
-
-            float stepY = laneHeight / (6 + 1);
-            float bottomY = startLine.position.y - laneHeight * 0.5f;
-
-            float startX = startLine.position.x;
-            float finishX = finishLine.position.x;
-
-            int aiNameCursor = 0;
-
-            for (int i = 0; i < 6; i++) {
-                Transform prefab = pigPrefabs[i % pigPrefabs.Count];
-
-                Vector3 pos = startLine.position;
-                pos.x = startX;
-                pos.y = bottomY + stepY * (i + 1);
-
-                Transform inst = Instantiate(prefab, pos, Quaternion.identity);
-
-                _runners.Add(inst);
-                _speedAbs.Add(baseSpeed * Random.Range(0.8f, 1.2f));
-                _lengthsDone.Add(0);
-
-                _direction.Add(+1);
-                _targetX.Add(finishX);
-                ApplyFacing(inst, +1);
-
-                // Nom (si PigRunnerUI existe)
-                var ui = inst.GetComponent<PigRunnerUI>();
-                if (!ui) ui = inst.GetComponentInChildren<PigRunnerUI>(true);
-
-                bool isPlayer = i == playerRunnerIndex;
-
-                string displayName = isPlayer ? playerDisplayName
-                    : _aiNames[Mathf.Clamp(aiNameCursor++, 0, _aiNames.Length - 1)];
-
-                if (ui) ui.SetName(displayName, isPlayer);
-            }
-        }
-
-        private void ApplyFacing(Transform t, int dir) {
-            if (!t) return;
-
-            var sr = t.GetComponentInChildren<SpriteRenderer>();
-            if (sr) {
-                sr.flipX = (dir < 0);
-                return;
-            }
-
-            Vector3 s = t.localScale;
-            s.x = Mathf.Abs(s.x) * (dir > 0 ? 1f : -1f);
-            t.localScale = s;
-        }
-
-        public void ShowStartButton() {
+            ShowScreen(raceScreen);
             if (startRaceButton) startRaceButton.SetActive(true);
         }
 
+        private void Cleanup() {
+            foreach (var r in _runners) if (r) Destroy(r.gameObject);
+            _runners.Clear(); _speeds.Clear(); _lengthsDone.Clear();
+            _direction.Clear(); _finishOrder.Clear();
+        }
+
+        private void SetFx(ParticleSystem ps, bool enable) {
+            if (!ps) return;
+            ps.gameObject.SetActive(enable);
+            if (enable) ps.Play(); else ps.Stop();
+        }
     }
 }

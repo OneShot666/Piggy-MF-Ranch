@@ -32,9 +32,9 @@ public class FarmManager : MonoBehaviour {
         }
     }
 
-    public void SellPig(PigManager pigManager, int pigIndex, int price) {
-        if (pigIndex >= 0 && pigIndex < pigManager.Pigs.Count) {
-            pigManager.Pigs.RemoveAt(pigIndex);
+    public void SellPig(EnclosureManager enclosureManager, int pigIndex, int price) {
+        if (pigIndex >= 0 && pigIndex < enclosureManager.Pigs.Count) {
+            enclosureManager.Pigs.RemoveAt(pigIndex);
             AddGold(price);
         }
     }
