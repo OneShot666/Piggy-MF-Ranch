@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
-guid: 292af6e908b897d4c95ecb4107135687
-TextureImporter:
-  internalIDToNameTable: []
-  externalObjects: {}
-  serializedVersion: 12
-========
-guid: 0d5084537a2148641901e8f4e4de62ad
+<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
+guid: 8364082ac000a1c44a62cd8f72830ccb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
->>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+========
+guid: e5da1d880b311497b9ed8213592e283a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+>>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,10 +72,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
-========
+<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
   swizzle: 50462976
->>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+========
+>>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
@@ -84,7 +84,8 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
+<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
+========
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,8 +98,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-========
->>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+>>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,13 +119,13 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
-  - serializedVersion: 3
-    buildTarget: Server
-========
+<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
   - serializedVersion: 4
     buildTarget: Android
->>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+========
+  - serializedVersion: 3
+    buildTarget: Server
+>>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -134,10 +134,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<<< HEAD:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
-========
+<<<<<<<< HEAD:Assets/Art/RaceBackground.png.meta
     ignorePlatformSupport: 0
->>>>>>>> tsunaka-branch:Assets/Art/RaceBackground.png.meta
+========
+>>>>>>>> 38574c6380458aba988857204692b0a71792b11b:Assets/Layer Lab/Scripts/Icon_Arrow_Next.png.meta
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
