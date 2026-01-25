@@ -80,4 +80,4 @@ git clone https://github.com/OneShot666/Piggy-MF-Ranch.git
 
 Developed with ❤️ by Tsunaka, Flamvenin, Demon King, Rog & One Shot.
 
-##### 🕹️ Looking for the playable version? Check out the [Build Branch](url).
+##### 🕹️ Looking for the playable version? Check out the [Build Branch](https://github.com/OneShot666/Piggy-MF-Ranch/tree/release).
