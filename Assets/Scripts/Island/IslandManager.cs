@@ -1,8 +1,8 @@
 using UnityEngine.EventSystems;
 using System.Collections;
-using Managers;
 using UnityEngine.UI;
 using UnityEngine;
+using Managers;
 using Scenes;
 
 // LL Add screen for each icon on main menu
@@ -14,35 +14,40 @@ namespace Island {
         [SerializeField] private RectTransform gameImage;
         [SerializeField] private RectTransform leftIcons;
         [SerializeField] private RectTransform rightIcons;
+        [SerializeField] private RectTransform buttons;
 
         [Header("Animation settings")]
         [SerializeField] private float animationSpeed = 5f;
         [SerializeField] private float exitOffset = 200f;
 
         private Coroutine _activeAnim;
-        private Vector2 _logoOpenPos, _group1OpenPos, _group2OpenPos;
-        private Vector2 _logoClosedPos, _group1ClosedPos, _group2ClosedPos;
+        private Vector2 _logoOpenPos, _leftOpenPos, _rightOpenPos, _buttonOpenPos;
+        private Vector2 _logoClosedPos, _leftClosedPos, _rightClosedPos, _buttonClosePos;
         private bool _isMenuClosed;
 
         private void Start() {
-            if (openButton) openButton.gameObject.SetActive(_isMenuClosed);
             CollectPositions();
             InitTeleporters();
             EnableMenu();                                                       // Activated by default
-            
-            if (GameManager.Instance)
+
+            if (GameManager.Instance) {
                 if (GameManager.Instance.isFirstLaunch) GameManager.Instance.isFirstLaunch = false;
                 else SetMenuClosedInstant();
+            }
+
+            if (openButton) openButton.gameObject.SetActive(_isMenuClosed);
         }
 
         private void CollectPositions() {
             _logoOpenPos = gameImage.anchoredPosition;                           // Initial positions
-            _group1OpenPos = leftIcons.anchoredPosition;
-            _group2OpenPos = rightIcons.anchoredPosition;
+            _leftOpenPos = leftIcons.anchoredPosition;
+            _rightOpenPos = rightIcons.anchoredPosition;
+            _buttonOpenPos = buttons.anchoredPosition;
 
             _logoClosedPos = _logoOpenPos + new Vector2(0, gameImage.rect.height + exitOffset); // Closed position
-            _group1ClosedPos = _group1OpenPos - new Vector2(exitOffset, leftIcons.rect.height + exitOffset);
-            _group2ClosedPos = _group2OpenPos - new Vector2(-exitOffset, rightIcons.rect.height + exitOffset);
+            _leftClosedPos = _leftOpenPos - new Vector2(exitOffset, leftIcons.rect.height + exitOffset);
+            _rightClosedPos = _rightOpenPos - new Vector2(-exitOffset, rightIcons.rect.height + exitOffset);
+            _buttonClosePos = _buttonOpenPos - new Vector2(0, buttons.rect.height + exitOffset);
         }
 
         private void InitTeleporters() {
@@ -104,14 +109,16 @@ namespace Island {
             _isMenuClosed = false;
             StopActiveAnimation();
             if (openButton) openButton.gameObject.SetActive(_isMenuClosed);
-            _activeAnim = StartCoroutine(AnimateTo(_logoOpenPos, _group1OpenPos, _group2OpenPos));
+            _activeAnim = StartCoroutine(AnimateTo(_logoOpenPos, 
+                _leftOpenPos, _rightOpenPos, _buttonOpenPos));
         }
 
         [ContextMenu("Close Menu")]
         public void CloseMenu() {
             _isMenuClosed = true;
             StopActiveAnimation();
-            _activeAnim = StartCoroutine(AnimateTo(_logoClosedPos, _group1ClosedPos, _group2ClosedPos));
+            _activeAnim = StartCoroutine(AnimateTo(_logoClosedPos, 
+                _leftClosedPos, _rightClosedPos, _buttonClosePos));
             if (openButton) openButton.gameObject.SetActive(_isMenuClosed);
         }
 
@@ -120,13 +127,15 @@ namespace Island {
             _isMenuClosed = true;
 
             gameImage.anchoredPosition = _logoClosedPos;                        // Place UI objects to close positions
-            leftIcons.anchoredPosition = _group1ClosedPos;
-            rightIcons.anchoredPosition = _group2ClosedPos;
+            leftIcons.anchoredPosition = _leftClosedPos;
+            rightIcons.anchoredPosition = _rightClosedPos;
+            buttons.anchoredPosition = _buttonClosePos;
 
+            if (openButton) openButton.gameObject.SetActive(_isMenuClosed);
             DisableMenu();
         }
 
-        private IEnumerator AnimateTo(Vector2 logoTarget, Vector2 g1Target, Vector2 g2Target) {
+        private IEnumerator AnimateTo(Vector2 logoTarget, Vector2 g1Target, Vector2 g2Target, Vector2 buttonTarget) {
             if (_isMenuClosed) DisableMenu(); else EnableMenu();
 
             while (Vector2.Distance(gameImage.anchoredPosition, logoTarget) > 0.5f) {
@@ -134,16 +143,20 @@ namespace Island {
                 gameImage.anchoredPosition = Vector2.Lerp(gameImage.anchoredPosition, logoTarget, speed);
                 leftIcons.anchoredPosition = Vector2.Lerp(leftIcons.anchoredPosition, g1Target, speed);
                 rightIcons.anchoredPosition = Vector2.Lerp(rightIcons.anchoredPosition, g2Target, speed);
+                buttons.anchoredPosition = Vector2.Lerp(buttons.anchoredPosition, buttonTarget, speed);
                 yield return null;
             }
 
             gameImage.anchoredPosition = logoTarget;
             leftIcons.anchoredPosition = g1Target;
             rightIcons.anchoredPosition = g2Target;
+            buttons.anchoredPosition = buttonTarget;
         }
 
         private void StopActiveAnimation() {
             if (_activeAnim != null) StopCoroutine(_activeAnim);
         }
+
+        public void QuitGame() => Application.Quit();
     }
 }

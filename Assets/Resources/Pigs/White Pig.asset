@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737194012cdf4dc482e922827ee02c96, type: 3}
   m_Name: White Pig
   m_EditorClassIdentifier: 
+  pigName: Bubba Sue
   icon: {fileID: 4760015807232077183, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
   color: 3
   rarity: 2
   baseSpeed: 10
   baseEndurance: 100
-  passivePower: 4
   activePower: 0
+  passivePower: 4

@@ -30,6 +30,7 @@ namespace Managers {
         private bool _isOpen;
 
         private void Start() {
+            if (!enclosureManager) enclosureManager = FindFirstObjectByType<EnclosureManager>();
             AutoFindPositions();
             AutoFindSliderTexts();
         }
@@ -56,6 +57,7 @@ namespace Managers {
 
         private void Update() {                                                 // Smooth sliding animation
             menuRect.anchoredPosition = Vector2.Lerp(menuRect.anchoredPosition, _targetPos, Time.deltaTime * slideSpeed);
+            // C Alternative animation line
             // menuRect.anchoredPosition = Vector2.MoveTowards(menuRect.anchoredPosition, _targetPos, (slideSpeed * 100) * Time.deltaTime);
 
             UpdatePigStats();                                                   // Update slider
@@ -71,29 +73,27 @@ namespace Managers {
         private void UpdatePigStats() {
             if (!enclosureManager) return;
 
-            Pig currentPig = enclosureManager.GetCurrentPig();
+            Pig currentPig = enclosureManager.GetCurrentPig();                  // Display pig stats (if any selected)
 
-            if (currentPig != null) {                                           // Display pig stats (if any selected)
-                if (happinessSlider) {
-                    happinessSlider.value = currentPig.Happiness;
-                    happinessSlider.maxValue = currentPig.HappinessMax;
-                    if (_happinessText) _happinessText.text = $"{currentPig.GetHappinessPercent()}%";
-                }
-                if (hungerSlider) {
-                    hungerSlider.value = currentPig.Hunger;
-                    hungerSlider.maxValue = currentPig.HungerMax;
-                    if (_hungerText) _hungerText.text = $"{currentPig.GetHungerPercent()}%";
-                }
-                if (cleanlinessSlider) {
-                    cleanlinessSlider.value = currentPig.Cleanliness;
-                    cleanlinessSlider.maxValue = currentPig.CleanlinessMax;
-                    if (_cleanlinessText) _cleanlinessText.text = $"{currentPig.GetCleanlinessPercent()}%";
-                }
-                if (enduranceSlider) {
-                    enduranceSlider.value = currentPig.Endurance;
-                    enduranceSlider.maxValue = currentPig.EnduranceMax;
-                    if (_enduranceText) _enduranceText.text = $"{currentPig.GetEndurancePercent()}%";
-                }
+            if (happinessSlider) {
+                happinessSlider.value = currentPig?.Happiness ?? 0;
+                happinessSlider.maxValue = currentPig?.HappinessMax ?? 100;
+                if (_happinessText) _happinessText.text = $"{currentPig?.GetHappinessPercent() ?? 0}%";
+            }
+            if (hungerSlider) {
+                hungerSlider.value = currentPig?.Hunger ?? 0;
+                hungerSlider.maxValue = currentPig?.HungerMax ?? 100;
+                if (_hungerText) _hungerText.text = $"{currentPig?.GetHungerPercent() ?? 0}%";
+            }
+            if (cleanlinessSlider) {
+                cleanlinessSlider.value = currentPig?.Cleanliness ?? 0;
+                cleanlinessSlider.maxValue = currentPig?.CleanlinessMax ?? 100;
+                if (_cleanlinessText) _cleanlinessText.text = $"{currentPig?.GetCleanlinessPercent() ?? 0}%";
+            }
+            if (enduranceSlider) {
+                enduranceSlider.value = currentPig?.Endurance ?? 0;
+                enduranceSlider.maxValue = currentPig?.EnduranceMax ?? 100;
+                if (_enduranceText) _enduranceText.text = $"{currentPig?.GetEndurancePercent() ?? 0}%";
             }
         }
     }

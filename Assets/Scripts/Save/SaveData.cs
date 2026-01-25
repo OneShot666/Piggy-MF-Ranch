@@ -59,6 +59,7 @@ namespace Save {
         public int money;
         public List<ItemSaveData> inventory = new();                            // For items
         public List<PigSaveData> herd = new();                                  // For pigs
+        public float enclosureDirtiness;                                        // For enclosure
         public List<FieldSaveData> cropfield = new();                           // For fields
         public List<MarketSaveData> marketplace = new();                        // For markets
     }

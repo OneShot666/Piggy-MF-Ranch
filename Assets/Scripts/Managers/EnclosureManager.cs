@@ -56,9 +56,10 @@ namespace Managers {
                 actionButtonsPrefab.SetActive(false);                           // Hide action buttons panel by default
             }
 
-            if (GameManager.Instance && GameManager.Instance.currentSave.herd.Count > 0)
+            if (GameManager.Instance && GameManager.Instance.currentSave.herd.Count > 0) {
+                LoadDirtiness(GameManager.Instance.currentSave.enclosureDirtiness);
                 LoadPigsFromSave(GameManager.Instance.currentSave.herd);
-            else foreach (var data in pigs) AddPigToEnclosure(data.ToPig());    // Create pigs in enclosure
+            } else foreach (var data in pigs) AddPigToEnclosure(data.ToPig());    // Create pigs in enclosure
             _isInitialized = true;
 
             VerifyBaseSprite();
@@ -79,7 +80,7 @@ namespace Managers {
                 enclosureArea.rect.width / 2f), Random.Range(-enclosureArea.rect.height / 2f, enclosureArea.rect.height / 2f));
             _pigsInEnclosure.Add(newPig);
             _pigsVisuals.Add(newPig, go.GetComponent<RectTransform>());
-            
+
             UpdateCapacityUI();
         }
 
@@ -102,16 +103,6 @@ namespace Managers {
         }
 
         public Pig GetCurrentPig() => _currentPig;
-
-        public Pig GetPig(int index) {
-            return index >= 0 && index < _pigsInEnclosure.Count ? _pigsInEnclosure[index] : null;
-        }
-
-        public List<Pig> GetRarePigs(PigRarity minRarity) {
-            List<Pig> result = new List<Pig>();
-            foreach (var pig in _pigsInEnclosure) if (pig.Rarity >= minRarity) result.Add(pig);
-            return result;
-        }
 
         public void RemovePig(Pig pig, GameObject go) {
             _pigsInEnclosure.Remove(pig);
@@ -158,14 +149,20 @@ namespace Managers {
             UpdateBackgroundVisual();
         }
 
+        private void LoadDirtiness(float dirtyness) {
+            _currentDirtiness = dirtyness;
+        }
+
         private void LoadPigsFromSave(List<PigSaveData> savedPigs) {
-            foreach (var pSave in savedPigs) {
-                // L Find pig based on name (must be unique)
+            if (savedPigs == null) return;
+
+            foreach (var pSave in savedPigs) {                                  // L Find pig based on name (must be unique)
                 PigData baseData = GameManager.Instance.allPossiblePigs.
-                    Find(d => (int)d.color == pSave.color);           // Find file based on color
+                    Find(d => d.pigName == pSave.pigName);                      // Find file based on color
 
                 if (baseData) {
                     Pig loadedPig = baseData.ToPig();
+                    loadedPig.BaseDataName = pSave.pigName;                     // Save's name is pig's name
                     loadedPig.LoadSaveData(pSave); 
                     AddPigToEnclosure(loadedPig);
                 }
@@ -173,11 +170,13 @@ namespace Managers {
         }
 
         private void OnDisable() {
-            if (!_isInitialized && GameManager.Instance) {
-                List<PigSaveData> dataToSave = new List<PigSaveData>();
-                foreach(var pig in _pigsInEnclosure) dataToSave.Add(pig.GetSaveData());
-                GameManager.Instance.SyncPigs(dataToSave);
-            }
+            if (!_isInitialized || !GameManager.Instance) return;
+
+            GameManager.Instance.SyncEnclosure(_currentDirtiness);
+
+            List<PigSaveData> dataToSave = new List<PigSaveData>();
+            foreach(var pig in _pigsInEnclosure) dataToSave.Add(pig.GetSaveData());
+            GameManager.Instance.SyncPigs(dataToSave);
         }
     }
 }

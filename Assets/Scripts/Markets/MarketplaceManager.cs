@@ -118,7 +118,7 @@ namespace Markets {
         }
 
         private void OnDisable() {
-            if (_isInitialized && !GameManager.Instance) return;
+            if (!_isInitialized && !GameManager.Instance) return;
 
             MarketManager[] markets = uiMarketplaceContainer.GetComponentsInChildren<MarketManager>(true);
 

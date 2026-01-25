@@ -1,12 +1,12 @@
-﻿using Save;
-using UnityEngine;
+﻿using UnityEngine;
+using Save;
 
 namespace Pigs {
     [System.Serializable]
     public class Pig {
         [Header("Identity")]
         public Sprite Icon { get; }
-        public string name = "Pig";
+        public string pigName = "Pinky";
         public float Health { get; set; } = 100f;
         public PigColor SkinColor { get; }
         public PigRarity Rarity { get; set; }
@@ -23,6 +23,8 @@ namespace Pigs {
         public int HappinessMax { get; set; } =   100;
         public int CleanlinessMax { get; set; } = 100;
         public int EnduranceMax { get; set; } =   100;
+
+        public string BaseDataName { get; set; }
 
         private float _hunger =      100f;
         private float _happiness =   100f;
@@ -43,7 +45,8 @@ namespace Pigs {
         }
 
         public Pig(PigData data) {                                              // Use ScriptableObject data
-            Icon = data.icon; SkinColor = data.color; Rarity = data.rarity;
+            pigName = data.pigName; BaseDataName = data.pigName; Icon = data.icon; 
+            SkinColor = data.color; Rarity = data.rarity;
             Speed = data.baseSpeed; EnduranceMax = (int)data.baseEndurance;
             _endurance = data.baseEndurance; PassivePower = data.passivePower;
             ActivePower = data.activePower; Generation = 1;
@@ -117,7 +120,7 @@ namespace Pigs {
         #region Save functions
         /// <summary> Restore pig intern state from save</summary>
         public void LoadSaveData(PigSaveData data) {
-            name = data.pigName;
+            pigName = data.pigName;
             Health = data.health;
             if (System.Enum.TryParse(data.rarity, out PigRarity loadedRarity)) Rarity = loadedRarity;
             Speed = data.speed;
@@ -136,7 +139,7 @@ namespace Pigs {
         }
 
         public PigSaveData GetSaveData() => new() {
-            pigName = name, health = Health, speed = Speed,
+            pigName = pigName, health = Health, speed = Speed,
             color = (int)SkinColor, rarity = Rarity.ToString(),
             generation = Generation, mutationBonus = MutationBonus,
             activePower = ActivePower.ToString(), passivePower = PassivePower.ToString(),

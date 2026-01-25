@@ -1,14 +1,13 @@
 using System.Collections.Generic;
-using UnityEngine.InputSystem;                                                  // For Keyboard
-using System.Collections;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine;
-using Managers;
+using Items;
 using Save;
 
 // ReSharper disable UnusedParameter.Local
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
-namespace Items {
+namespace Managers {
     public class InventoryManager : MonoBehaviour {
         [Header("Inventory Settings")]
         [SerializeField] private bool isOpened;
@@ -52,7 +51,7 @@ namespace Items {
             }
             
             UpdateMoneyUI();                                                    // Display player's money
-            StartCoroutine(InitInventoryDelay());
+            SetUpInventory();
         }
 
         private void Update() {
@@ -63,9 +62,13 @@ namespace Items {
 
         public void AddMoney(int amount) => money += amount;
 
-        private IEnumerator InitInventoryDelay() {
+        private void SetUpInventory() {
+            if (!uiInventoryPanel) return;
+
             uiInventoryPanel.SetActive(true);                                   // Activate to get size
-            yield return null;                                                  // Wait a frame
+
+            Canvas.ForceUpdateCanvases();
+            if (slotsContainer) LayoutRebuilder.ForceRebuildLayoutImmediate(slotsContainer);
 
             InitInventoryGrid();                                                // Use size for calculation
 
@@ -85,9 +88,7 @@ namespace Items {
             grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             grid.constraintCount = columns;                                     // Force to have number of columns
 
-            RectTransform containerRect = slotsContainer.GetComponent<RectTransform>();
-            float containerWidth = containerRect.rect.width;
-
+            float containerWidth = slotsContainer.rect.width;
             float padding = grid.padding.horizontal;
             float spacingTotal = grid.spacing.x * (columns - 1);
             float availableWidth = containerWidth - padding - spacingTotal;     // Calculate space available

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737194012cdf4dc482e922827ee02c96, type: 3}
   m_Name: Rainbow Pig
   m_EditorClassIdentifier: 
+  pigName: Smallz
   icon: {fileID: -8417942609379915729, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
   color: 5
   rarity: 3
   baseSpeed: 12
   baseEndurance: 100
-  passivePower: 5
   activePower: 3
+  passivePower: 5

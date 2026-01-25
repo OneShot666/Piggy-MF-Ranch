@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: pigManager
       value: 
       objectReference: {fileID: 723139766}
+    - target: {fileID: 6040216266351750849, guid: e3d80bba7545b9a4cb46c510a0874201, type: 3}
+      propertyPath: enclosureManager
+      value: 
+      objectReference: {fileID: 723139766}
     - target: {fileID: 6943602615374491551, guid: e3d80bba7545b9a4cb46c510a0874201, type: 3}
       propertyPath: m_Pivot.x
       value: 0

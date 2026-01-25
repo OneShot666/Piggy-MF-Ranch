@@ -8,7 +8,6 @@ using Items;
 using Pigs;
 using Save;
 
-// . [SaveSystem] Items dont show at marketplace, so are seeds in cropfields (same pb with build)
 // ! [Enclosure/Breeding scenes] Multiply speed of pigs by their real speed to move in areas
 // ! Make shortcuts menu (UI) for places (scenes) in island scene
 // L After race update, update SaveData.cs to save new data
@@ -50,8 +49,10 @@ namespace Managers {
 
                 foreach (GameObject obj in persistentObjects) if (obj) DontDestroyOnLoad(obj);
 
-                allPossibleItems = new List<ItemData>(Resources.FindObjectsOfTypeAll<ItemData>());  // Auto-find items
-                allPossiblePigs = new List<PigData>(Resources.FindObjectsOfTypeAll<PigData>());
+                // allPossibleItems = new List<ItemData>(Resources.FindObjectsOfTypeAll<ItemData>());  // Auto-find items
+                // allPossiblePigs = new List<PigData>(Resources.FindObjectsOfTypeAll<PigData>());
+                allPossibleItems.AddRange(Resources.LoadAll<ItemData>(""));     // Auto-find items
+                allPossiblePigs.AddRange(Resources.LoadAll<PigData>(""));
             } else Destroy(gameObject);                                         // If is a clone
         }
 
@@ -130,8 +131,12 @@ namespace Managers {
                 currentSave.inventory.Add(new ItemSaveData { itemName = item.data.itemName, quantity = item.quantity });
         }
 
-        public void SyncPigs(List<PigSaveData> pigData) {                       // Called by PigManager
+        public void SyncPigs(List<PigSaveData> pigData) {                       // Called by EnclosureManager & Breeding
             currentSave.herd = pigData;
+        }
+
+        public void SyncEnclosure(float dirtyness) {                            // Called by EnclosureManager
+            currentSave.enclosureDirtiness = dirtyness;
         }
 
         public void SyncFields(List<FieldSaveData> fieldData) {                 // Called by FieldManager
@@ -142,8 +147,6 @@ namespace Managers {
             currentSave.marketplace = marketplace;
         }
 
-        private void OnApplicationQuit() {
-            SaveFullGame();
-        }
+        private void OnApplicationQuit() => SaveFullGame();
     }
 }

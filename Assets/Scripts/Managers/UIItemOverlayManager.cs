@@ -1,10 +1,11 @@
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine;
+using Items;
 
 // <summary> Manage overlay UI of items on market when mouse is hover one.
 // Used in UI Canvas. <summary>
-namespace Items {
+namespace Managers {
     public class UIItemOverlayManager : MonoBehaviour {
         [Header("References")]
         [SerializeField] private RectTransform overlayRoot;

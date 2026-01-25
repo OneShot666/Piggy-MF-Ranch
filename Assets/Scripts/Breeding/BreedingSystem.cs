@@ -101,6 +101,11 @@ namespace Breeding {
         #endregion
 
         #region Helpers
+        public string GetPigDataNameForColor(PigColor color) {
+            PigData data = pigDatabase.Find(p => p.color == color);
+            return data ? data.pigName : "Pinky";                               // Default name
+        }
+
         /// <summary> Calculate color of offspring, taking into account mutations and special combinations. </summary>
         private PigColor GetOffspringColor(Pig parent1, Pig parent2, bool isMutation) {
             PigColor[] allColors = (PigColor[])System.Enum.GetValues(typeof(PigColor));

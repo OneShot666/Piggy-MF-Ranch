@@ -1,12 +1,14 @@
+using Random = UnityEngine.Random;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using UnityEngine;
 using Breeding;
 using Pigs;
+using Save;
 
 // L Add timer to breed new piglet
-// ? Add growth to pigs
+// ? Add growth to pigs (maturity)
 namespace Managers {
     public class BreedingManager : MonoBehaviour {
         [Header("Enclosure Config")]
@@ -30,21 +32,30 @@ namespace Managers {
         private Pig _parent1;
         private Pig _parent2;
         private bool _isFull;
+        private bool _isInitialized;
 
         private void Start() {
-            _isFull = _pigsInEnclosure.Count >= capacity;
-            
+            UpdateObjectInScene();
+
+            if (GameManager.Instance && GameManager.Instance.currentSave.herd.Count > 0)
+                LoadPigs(GameManager.Instance.currentSave.herd);
+            else foreach (var data in pigs) AddPigToEnclosure(data.ToPig());
+
+            _isInitialized = true;
+        }
+
+        private void UpdateObjectInScene() {
+            _isFull = _pigsInEnclosure.Count >= capacity;                       // Check if still have room
+
             if (capacityText) capacityText.text = $"{_pigsInEnclosure.Count} / {capacity.ToString()}";
             if (capacityText) capacityText.color = _isFull ? Color.red : Color.black;
             if (parentSlot1) parentSlot1.onClick.AddListener(ResetParent1);
             if (parentSlot2) parentSlot2.onClick.AddListener(ResetParent2);
-            if (slotImage1) slotImage1.gameObject.SetActive(false);
+            if (slotImage1) slotImage1.gameObject.SetActive(false);             // Unselect parents
             if (slotImage2) slotImage2.gameObject.SetActive(false);
             if (breedButton) breedButton.gameObject.SetActive(false);
             if (breedButton) breedButton.onClick.AddListener(OpenConfirmationPopup);
             if (confirmationWindow) confirmationWindow.SetActive(false);
-
-            foreach (var data in pigs) AddPigToEnclosure(data.ToPig());
         }
 
         private void AddPigToEnclosure(Pig newPig) {
@@ -106,11 +117,39 @@ namespace Managers {
         }
 
         private void ConfirmBreeding() {                    // Called when player confirm breeding on informations window
-            Pig baby = FindFirstObjectByType<BreedingSystem>().Breed(_parent1, _parent2);
-            if (baby != null) AddPigToEnclosure(baby);                          // L Manage error
+            BreedingSystem system = FindFirstObjectByType<BreedingSystem>();
+            Pig baby = system.Breed(_parent1, _parent2);
+            if (baby != null) {                                                 // Add piglet to enclosure
+                baby.BaseDataName = system.GetPigDataNameForColor(baby.SkinColor);
+                AddPigToEnclosure(baby);
+            }
 
-            confirmationWindow.SetActive(false);                                // Hide window
             ResetParent1(); ResetParent2();
+            confirmationWindow.SetActive(false);                                // Hide window
+        }
+
+        private void LoadPigs(List<PigSaveData> savedHerd) {
+            if (savedHerd == null) return;
+
+            foreach (var pSave in savedHerd) {
+                PigData baseData = GameManager.Instance.allPossiblePigs.
+                    Find(d => d.pigName == pSave.pigName);
+
+                if (baseData) {
+                    Pig loadedPig = baseData.ToPig();
+                    loadedPig.BaseDataName = pSave.pigName;                     // Save's name is pig's name
+                    loadedPig.LoadSaveData(pSave);
+                    AddPigToEnclosure(loadedPig);
+                }
+            }
+        }
+
+        private void OnDisable() {
+            if (!_isInitialized || !GameManager.Instance) return;
+
+            List<PigSaveData> dataToSave = new List<PigSaveData>();
+            foreach(var pig in _pigsInEnclosure) dataToSave.Add(pig.GetSaveData());
+            GameManager.Instance.SyncPigs(dataToSave);
         }
     }
 }

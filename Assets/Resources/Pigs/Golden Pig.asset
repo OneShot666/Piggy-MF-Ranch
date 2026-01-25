@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737194012cdf4dc482e922827ee02c96, type: 3}
   m_Name: Golden Pig
   m_EditorClassIdentifier: 
+  pigName: Princesse Pigelette
   icon: {fileID: 7108303304176445094, guid: 675bf3f614f1e9e48b33fd2bb8460507, type: 3}
   color: 4
   rarity: 4
   baseSpeed: 14
   baseEndurance: 100
-  passivePower: 5
   activePower: 0
+  passivePower: 5

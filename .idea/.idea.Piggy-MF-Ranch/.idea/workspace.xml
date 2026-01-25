@@ -6,406 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="6696c89f-ac93-44d4-89c3-15c2e8b54718" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Piggy-MF-Ranch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Piggy-MF-Ranch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enclosure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enclosure.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnclosureDirty.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnclosureDirty.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Icon/Game Title Icon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Icon/Game Title Icon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Pigs/Pokepig Illustration.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Pigs/Pokepig Illustration.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Places/Farm illustration.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Places/Farm illustration.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Races/RaceBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Races/RaceBackground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Races/pig.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Races/pig.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Gold_Effect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Gold_Effect.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Gold_Open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Gold_Open.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Premium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Premium.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Premium_Open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Premium_Open.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Premium_OpenEffect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Premium_OpenEffect.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Silver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Silver.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Silver_Open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Silver_Open.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Silver_OpenEffect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Silver_OpenEffect.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Special.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Special.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Special_Open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Special_Open.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Special_OpenEffect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Special_OpenEffect.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Wood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Wood.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Wood_Open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Wood_Open.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Wood_OpenEffect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_Chest/Chest_Wood_OpenEffect.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ad.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Badge_Clan_Sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Badge_Clan_Sword.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Badge_Token_Crown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Badge_Token_Crown.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Bag.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Bag.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Battery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Battery.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Battle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Battle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Bomb.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Book_1_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Book_1_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Book_1_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Book_1_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Book_2_Brown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Book_2_Brown.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Calendar.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Card_2_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chat.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Premium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Premium.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Silver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Silver.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Special.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Special.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Wood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Chest_Wood.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Clover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Clover.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Coin_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Coin_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Coin_Silver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Coin_Silver.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Compass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Compass.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Crown_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Crown_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Crown_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Crown_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Drop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Drop.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Dungeon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Dungeon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Energy_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Energy_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Energy_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Energy_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_File.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_File.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Friend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Friend.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_GearWheel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_GearWheel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Armor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Armor.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Bow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Bow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Hammer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Hammer.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Helmet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Helmet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Ring.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Ring.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Shield_Metal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Shield_Metal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gear_Sword.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_GemStone_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_GemStone_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gem_Diamond_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gem_Diamond_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gem_Triangle_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gem_Triangle_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gift_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gift_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gift_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Gift_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Heart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Heart.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Key_Bronze.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Key_Bronze.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Key_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Key_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Key_Silver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Key_Silver.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Mail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Mail.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Map.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Meat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Meat.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Bronze_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Bronze_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Bronze_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Bronze_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Gold_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Gold_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Gold_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Gold_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Silver_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Silver_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Silver_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Medal_Silver_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Potion_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Potion_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Potion_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Potion_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ranking.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ranking.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ranking_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ranking_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Scroll.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Scroll.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Scroll_Feather.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Scroll_Feather.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Shop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Shop.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Attack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Attack.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Critical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Critical.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Damage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Damage.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_DamageEnemy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_DamageEnemy.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Defense.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Defense.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Health.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skill_Health.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skull_Boss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skull_Boss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skull_Boss_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Skull_Boss_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Spin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Spin.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Star.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Star_Disable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Star_Disable.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Star_Rate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Star_Rate.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ticket_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Ticket_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Timer_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Timer_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Timer_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Timer_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Trophy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ItemIcons/ItemIcon_Trophy.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Align.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Align.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Armor.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Armor.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Arrow_Next.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Arrow_Next.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Arrow_Prev.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Arrow_Prev.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Attack.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Attack.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Attack_Power.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Attack_Power.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Back.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Back.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Battle.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Battle.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Bell.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Bell.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Bell_Mute.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Bell_Mute.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Book.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Book.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Boots.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Boots.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Boss.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Boss.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Bow.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Bow.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Buff.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Buff.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Card.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Card.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Chat.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Chat.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Check.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Check.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Critical.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Critical.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Crown.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Crown.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Defense.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Defense.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Delete.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Delete.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Earth.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Earth.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Feather.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Feather.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Fire.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Fire.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Hat.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Hat.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Health.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Health.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Helmet_1.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Helmet_1.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Helmet_2.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Helmet_2.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Help.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Help.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Home.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Home.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Info.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Info.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Key.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Key.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Like.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Like.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Location.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Location.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Lock.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Lock.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Menu.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Menu.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Music.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Music.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Music_Mute.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Music_Mute.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Pick.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Pick.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Power.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Power.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Ranking.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Ranking.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Ring.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Ring.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Setting.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Setting.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Shield.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Shield.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Skin.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Skin.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Skull.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Skull.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Snowflake.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Snowflake.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Sound.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Sound.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Sound_Mute.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Sound_Mute.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Star.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Star.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Support.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Support.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Temple.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Temple.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Thunder.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Thunder.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Timer.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Timer.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Trophy.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Trophy.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Upgrade.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Upgrade.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Vibration.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Vibration.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Warning.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Warning.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Waterdrop.Png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_PictoIcons/PictoIcon_Waterdrop.Png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Coin_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Coin_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Coin_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Coin_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Coin_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Coin_3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_5.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Layer Lab/Sprites/Icon_ShopItem/ShopItem_Gem_6.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Inventory/UI Inventory Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Inventory/UI Inventory Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Island/UI Island Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Island/UI Island Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pigs/PigVisual.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pigs/PigVisual.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Races/UI Race Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Races/UI Race Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/infos.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/infos.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Island Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Island Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Market Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Market Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RogScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RogScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Basic.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Basic/PlayerActions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Basic/PlayerActions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Basic/SaveSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Basic/SaveSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Breeding/UIPigVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Breeding/UIPigVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/FieldManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/FieldManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Beige Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Beige Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Black Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Black Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Brown Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Brown Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Darkgold Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Darkgold Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Golden Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Golden Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Grey Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Grey Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Pink Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Pink Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Rainbow Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Rainbow Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/White Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/White Pig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Enclosure Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Enclosure Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Breeding/BreedingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Breeding/BreedingSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldPlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldPlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/SeedSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Fields/SeedSelector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Island/IslandManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Island/IslandManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventoryManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/InventoryManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventorySlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/InventorySlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemMarket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemMarket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIItemOverlayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemOverlayManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIItemOverlayManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UISellOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/UISellOverlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/BreedingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/BreedingManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/EnclosureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/EnclosureManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PigOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PigOverlayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketItemPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketItemPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketOffer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketOffer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/RessourcesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/RessourcesManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketplaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketplaceManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pigs/Pig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pigs/Pig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Races/RaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Races/RaceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/content3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/content3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/content4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/content4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pigs/PigData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pigs/PigData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,6 +48,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fields/FieldPlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/UIItemOverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -508,7 +139,7 @@
       <workItem from="1769185262135" duration="11041000" />
       <workItem from="1769265245362" duration="7477000" />
       <workItem from="1769274977374" duration="10657000" />
-      <workItem from="1769288053422" duration="15370000" />
+      <workItem from="1769288053422" duration="34750000" />
     </task>
     <servers />
   </component>
