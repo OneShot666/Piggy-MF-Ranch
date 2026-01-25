@@ -27,12 +27,13 @@ namespace Breeding {
         private RectTransform _rectTransform;
         private RectTransform _container;
         private Vector2 _targetPosition;
-        private static readonly Color PlayerNameColor = new(255, 0, 92, 255);
+        private static readonly Color PlayerNameColor = new(255, 0, 100, 255);
         private float _changeTimer;
         private float _timer;
         private bool _isRacing;
         
         public Pig Data => _data;
+        public Transform GetIconTransform() => pigImage.transform;
 
         private void CommonSetUp(Pig data, RectTransform container) {
             _rectTransform = GetComponent<RectTransform>();
@@ -66,6 +67,12 @@ namespace Breeding {
                 nameText.text = displayName;
                 nameText.color = isPlayer ? PlayerNameColor : Color.white;
             }
+        }
+
+        public void SetPodiumMode() {
+            _isRacing = true;
+            if (nameText) nameText.enabled = false;                             // ? Hide name
+            if (healthSlider) healthSlider.gameObject.SetActive(false);         // Hide lifebar
         }
 
         private void InitVisuals() {

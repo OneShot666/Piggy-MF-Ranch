@@ -5,6 +5,7 @@ using Enclosures;
 using Breeding;
 using TMPro;
 using Pigs;
+using Save;
 
 // . Animate actions buttons (from center to position)
 // ! Add animation + slider for capacity window (to the right of EnclosureScene)
@@ -40,6 +41,7 @@ namespace Managers {
         private TextMeshProUGUI _enclosureText;
         private Pig _currentPig;
         private bool _isFull;
+        private bool _isInitialized;
         private readonly int _maxDirty = 100;
         private float _currentDirtiness;
 
@@ -48,16 +50,19 @@ namespace Managers {
         private void Start() {
             _enclosureText = enclosureDirtSlider.GetComponentInChildren<TextMeshProUGUI>();
 
-            VerifyBaseSprite();
-            UpdateCapacityUI();
-
             if (actionButtonsPrefab) {
                 foreach (Button button in actionButtonsPrefab.GetComponentsInChildren<Button>())
                     _actionButtons.Add(button);
                 actionButtonsPrefab.SetActive(false);                           // Hide action buttons panel by default
             }
 
-            foreach (var data in pigs) AddPigToEnclosure(data.ToPig());         // Create pigs in enclosure
+            if (GameManager.Instance && GameManager.Instance.currentSave.herd.Count > 0)
+                LoadPigsFromSave(GameManager.Instance.currentSave.herd);
+            else foreach (var data in pigs) AddPigToEnclosure(data.ToPig());    // Create pigs in enclosure
+            _isInitialized = true;
+
+            VerifyBaseSprite();
+            UpdateCapacityUI();
         }
 
         void Update() {
@@ -114,7 +119,7 @@ namespace Managers {
             UpdateCapacityUI();
         }
 
-        private void VerifyBaseSprite() {
+        private void VerifyBaseSprite() {                                       // Check list of enclosure bg image
             if (!bgImage || !bgImage.sprite) return;
 
             if (dirtyLevelImages.Count == 0 || dirtyLevelImages[0] != bgImage.sprite)
@@ -151,6 +156,28 @@ namespace Managers {
         public void CleanEnclosure() {                                          // Clean enclosure
             _currentDirtiness = Mathf.Max(0f, _currentDirtiness - cleanAmount);
             UpdateBackgroundVisual();
+        }
+
+        private void LoadPigsFromSave(List<PigSaveData> savedPigs) {
+            foreach (var pSave in savedPigs) {
+                // L Find pig based on name (must be unique)
+                PigData baseData = GameManager.Instance.allPossiblePigs.
+                    Find(d => (int)d.color == pSave.color);           // Find file based on color
+
+                if (baseData) {
+                    Pig loadedPig = baseData.ToPig();
+                    loadedPig.LoadSaveData(pSave); 
+                    AddPigToEnclosure(loadedPig);
+                }
+            }
+        }
+
+        private void OnDisable() {
+            if (!_isInitialized && GameManager.Instance) {
+                List<PigSaveData> dataToSave = new List<PigSaveData>();
+                foreach(var pig in _pigsInEnclosure) dataToSave.Add(pig.GetSaveData());
+                GameManager.Instance.SyncPigs(dataToSave);
+            }
         }
     }
 }

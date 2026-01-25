@@ -3,14 +3,17 @@ using UnityEngine.InputSystem;                                                  
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using Managers;
+using Save;
 
+// ReSharper disable UnusedParameter.Local
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 namespace Items {
     public class InventoryManager : MonoBehaviour {
         [Header("Inventory Settings")]
         [SerializeField] private bool isOpened;
         [SerializeField] private Vector2Int inventorySize = new(8, 6);
-        [SerializeField] private int money = 500;                               // start with 100$ in real game
+        [SerializeField] private int money = 500;                               // R Start with 100$ in final game
 
         [Header("UI References")]
         [SerializeField] private Button inventoryButton;
@@ -56,7 +59,7 @@ namespace Items {
             if (isOpened && Mouse.current.leftButton.wasPressedThisFrame) CheckClickOutside();
         }
 
-        public void SetMoney(int amount) => money = amount;
+        private void SetMoney(int amount) => money = amount;
 
         public void AddMoney(int amount) => money += amount;
 
@@ -123,7 +126,7 @@ namespace Items {
             if (inventoryScrollRect) inventoryScrollRect.vertical = canScroll;
         }
 
-        public void RefreshUI() {                                               // Update slots
+        private void RefreshUI() {                                               // Update slots
             for (int i = 0; i < _uiSlots.Count; i++) {
                 if (i < items.Count) _uiSlots[i].SetItem(items[i]);             // Display item
                 else _uiSlots[i].Clear();                                       // Or display empty slot
@@ -238,6 +241,23 @@ namespace Items {
             instance.quantity -= amount;
             if (instance.quantity <= 0) items.Remove(instance);                 // Remove from inventory if empty
             RefreshUI();                                                        // Update UI
+        }
+
+        public void LoadData(GlobalSaveData save, List<ItemData> allItems) {    // Restore inventory
+            SetMoney(save.money);
+
+            items.Clear();
+            foreach (var itemSave in save.inventory) {
+                ItemData dataRef = allItems.Find(i => i.name == itemSave.itemName);
+                if (dataRef) items.Add(new ItemInstance(dataRef, itemSave.quantity));
+            }
+
+            UpdateMoneyUI();
+            RefreshUI();
+        }
+
+        private void OnDisable() {
+            if (GameManager.Instance) GameManager.Instance.SyncInventory(money, items);
         }
     }
 }

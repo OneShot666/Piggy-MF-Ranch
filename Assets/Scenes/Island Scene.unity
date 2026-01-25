@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 580243537751721727, guid: 9d3b8cffe4aa9be41b872fedf5b661d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1960812161270863364, guid: 9d3b8cffe4aa9be41b872fedf5b661d0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0

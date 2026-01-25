@@ -81,10 +81,10 @@ namespace Fields {
         }
 
         public ItemData Harvest() {                                             // Harvest fruit/vegetable from tile
-            if (currentState != TileState.Ready) return null;
+            if (currentState != TileState.Ready || !_plantedSeed) return null;
 
             ItemData produce = _plantedSeed.cropProduced;
-            _plantedSeed = null;
+            _plantedSeed = null;                                                // Reset tile
             currentState = TileState.Empty;
             isWet = false;
             SetCrop(null);

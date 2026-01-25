@@ -1,9 +1,13 @@
-using UnityEngine.InputSystem;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine;
+using Managers;
+using Save;
 
-namespace Market {
+// ReSharper disable Unity.PerformanceCriticalCodeInvocation
+namespace Markets {
     public class MarketplaceManager : MonoBehaviour {
         [Header("References")]
         [Tooltip("Market place object (usually self)")]
@@ -24,15 +28,19 @@ namespace Market {
         [SerializeField] private int startIndex = 1;
 
         private int _currentIndex;
-        private bool _isMoving;
+        private bool _isMoving;                                                 // Moving between markets
+        private bool _isInitialized;
 
         private void Start() {
+            if (!uiMarketplaceContainer) uiMarketplaceContainer = GetComponent<RectTransform>();
             _currentIndex = startIndex;                                         // Init index
 
-            if (leftButton) leftButton.onClick.AddListener(OnLeftButtonClicked);    // Config buttons
+            if (leftButton) leftButton.onClick.AddListener(OnLeftButtonClicked);// Config buttons
             if (rightButton) rightButton.onClick.AddListener(OnRightButtonClicked);
 
             UpdateButtonsState();                                               // Update buttons display
+            
+            StartCoroutine(InitMarketsRoutine());
         }
 
         private void Update() {
@@ -42,6 +50,23 @@ namespace Market {
                 if (Keyboard.current.leftArrowKey.wasPressedThisFrame) OnLeftButtonClicked();
                 else if (Keyboard.current.rightArrowKey.wasPressedThisFrame) OnRightButtonClicked();
             }
+        }
+
+        private IEnumerator InitMarketsRoutine() {
+            yield return null;                                                  // Wait for child scripts to be initiate
+
+            MarketManager[] markets = uiMarketplaceContainer.GetComponentsInChildren<MarketManager>(true);
+            var savedData = GameManager.Instance.currentSave.marketplace;
+
+            for (int i = 0; i < markets.Length; i++) {
+                if (savedData != null && i < savedData.Count)
+                    markets[i].LoadMarket(savedData[i]);                        // If save exist for this market
+                else {                                                          // Ask market to generate
+                    markets[i].GenerateMarket(); markets[i].DisplayMarket();
+                }
+            }
+
+            _isInitialized = true;
         }
 
         private void OnLeftButtonClicked() {
@@ -90,6 +115,16 @@ namespace Market {
         private void OnDestroy() {                                              // Clean events if self is destroy
             if (leftButton) leftButton.onClick.RemoveListener(OnLeftButtonClicked);
             if (rightButton) rightButton.onClick.RemoveListener(OnRightButtonClicked);
+        }
+
+        private void OnDisable() {
+            if (_isInitialized && !GameManager.Instance) return;
+
+            MarketManager[] markets = uiMarketplaceContainer.GetComponentsInChildren<MarketManager>(true);
+
+            List<MarketSaveData> allMarketsData = new List<MarketSaveData>();
+            foreach (var m in markets) allMarketsData.Add(m.GetSaveData());
+            GameManager.Instance.SyncMarketplace(allMarketsData);
         }
     }
 }

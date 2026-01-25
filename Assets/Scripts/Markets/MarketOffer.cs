@@ -2,7 +2,7 @@ using UnityEngine;
 using Items;
 
 // ReSharper disable UnusedMember.Global
-namespace Market {
+namespace Markets {
     [System.Serializable]
     public class MarketOffer {                                                  // Used in markets
         public ItemData item;

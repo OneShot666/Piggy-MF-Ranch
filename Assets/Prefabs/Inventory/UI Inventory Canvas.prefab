@@ -32,6 +32,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6868730594174051223}
   - {fileID: 9151917941651646672}
   - {fileID: 6123852046027765815}
   - {fileID: 3627528974690990568}
@@ -130,6 +131,81 @@ MonoBehaviour:
   slotPrefab: {fileID: 5298366506605459201, guid: 5206c5169c4055f4c8810df50482784b, type: 3}
   moneyText: {fileID: 173862799587509416}
   items: []
+--- !u!1 &4533361211880955135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6868730594174051223}
+  - component: {fileID: 2369065307223615903}
+  - component: {fileID: 2038911651269289437}
+  m_Layer: 5
+  m_Name: Coin Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6868730594174051223
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533361211880955135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 174425382178916184}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 35, y: -30}
+  m_SizeDelta: {x: 40, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2369065307223615903
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533361211880955135}
+  m_CullTransparentMesh: 1
+--- !u!114 &2038911651269289437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533361211880955135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e632fe14d16684fce83682ae9dd1d48c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &1972465727161071863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,6 +494,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 174425382178916184}
     m_Modifications:
+    - target: {fileID: 131041211913446038, guid: 800a4b0cb255ca94b9c206cf36d57662, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823902863816880436, guid: 800a4b0cb255ca94b9c206cf36d57662, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1821918d7c5dd4053b5626b0fe25f6d6, type: 3}
     - target: {fileID: 7073870206608448097, guid: 800a4b0cb255ca94b9c206cf36d57662, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -699,11 +783,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 618600804294539790, guid: 2968503b0954cd14abd07ae17dd371a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 110
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 618600804294539790, guid: 2968503b0954cd14abd07ae17dd371a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 618600804294539790, guid: 2968503b0954cd14abd07ae17dd371a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

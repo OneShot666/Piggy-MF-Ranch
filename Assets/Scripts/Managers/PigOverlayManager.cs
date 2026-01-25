@@ -25,7 +25,7 @@ namespace Managers {
         }
 
         void Update() {
-            if (overlayRoot.gameObject.activeSelf) FollowMouse();
+            if (overlayRoot && overlayRoot.gameObject.activeSelf) FollowMouse();
         }
 
         private void FollowMouse() {
@@ -36,11 +36,11 @@ namespace Managers {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform, 
                 mousePos, cam, out var localPos);
 
-            overlayRoot.anchoredPosition = localPos + mouseOffset;
+            if (overlayRoot) overlayRoot.anchoredPosition = localPos + mouseOffset;
         }
 
         public void Show(Pig pig) {
-            overlayRoot.gameObject.SetActive(true);
+            if (overlayRoot) overlayRoot.gameObject.SetActive(true);
             
             if (pigImage) pigImage.sprite = pig.Icon;
 
@@ -66,7 +66,7 @@ namespace Managers {
                 statsText.text += $"Generation : {pig.Generation}";
             }
 
-            LayoutRebuilder.ForceRebuildLayoutImmediate(overlayRoot);           // Forced UI update
+            if (overlayRoot) LayoutRebuilder.ForceRebuildLayoutImmediate(overlayRoot);  // Forced UI update
         }
 
         public void Hide() {

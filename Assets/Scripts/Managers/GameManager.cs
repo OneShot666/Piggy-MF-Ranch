@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine;
-using Fields;
 using Scenes;
 using Items;
+using Pigs;
 using Save;
 
-// L Increase timer of seeds (grow too fast)
-// ? Add watering can
-// L [Enclosure/Breeding scenes] Multiply speed of pigs byb their real speed to move in areas
-// L Make shortcuts menu (UI) for places (scenes) in island scene
-// L Upgrade save system to save pigs
+// . [SaveSystem] Items dont show at marketplace, so are seeds in cropfields (same pb with build)
+// ! [Enclosure/Breeding scenes] Multiply speed of pigs by their real speed to move in areas
+// ! Make shortcuts menu (UI) for places (scenes) in island scene
+// L After race update, update SaveData.cs to save new data
+// ? Add watering can -> allow player to water crop fields
+// D Increase timer of seeds (grow too fast)
+// LL Add mine (use Pickhammer item)
+// LL Add rainbow visual effect on font for rainbow pigs
+
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 // ReSharper disable PossibleInvalidCastExceptionInForeachLoop
 namespace Managers {
@@ -30,38 +34,38 @@ namespace Managers {
         [SerializeField] private SceneField raceSceneName;
         [SerializeField] private SceneField portSceneName;
 
-        [Header("Save System")]
-        public List<ItemData> allPossibleItems;                                     // ScriptableObjects of items
-
-        private GlobalSaveData _tempSave;                                           // Save current state when switch scene
+        private InventoryManager _inventory;
         private string SavePath => Application.persistentDataPath + "/savegame.json";
 
-        private InventoryManager _inventory;
-    
         public static GameManager Instance { get; private set; }
+        public GlobalSaveData currentSave = new();                              // Save game's data
+        public List<ItemData> allPossibleItems;                                 // ScriptableObjects of items
+        public List<PigData> allPossiblePigs;                                   // ScriptableObjects of pigs
+        public bool isFirstLaunch = true;
 
         private void Awake() {
             if (!Instance) {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);                                      // Stay between scene
+                DontDestroyOnLoad(gameObject);                                  // Self stay between scene
 
                 foreach (GameObject obj in persistentObjects) if (obj) DontDestroyOnLoad(obj);
 
                 allPossibleItems = new List<ItemData>(Resources.FindObjectsOfTypeAll<ItemData>());  // Auto-find items
-            } else Destroy(gameObject);
+                allPossiblePigs = new List<PigData>(Resources.FindObjectsOfTypeAll<PigData>());
+            } else Destroy(gameObject);                                         // If is a clone
         }
 
-        private void Start() {                                                      // Get save data
-            StartCoroutine(LoadRoutine());
+        private void Start() {
+            StartCoroutine(LoadRoutine());                                      // Get save data
         }
 
-        private IEnumerator LoadRoutine() {                                         // Wait clearing time before loading save
+        private IEnumerator LoadRoutine() {                                     // Wait clearing time before loading save
             yield return new WaitForEndOfFrame();
             LoadFullGame();
         }
 
         private void Update() {
-            if (!_inventory) _inventory = InventoryManager.Instance;                // Try to find inventory in scene
+            if (!_inventory) _inventory = InventoryManager.Instance;            // Try to find inventory in scene
             if (_inventory) DontDestroyOnLoad(_inventory.gameObject);
 
             HandleGlobalInputs();
@@ -71,7 +75,7 @@ namespace Managers {
             Keyboard kb = Keyboard.current;
             if (kb == null) return;
 
-            if (kb.tabKey.wasPressedThisFrame) ToggleInventory();                   // Open/close inventory with Tab
+            if (kb.tabKey.wasPressedThisFrame) ToggleInventory();               // Open/close inventory with Tab
 
             // Scene shortcuts
             if (kb.f1Key.wasPressedThisFrame || kb.digit1Key.wasPressedThisFrame) LoadScene(islandSceneName);
@@ -82,7 +86,7 @@ namespace Managers {
             if (kb.f6Key.wasPressedThisFrame || kb.digit6Key.wasPressedThisFrame) LoadScene(portSceneName);
             if (kb.f7Key.wasPressedThisFrame || kb.digit7Key.wasPressedThisFrame) LoadScene(breedSceneName);
 
-            if (kb.escapeKey.wasPressedThisFrame) HandleEscape();                   // Check which UI to close
+            if (kb.escapeKey.wasPressedThisFrame) HandleEscape();               // Check which UI to close
         }
 
         private void ToggleInventory() {
@@ -90,58 +94,54 @@ namespace Managers {
         }
 
         private void HandleEscape() {
-            if (_inventory && _inventory.IsOpened) _inventory.ToggleOpening();      // Close inventory first
+            if (_inventory && _inventory.IsOpened) _inventory.ToggleOpening();  // Close inventory first
             else LoadScene(islandSceneName);
         }
 
         public void LoadScene(SceneField scene) {
             if (scene == null || string.IsNullOrEmpty(scene.SceneName)) return;
-            if (SceneManager.GetActiveScene().name == scene.SceneName) return;      // Don't load current scene
+            if (SceneManager.GetActiveScene().name == scene.SceneName) return;  // Don't load current scene
 
             SceneManager.LoadScene(scene.SceneName);
         }
 
-        private void SaveFullGame() {
-            if (!_inventory) return;
-
-            GlobalSaveData data = new GlobalSaveData { money = _inventory.Money }; // Save money and inventory content
-
-            foreach (var item in _inventory.items)
-                data.inventory.Add(new ItemSaveData { itemName = item.data.name, quantity = item.quantity });
-
-            var fieldManager = FindFirstObjectByType<FieldManager>(); // Save fields status
-            _tempSave = new GlobalSaveData();
-            if (fieldManager) {
-                var allPlots = fieldManager.GetAllPlots();
-                if (allPlots != null && _tempSave is { fields: not null })
-                    foreach (var plot in allPlots) if (plot) _tempSave.fields.Add(plot.GetPlotSaveData());
-            }
-
-            string json = JsonUtility.ToJson(data, true);
-            System.IO.File.WriteAllText(SavePath, json);
-            Debug.Log("Game save in : " + SavePath);
-        }
-
         private void LoadFullGame() {
-            if (!_inventory) return;
-
             if (!System.IO.File.Exists(SavePath)) return;
 
             string json = System.IO.File.ReadAllText(SavePath);
-            GlobalSaveData data = JsonUtility.FromJson<GlobalSaveData>(json);
+            currentSave = JsonUtility.FromJson<GlobalSaveData>(json);
 
-            _inventory.SetMoney(data.money);                                        // Restore inventory
-            _inventory.items.Clear();
-            foreach (var itemSave in data.inventory) {
-                ItemData dataRef = allPossibleItems.Find(i => i.name == itemSave.itemName);
-                if (dataRef) _inventory.items.Add(new ItemInstance(dataRef, itemSave.quantity));
-            }
-            _inventory.UpdateMoneyUI();
-            _inventory.RefreshUI();
-
-            // L Restore crop fields (use FieldManager)
+            if (_inventory) _inventory.LoadData(currentSave, allPossibleItems);
+            // L Restore races + the rest
         }
     
+        private void SaveFullGame() {
+            if (_inventory) SyncInventory(_inventory.Money, _inventory.items);
+
+            string json = JsonUtility.ToJson(currentSave, true);
+            System.IO.File.WriteAllText(SavePath, json);
+            Debug.Log("Game save in : " + SavePath);                            // !!
+        }
+
+        public void SyncInventory(int money, List<ItemInstance> items) {        // Called by InventoryManager
+            currentSave.money = money;
+            currentSave.inventory.Clear();
+            foreach(var item in items)
+                currentSave.inventory.Add(new ItemSaveData { itemName = item.data.itemName, quantity = item.quantity });
+        }
+
+        public void SyncPigs(List<PigSaveData> pigData) {                       // Called by PigManager
+            currentSave.herd = pigData;
+        }
+
+        public void SyncFields(List<FieldSaveData> fieldData) {                 // Called by FieldManager
+            currentSave.cropfield = fieldData;
+        }
+
+        public void SyncMarketplace(List<MarketSaveData> marketplace) {         // Called by MarketManager
+            currentSave.marketplace = marketplace;
+        }
+
         private void OnApplicationQuit() {
             SaveFullGame();
         }

@@ -1,11 +1,16 @@
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using Managers;
 using Items;
+using Save;
+
+// ! Update price font color on items when sell items from inventory
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
-namespace Market {
+namespace Markets {
     public class MarketManager : MonoBehaviour {
         [Header("References")]
         [SerializeField] private InventoryManager inventoryUI;
@@ -48,7 +53,7 @@ namespace Market {
         private bool _shouldUpdateUI;                                           // For update on scene when changed in editor
         private int _currentRefreshCost;                                        // First one is free
 
-        private System.Collections.IEnumerator Start() {
+        private IEnumerator Start() {
             if (!inventoryUI) inventoryUI = FindFirstObjectByType<InventoryManager>();
 
             if (refreshButton) {
@@ -57,9 +62,6 @@ namespace Market {
             }
             
             yield return null;                                                  // Wait a frame
-
-            GenerateMarket();
-            DisplayMarket();
         }
 
         private void Update() {
@@ -68,10 +70,6 @@ namespace Market {
                 _shouldUpdateUI = false;
             }
         }
-
-        private void OnEnable() => OnGlobalPurchase += DisplayMarket;           // Listen to signal (buying item)
-
-        private void OnDisable() => OnGlobalPurchase -= DisplayMarket;          // Stop listening
 
         private void OnValidate() {
             if (Application.isPlaying) _shouldUpdateUI = true;
@@ -108,7 +106,7 @@ namespace Market {
         }
 
         [ContextMenu("Generate Market")]
-        private void GenerateMarket() {
+        public void GenerateMarket() {
             if (!itemPool || itemPool.possibleItems.Length == 0) return;
 
             currentOffers.Clear();
@@ -163,7 +161,7 @@ namespace Market {
         }
 
         // Not called everytime in Update loop so it's just a "refresh" of the market
-        private void DisplayMarket() {                                          // UI Display
+        public void DisplayMarket() {                                          // UI Display
             Canvas.ForceUpdateCanvases();                                       // Update canvas size immediately
 
             foreach (var uiObj in _activeUIItems) Destroy(uiObj);               // Clear previous UI objects
@@ -247,5 +245,35 @@ namespace Market {
 
             UpdateRefreshUI();
         }
+
+        public MarketSaveData GetSaveData() {
+            MarketSaveData data = new MarketSaveData { refreshPrice = _currentRefreshCost };
+
+            foreach (var offer in currentOffers)
+                data.offers.Add(new OfferSaveData { offerName = offer.item.itemName,
+                    quantity = offer.quantity, discount = offer.discount });
+
+            return data;
+        }
+
+        public void LoadMarket(MarketSaveData data) {
+            _currentRefreshCost = data.refreshPrice;
+            currentOffers.Clear();
+
+            foreach (var oSave in data.offers) {                                // Find item by name
+                ItemData itemRef = GameManager.Instance.allPossibleItems.Find(i => i.itemName == oSave.offerName);
+
+                if (itemRef) currentOffers.Add(new MarketOffer { item = itemRef,
+                    quantity = oSave.quantity, discount = oSave.discount,
+                    basePrice = itemRef.buyPrice * oSave.quantity });
+            }
+
+            DisplayMarket();
+            UpdateRefreshUI();
+        }
+
+        private void OnEnable() => OnGlobalPurchase += DisplayMarket;           // Listen to signal (buying item)
+
+        private void OnDisable() => OnGlobalPurchase -= DisplayMarket;          // Stop listening
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
-using Market;
+using Markets;
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
 // <summary> Used in prefab as object in market </summary>

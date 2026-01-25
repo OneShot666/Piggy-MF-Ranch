@@ -55,9 +55,9 @@ namespace Fields {
         }
 
         public void OnPointerClick(PointerEventData eventData) {                // When interact with field
-            if (HasSomethingToHarvest()) HarvestAll();
-            else if (IsAnyTileDry()) WaterAll();
-            else SeedSelector.Instance.Open(this);
+            if (HasSomethingToHarvest()) HarvestAll();                          // Harvest first
+            else if (IsAnyTileDry()) WaterAll();                                // Then water field
+            else SeedSelector.Instance.Open(this);                          // And plant seeds
         }
 
         private bool HasSomethingToHarvest() {
@@ -152,13 +152,11 @@ namespace Fields {
 
         public FieldSaveData GetPlotSaveData() {
             FieldSaveData plotData = new FieldSaveData();
-            foreach (var tile in _centerTiles) {
-                plotData.tiles.Add(tile.GetSaveData());
-            }
+            foreach (var tile in _centerTiles) plotData.tiles.Add(tile.GetSaveData());
             return plotData;
         }
 
-        public TileSaveData GetSaveData(int index=0) {
+        public TileSaveData GetTileSaveData(int index=0) {
             return new TileSaveData { state = (int)_centerTiles[index].CurrentState,
                 isWet = _centerTiles[index].IsWet, seedName = _centerTiles[index].GetPlantedSeedName(),
                 growTimer = _centerTiles[index].GetTimer()
@@ -166,13 +164,19 @@ namespace Fields {
         }
 
         public void LoadPlotData(FieldSaveData data, List<ItemData> allItems) {
+            if (data == null || data.tiles == null || data.tiles.Count == 0) return;
+            bool isWet = false;
+
             for (int i = 0; i < _centerTiles.Count; i++) {
                 if (i >= data.tiles.Count) break;
 
                 var tData = data.tiles[i];
                 ItemData seed = allItems.Find(s => s.name == tData.seedName);   // Find seed by name
                 _centerTiles[i].LoadData(tData, seed);
+                if (_centerTiles[i].IsWet) isWet = true;
             }
+            
+            if (isWet) WaterAll();
 
             RefreshGroundVisuals();
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Save;
+using UnityEngine;
 
 namespace Pigs {
     [System.Serializable]
@@ -8,20 +9,20 @@ namespace Pigs {
         public string name = "Pig";
         public float Health { get; set; } = 100f;
         public PigColor SkinColor { get; }
-        public PigRarity Rarity { get; }
+        public PigRarity Rarity { get; set; }
         public float Speed { get; set; }
-        public int Generation { get; }
+        public int Generation { get; set;  }
         public int MutationBonus { get; set; }
 
         [Header("Powers")]
-        public PigPassivePower? PassivePower { get; }
-        public PigActivePower? ActivePower { get; }
+        public PigActivePower? ActivePower { get; set; }
+        public PigPassivePower? PassivePower { get; set; }
 
         [Header("Status")]
-        public float HungerMax { get; set; } =      100f;
-        public float HappinessMax { get; set; } =   100f;
-        public float CleanlinessMax { get; set; } = 100f;
-        public float EnduranceMax { get; set; } =   100f;
+        public int HungerMax { get; set; } =      100;
+        public int HappinessMax { get; set; } =   100;
+        public int CleanlinessMax { get; set; } = 100;
+        public int EnduranceMax { get; set; } =   100;
 
         private float _hunger =      100f;
         private float _happiness =   100f;
@@ -43,7 +44,7 @@ namespace Pigs {
 
         public Pig(PigData data) {                                              // Use ScriptableObject data
             Icon = data.icon; SkinColor = data.color; Rarity = data.rarity;
-            Speed = data.baseSpeed; EnduranceMax = data.baseEndurance;
+            Speed = data.baseSpeed; EnduranceMax = (int)data.baseEndurance;
             _endurance = data.baseEndurance; PassivePower = data.passivePower;
             ActivePower = data.activePower; Generation = 1;
         }
@@ -111,6 +112,39 @@ namespace Pigs {
                 _ => Color.black
             };
         }
+        #endregion
+
+        #region Save functions
+        /// <summary> Restore pig intern state from save</summary>
+        public void LoadSaveData(PigSaveData data) {
+            name = data.pigName;
+            Health = data.health;
+            if (System.Enum.TryParse(data.rarity, out PigRarity loadedRarity)) Rarity = loadedRarity;
+            Speed = data.speed;
+            Generation = data.generation;
+            MutationBonus = data.mutationBonus;
+            if (System.Enum.TryParse(data.activePower, out PigActivePower loadedActive)) ActivePower = loadedActive;
+            if (System.Enum.TryParse(data.passivePower, out PigPassivePower loadedPassive)) PassivePower = loadedPassive;
+            _hunger = data.hunger;
+            HungerMax = data.hungerMax;
+            _happiness = data.happiness;
+            HappinessMax = data.happinessMax;
+            _cleanliness = data.clean;
+            CleanlinessMax = data.cleanMax;
+            _endurance = data.endurance;
+            EnduranceMax = data.enduranceMax;
+        }
+
+        public PigSaveData GetSaveData() => new() {
+            pigName = name, health = Health, speed = Speed,
+            color = (int)SkinColor, rarity = Rarity.ToString(),
+            generation = Generation, mutationBonus = MutationBonus,
+            activePower = ActivePower.ToString(), passivePower = PassivePower.ToString(),
+            hunger = _hunger, hungerMax = HungerMax,
+            happiness = _happiness, happinessMax = HappinessMax,
+            clean = _cleanliness, cleanMax = CleanlinessMax,
+            endurance = _endurance, enduranceMax = EnduranceMax
+        };
         #endregion
     }
 }

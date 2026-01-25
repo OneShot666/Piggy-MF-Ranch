@@ -41,5 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 1608068173
+    locked: 0
+  - name: Particles
+    uniqueID: 953297003
+    locked: 0
   m_RenderingLayers:
   - Default

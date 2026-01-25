@@ -63,7 +63,7 @@ MonoBehaviour:
     sceneName: Market Scene
   raceSceneName:
     sceneAsset: {fileID: 102900000, guid: 1c745aad9312d1b4692ec833b3e49964, type: 3}
-    sceneName: RaceScene
+    sceneName: Race Scene
   portSceneName:
     sceneAsset: {fileID: 102900000, guid: 0ebc2f15833900343a29c6f14ac35a6d, type: 3}
     sceneName: Port Scene

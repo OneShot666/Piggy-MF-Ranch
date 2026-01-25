@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Fields;
+using Save;
 
-namespace Fields {
+namespace Managers {
     public class FieldManager : MonoBehaviour {
         [SerializeField] private FieldPlot plotPrefab;
         [SerializeField] private int width = 3;
@@ -13,7 +16,9 @@ namespace Fields {
 
         private void Start() {
             SetupGrid();
-            GeneratePlots();
+            if (GameManager.Instance && GameManager.Instance.currentSave.cropfield.Count > 0)
+                LoadSave(GameManager.Instance.currentSave.cropfield);
+            else GeneratePlots();
         }
 
         public FieldPlot[,] GetAllPlots() => _plots;
@@ -39,6 +44,32 @@ namespace Fields {
                     plot.Init(fieldSize);                                       // Set size of plots
                     _plots[x, y] = plot;
                 }
+            }
+        }
+
+        private void LoadSave(List<FieldSaveData> savedData) {
+            _plots = new FieldPlot[width, height];
+            int dataIndex = 0;
+
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    var plot = Instantiate(plotPrefab, transform);
+                    plot.Init(fieldSize);                                       // Init size
+            
+                    if (dataIndex < savedData.Count)                            // Apply saved data to plot
+                        plot.LoadPlotData(savedData[dataIndex], GameManager.Instance.allPossibleItems);
+
+                    _plots[x, y] = plot;
+                    dataIndex++;
+                }
+            }
+        }
+
+        private void OnDisable() {                                              // Update save when change scene
+            if (GameManager.Instance) {
+                List<FieldSaveData> dataToSave = new List<FieldSaveData>();
+                foreach(var plot in _plots) dataToSave.Add(plot.GetPlotSaveData());
+                GameManager.Instance.SyncFields(dataToSave);
             }
         }
     }
