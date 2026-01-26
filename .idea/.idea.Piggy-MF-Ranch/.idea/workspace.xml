@@ -6,36 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="6696c89f-ac93-44d4-89c3-15c2e8b54718" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Piggy-MF-Ranch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Piggy-MF-Ranch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Island/UI Island Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Island/UI Island Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Beige Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Beige Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Black Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Black Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Brown Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Brown Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Darkgold Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Darkgold Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Golden Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Golden Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Grey Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Grey Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Pink Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Pink Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/Rainbow Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/Rainbow Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pigs/White Pig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pigs/White Pig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Enclosure Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Enclosure Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Breeding/BreedingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Breeding/BreedingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldPlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Fields/FieldPlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Fields/SeedSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Fields/SeedSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Island/IslandManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Island/IslandManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventoryManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/InventoryManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InventorySlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/InventorySlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Markets/UI Market Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Markets/UI Market Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Market Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Market Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemMarket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemMarket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIItemOverlayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UIItemOverlayManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIItemOverlayManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/UISellOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/UISellOverlay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/BreedingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/BreedingManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/EnclosureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/EnclosureManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/RessourcesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/RessourcesManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketplaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketplaceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pigs/Pig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pigs/Pig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pigs/PigData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pigs/PigData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MarketManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MarketManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketplaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MarketplaceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Markets/MarketplaceManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MarketplaceManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +30,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fields/FieldPlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/UIItemOverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
@@ -140,6 +123,7 @@
       <workItem from="1769265245362" duration="7477000" />
       <workItem from="1769274977374" duration="10657000" />
       <workItem from="1769288053422" duration="34750000" />
+      <workItem from="1769412113109" duration="2517000" />
     </task>
     <servers />
   </component>

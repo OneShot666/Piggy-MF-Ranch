@@ -10,7 +10,7 @@ namespace Items {
     public class UIItemMarket : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {  // Used in markets
         [Header("Data References")]
         [SerializeField] private MarketOffer offer;
-        
+
         [Header("UI Components")]
         [SerializeField] private Image backgroundImage;
         [SerializeField] private Image itemIcon;
@@ -50,8 +50,8 @@ namespace Items {
             if (nameText) nameText.text = offer.item.name;
 
             if (priceText) {
-                priceText.text = offer.FinalPrice + " $";
-                priceText.color = _inventory.Money < offer.FinalPrice ? Color.red : _priceColor;  // Show if can buy product or not
+                priceText.text = offer.FinalPrice + " $";                       // Show if can buy product or not
+                if (_inventory) priceText.color = _inventory.Money < offer.FinalPrice ? Color.red : _priceColor;
             }
 
             if (discountBadge) {
