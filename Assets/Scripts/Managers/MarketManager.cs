@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
-using Managers;
+using Markets;
 using Items;
 using Save;
 
 // ! Update price font color on items when sell items from inventory
 
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
-namespace Markets {
+namespace Managers {
     public class MarketManager : MonoBehaviour {
         [Header("References")]
         [SerializeField] private InventoryManager inventoryUI;
@@ -77,7 +77,7 @@ namespace Markets {
 
         [ContextMenu("Refresh market")]
         private void TryRefreshMarket() {
-            if (inventoryUI.Money < _currentRefreshCost) return;                // If don't have enough money
+            if (!inventoryUI && inventoryUI.Money < _currentRefreshCost) return;// If don't have enough money
 
             inventoryUI.AddMoney(-_currentRefreshCost);                         // Pay refresh
             inventoryUI.UpdateMoneyUI();
@@ -100,7 +100,7 @@ namespace Markets {
                 refreshCostText.color = Color.green;
             } else {
                 refreshCostText.text = $"{_currentRefreshCost} $";
-                bool canAfford = inventoryUI.Money >= _currentRefreshCost;      // Check if enough money
+                bool canAfford = inventoryUI && inventoryUI.Money >= _currentRefreshCost;   // Check if enough money
                 refreshCostText.color = canAfford ? Color.white : Color.red;
             }
         }
@@ -206,7 +206,7 @@ namespace Markets {
             float startY = 0f;
 
             if (useStaggeredLayout) {
-                if (rowsToDisplay <= 1) useStaggeredLayout = false;             // Don't need complicate math for one row
+                if (rowsToDisplay <= 1) useStaggeredLayout = false;             // Don't need complicated math for one row
                 else {
                     float totalGridWidth = columns * cellSize + (columns - 1) * spacing.x;
                     float totalGridHeight = rows * cellSize + (rows - 1) * spacing.y;

@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine;
-using Managers;
 using Save;
 
+// ! Make marketplace infinite (loop between markets when click on arrow buttons)
+// L Add markets for pigs
+
 // ReSharper disable Unity.PerformanceCriticalCodeInvocation
-namespace Markets {
+namespace Managers {
     public class MarketplaceManager : MonoBehaviour {
         [Header("References")]
         [Tooltip("Market place object (usually self)")]
-        [SerializeField] private RectTransform uiMarketplaceContainer;
+        [SerializeField] private RectTransform marketplaceContainer;
         [SerializeField] private Button leftButton;
         [SerializeField] private Button rightButton;
 
         [Header("Settings")]
+        [SerializeField] private bool isOpen;
         [Tooltip("Distance in pixels to slide for each market")]
         [SerializeField] private float slideDistance = 900f;
         [Tooltip("Time in seconds to complete the slide")]
@@ -27,12 +30,14 @@ namespace Markets {
         [Tooltip("Index of the market visible at start (0=Left, 1=Middle, etc)")]
         [SerializeField] private int startIndex = 1;
 
-        private int _currentIndex;
         private bool _isMoving;                                                 // Moving between markets
-        private bool _isInitialized;
+        private bool _isInitialized;                                            // Save variable
+        private int _currentIndex;
 
         private void Start() {
-            if (!uiMarketplaceContainer) uiMarketplaceContainer = GetComponent<RectTransform>();
+            if (!marketplaceContainer) marketplaceContainer = GetComponent<RectTransform>();
+            if (marketplaceContainer) marketplaceContainer.gameObject.SetActive(isOpen);
+
             _currentIndex = startIndex;                                         // Init index
 
             if (leftButton) leftButton.onClick.AddListener(OnLeftButtonClicked);// Config buttons
@@ -53,9 +58,15 @@ namespace Markets {
         }
 
         private IEnumerator InitMarketsRoutine() {
-            yield return null;                                                  // Wait for child scripts to be initiate
+            yield return null;                                                  // Wait for child scripts to be initiated
 
-            MarketManager[] markets = uiMarketplaceContainer.GetComponentsInChildren<MarketManager>(true);
+            MarketManager[] markets = marketplaceContainer.GetComponentsInChildren<MarketManager>(true);
+
+            if (!GameManager.Instance) {
+                foreach (var t in markets) { t.GenerateMarket(); t.DisplayMarket(); }
+                yield break;
+            }
+
             var savedData = GameManager.Instance.currentSave.marketplace;
 
             for (int i = 0; i < markets.Length; i++) {
@@ -67,6 +78,11 @@ namespace Markets {
             }
 
             _isInitialized = true;
+        }
+
+        public void ToggleMarketplace() {
+            isOpen = !isOpen;
+            if (marketplaceContainer) marketplaceContainer.gameObject.SetActive(isOpen);
         }
 
         private void OnLeftButtonClicked() {
@@ -81,13 +97,13 @@ namespace Markets {
 
         private void MoveToIndex(int targetIndex) {
             float targetX = (startIndex - targetIndex) * slideDistance;         // Check index and move
-            Vector2 targetPos = new Vector2(targetX, uiMarketplaceContainer.anchoredPosition.y);
+            Vector2 targetPos = new Vector2(targetX, marketplaceContainer.anchoredPosition.y);
 
             StartCoroutine(SlideRoutine(targetPos, targetIndex));
         }
 
         private IEnumerator SlideRoutine(Vector2 targetPosition, int targetIndex) {
-            Vector2 startPosition = uiMarketplaceContainer.anchoredPosition;
+            Vector2 startPosition = marketplaceContainer.anchoredPosition;
             float elapsedTime = 0f;
             _isMoving = true;
 
@@ -96,11 +112,11 @@ namespace Markets {
                 float t = elapsedTime / slideDuration;
                 t = t * t * (3f - 2f * t);                                      // Make smooth movement
 
-                uiMarketplaceContainer.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+                marketplaceContainer.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
                 yield return null;
             }
 
-            uiMarketplaceContainer.anchoredPosition = targetPosition;           // Get exact final position
+            marketplaceContainer.anchoredPosition = targetPosition;           // Get exact final position
             _currentIndex = targetIndex;
             _isMoving = false;
             
@@ -112,7 +128,7 @@ namespace Markets {
             if (rightButton) rightButton.gameObject.SetActive(_currentIndex < totalMarkets - 1);
         }
 
-        private void OnDestroy() {                                              // Clean events if self is destroy
+        private void OnDestroy() {                                              // Clean events if self is destroyed
             if (leftButton) leftButton.onClick.RemoveListener(OnLeftButtonClicked);
             if (rightButton) rightButton.onClick.RemoveListener(OnRightButtonClicked);
         }
@@ -120,7 +136,7 @@ namespace Markets {
         private void OnDisable() {
             if (!_isInitialized && !GameManager.Instance) return;
 
-            MarketManager[] markets = uiMarketplaceContainer.GetComponentsInChildren<MarketManager>(true);
+            MarketManager[] markets = marketplaceContainer.GetComponentsInChildren<MarketManager>(true);
 
             List<MarketSaveData> allMarketsData = new List<MarketSaveData>();
             foreach (var m in markets) allMarketsData.Add(m.GetSaveData());
