@@ -9,7 +9,6 @@ on:
 jobs:
   build_wgl:
     name: Build WebGL
-    needs: test             		# Wait for tests to succeed
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request' # Only on main branch or in a pull request
 
